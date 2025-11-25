@@ -1,4 +1,4 @@
-/* Базовый фон и шрифт */
+/* Фундамент */
 body {
   margin: 0;
   padding: 0;
@@ -9,54 +9,34 @@ body {
   overflow-x: hidden;
 }
 
-/* Анимированный космический фон */
-.bg {
+/* Полёт звёзд — canvas на заднем плане */
+#stars {
   position: fixed;
   inset: 0;
-  z-index: -1;
+  z-index: -3;
+  display: block;
+  background: #05050a; /* запасной фон */
+}
+
+/* Мягкая туманность поверх звёзд (даёт глубину) */
+.nebula {
+  position: fixed;
+  inset: -10%;
+  z-index: -2;
   background:
-    radial-gradient(circle at 15% 15%, rgba(130, 100, 255, 0.7), transparent 60%),
-    radial-gradient(circle at 80% 75%, rgba(255, 150, 190, 0.65), transparent 60%),
-    radial-gradient(circle at 10% 85%, rgba(80, 200, 255, 0.5), transparent 55%),
-    #05050a;
-  animation: drift 28s linear infinite alternate;
+    radial-gradient(circle at 18% 22%, rgba(140,110,255,0.20), transparent 55%),
+    radial-gradient(circle at 82% 70%, rgba(255,145,190,0.18), transparent 58%),
+    radial-gradient(circle at 8% 85%,  rgba(90,200,255,0.15), transparent 55%);
+  filter: blur(12px);
+  animation: nebulaShift 50s ease-in-out infinite alternate;
 }
 
-/* Яркие "звезды" */
-.bg::before {
-  content: "";
-  position: absolute;
-  inset: -80px;
-  background-image:
-    radial-gradient(2.2px 2.2px at 10% 20%, rgba(255,255,255,0.95), transparent),
-    radial-gradient(1.8px 1.8px at 30% 80%, rgba(255,255,255,0.8), transparent),
-    radial-gradient(2px 2px at 70% 40%, rgba(255,255,255,0.9), transparent),
-    radial-gradient(1.6px 1.6px at 85% 15%, rgba(255,255,255,0.8), transparent),
-    radial-gradient(1.7px 1.7px at 55% 60%, rgba(255,255,255,0.85), transparent);
-  opacity: 0.9;
-  animation: twinkle 5s ease-in-out infinite alternate;
+@keyframes nebulaShift {
+  0%   { transform: translate3d(0,0,0) scale(1);   opacity: 0.65; }
+  100% { transform: translate3d(-40px,15px,0) scale(1.06); opacity: 0.9; }
 }
 
-@keyframes drift {
-  0% {
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-  50% {
-    transform: translate3d(-30px, 10px, 0) scale(1.04);
-  }
-  100% {
-    transform: translate3d(-60px, 25px, 0) scale(1.08);
-  }
-}
-
-@keyframes twinkle {
-  0%   { opacity: 0.4; filter: blur(0px); }
-  50%  { opacity: 1;   filter: blur(0.3px); }
-  100% { opacity: 0.5; filter: blur(0px); }
-}
-
-/* Контентные блоки */
-
+/* Контент */
 .container {
   max-width: 780px;
   margin: 0 auto;
@@ -67,7 +47,7 @@ body {
 .title {
   font-size: 48px;
   margin-bottom: 20px;
-  color: #e3dcff;
+  color: #e6e0ff;
   text-shadow: 0 0 20px rgba(160, 138, 255, 0.7);
 }
 
@@ -85,52 +65,22 @@ body {
   text-decoration: none;
   transition: 0.25s;
 }
-
 .nav a:hover {
   color: #f0e8ff;
   text-shadow: 0 0 16px #b384ff;
 }
 
-.fade-in {
-  animation: fade 1.6s ease forwards;
-  opacity: 0;
-}
+.fade-in { animation: fade 1.6s ease forwards; opacity: 0; }
+@keyframes fade { to { opacity: 1; } }
 
-@keyframes fade {
-  to { opacity: 1; }
-}
+.page { max-width: 760px; margin: 0 auto; padding: 70px 30px 120px; }
+.page .title { font-size: 40px; text-align: left; }
+.page .subtitle { text-align: left; margin-bottom: 40px; }
+.page p { font-size: 17px; line-height: 1.7; color: #dcd2ff; }
 
-/* Внутренние страницы */
-
-.page {
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 70px 30px 120px;
-}
-
-.page .title {
-  font-size: 40px;
-  text-align: left;
-}
-
-.page .subtitle {
-  text-align: left;
-  margin-bottom: 40px;
-}
-
-.page p {
-  font-size: 17px;
-  line-height: 1.7;
-  color: #dcd2ff;
-}
-
-/* Ссылки внутри текста */
 .page a {
   color: #c7a5ff;
   text-decoration: none;
   border-bottom: 1px solid rgba(199, 165, 255, 0.5);
 }
-.page a:hover {
-  color: #f1e5ff;
-  border-bottom-color: rgba(241, 229, 255, 0.9);
-}
+.page a:hover { color: #f1e5ff; border-bottom-color: rgba(241,229,255,0.9); }
