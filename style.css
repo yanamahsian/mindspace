@@ -84,3 +84,68 @@ body {
   border-bottom: 1px solid rgba(199, 165, 255, 0.5);
 }
 .page a:hover { color: #f1e5ff; border-bottom-color: rgba(241,229,255,0.9); }
+/* Сетка и карточки консультаций */
+
+.services-grid {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.service-card {
+  position: relative;
+  display: block;
+  padding: 18px 20px 16px;
+  border-radius: 16px;
+  background: rgba(8, 10, 28, 0.85);
+  border: 1px solid rgba(180, 170, 255, 0.35);
+  text-decoration: none;
+  color: #f5f1ff;
+  box-shadow: 0 0 18px rgba(10, 8, 40, 0.8);
+  backdrop-filter: blur(10px);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 0 26px rgba(140, 125, 255, 0.6);
+  border-color: rgba(210, 200, 255, 0.9);
+}
+
+.service-icon {
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #b9b0ff;
+  opacity: 0.85;
+  margin-bottom: 6px;
+}
+
+.service-card h2 {
+  margin: 0 0 4px;
+  font-size: 1.1rem;
+  color: #f9f6ff;
+}
+
+.service-tagline {
+  margin: 0 0 6px;
+  font-size: 0.9rem;
+  color: #d6cffc;
+  font-style: italic;
+}
+
+.service-brief {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #c4b8ff;
+  line-height: 1.5;
+}
+
+.service-price {
+  margin: 10px 0 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #ffd9a0;
+}
