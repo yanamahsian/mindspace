@@ -1,118 +1,211 @@
-<h1 class="title">Консультации</h1>
-<p class="subtitle">...</p>
-<p>...</p>     <div class="service-list">
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Консультации</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-      <div class="service-item">
-        <a href="service1.html">
-          <h2>Индивидуальные консультации</h2>
-          <p>Архитектурная работа с мышлением. Не «поговорить», а один раз качественно развернуть узел.</p>
-        </a>
-      </div>
+  <!-- тот же фон, что и на главной -->
+  <canvas id="stars"></canvas>
+  <div class="nebula"></div>
 
-      <div class="service-item">
-        <a href="service2.html">
-          <h2>Глубинная индивидуальная консультация</h2>
-          <p>Для людей в фазе внутреннего перелома, обрыва старой идентичности и формирования новой опоры.</p>
-        </a>
-      </div>
+  <div class="page fade-in">
+    <h1 class="title">Консультации</h1>
+    <p class="subtitle">
+      Здесь не лечат «симптомы». Здесь разбирают архитектуру сознания и переписывают связку 
+      «мышление — тело — реальность».
+    </p>
 
-      <div class="service-item">
-        <a href="service3.html">
-          <h2>Экзистенциальная архитектура личности</h2>
-          <p>Не про «как жить», а про то, кто ты есть. Определение личной природы существования.</p>
-        </a>
-      </div>
+    <p>
+      Ниже — форматы работы. Каждая карточка открывает отдельный портал с подробным описанием и структурой.
+    </p>
 
-      <div class="service-item">
-        <a href="service4.html">
-          <h2>Карта воплощения</h2>
-          <p>Анализ структуры личности через сценарий жизни. Не шоу про прошлые жизни, а работа со смыслом пути.</p>
-        </a>
-      </div>
+    <div class="services-grid">
 
-      <div class="service-item">
-        <a href="service5.html">
-          <h2>Алхимическая программа для сознания и тела</h2>
-          <p>30-дневная перепрошивка связки мышление–тело–реакция. Тише внутри, чище реакции, устойчивее в теле.</p>
-        </a>
-      </div>
+      <!-- 1 -->
+      <a class="service-card" href="service1.html">
+        <div class="service-icon">01</div>
+        <h2>Индивидуальные консультации</h2>
+        <p class="service-tagline">Архитектурная работа с мышлением.</p>
+        <p class="service-brief">
+          Разовая точечная сессия или серия встреч, где один узел разворачивается до ясной структуры.
+        </p>
+        <p class="service-price">от 800&nbsp;€</p>
+      </a>
 
-      <div class="service-item">
-        <a href="service6.html">
-          <h2>Навигация пути</h2>
-          <p>Короткая, но точная перенастройка вектора, когда человек застрял или стоит перед выбором.</p>
-        </a>
-      </div>
+      <!-- 2 -->
+      <a class="service-card" href="service2.html">
+        <div class="service-icon">02</div>
+        <h2>Глубинная индивидуальная консультация</h2>
+        <p class="service-tagline">Кризис, обрыв, перелом.</p>
+        <p class="service-brief">
+          Для тех, у кого рушится старая идентичность. Собираем новую философию себя и автономную позицию в мире.
+        </p>
+        <p class="service-price">от 1500&nbsp;€</p>
+      </a>
 
-      <div class="service-item">
-        <a href="service7.html">
-          <h2>Реабилитация сознания</h2>
-          <p>Ремонт фундамента психики. Возвращение базовой способности быть в себе и выдерживать реальность.</p>
-        </a>
-      </div>
+      <!-- 3 -->
+      <a class="service-card" href="service3.html">
+        <div class="service-icon">03</div>
+        <h2>Экзистенциальная архитектура личности</h2>
+        <p class="service-tagline">Не «как жить», а кто живёт.</p>
+        <p class="service-brief">
+          Глубинное определение личной природы существования: что за сущность живёт в этом теле и как ей быть в мире.
+        </p>
+        <p class="service-price">от 2500&nbsp;€</p>
+      </a>
 
-      <div class="service-item">
-        <a href="service8.html">
-          <h2>Интеграция теней</h2>
-          <p>Алхимия накопленной боли. Не ломать личность, а собрать её обратно из вытесненного и невыносимого.</p>
-        </a>
-      </div>
+      <!-- 4 -->
+      <a class="service-card" href="service4.html">
+        <div class="service-icon">04</div>
+        <h2>Карта воплощения</h2>
+        <p class="service-tagline">Сценарий как код.</p>
+        <p class="service-brief">
+          Анализ структуры личности через жизненный сценарий. Не шоу про прошлые жизни, а работа с траекторией.
+        </p>
+        <p class="service-price">от 2000&nbsp;€</p>
+      </a>
 
-      <div class="service-item">
-        <a href="service9.html">
-          <h2>Карта миров. Искра между воплощениями</h2>
-          <p>Разбор глубинной структуры сознания и чувства чуждости миру. Сознание за пределами социального.</p>
-        </a>
-      </div>
+      <!-- 5 -->
+      <a class="service-card" href="service5.html">
+        <div class="service-icon">05</div>
+        <h2>Алхимическая программа для сознания и тела</h2>
+        <p class="service-tagline">30 дней перепрошивки.</p>
+        <p class="service-brief">
+          Перенастройка связки мышление–тело–реакции. Тише внутри, чище ответы на реальность, больше устойчивости в теле.
+        </p>
+        <p class="service-price">цена уточняется</p>
+      </a>
 
-      <div class="service-item">
-        <a href="service10.html">
-          <h2>Архитектура личного кода</h2>
-          <p>Видеть свой внутренний «код» и переписать его. Узнать уязвимость и выстроить жизнь в соответствии с ней.</p>
-        </a>
-      </div>
+      <!-- 6 -->
+      <a class="service-card" href="service6.html">
+        <div class="service-icon">06</div>
+        <h2>Навигация пути</h2>
+        <p class="service-tagline">Короткий разворот вектора.</p>
+        <p class="service-brief">
+          Когда человек застрял, запутался или стоит перед выбором — перенастраиваем направление без долгой терапии.
+        </p>
+        <p class="service-price">от 900&nbsp;€</p>
+      </a>
 
-      <div class="service-item">
-        <a href="service11.html">
-          <h2>Алхимия несоответствия</h2>
-          <p>Интеграция сознания в несовершенный мир, когда внутренняя глубина не совпадает с грубой реальностью.</p>
-        </a>
-      </div>
+      <!-- 7 -->
+      <a class="service-card" href="service7.html">
+        <div class="service-icon">07</div>
+        <h2>Реабилитация сознания</h2>
+        <p class="service-tagline">Ремонт фундамента психики.</p>
+        <p class="service-brief">
+          Восстановление базовой способности быть в себе, выдерживать себя и реальность, не рассыпаясь.
+        </p>
+        <p class="service-price">от 2500&nbsp;€</p>
+      </a>
 
-      <div class="service-item">
-        <a href="service12.html">
-          <h2>Сдвиг оси. Перенастройка личной реальности</h2>
-          <p>Глубокая работа с архитектурой личности, когда ясно: живу не в той реальности, в которой хочу быть.</p>
-        </a>
-      </div>
+      <!-- 8 -->
+      <a class="service-card" href="service8.html">
+        <div class="service-icon">08</div>
+        <h2>Интеграция теней</h2>
+        <p class="service-tagline">Алхимия накопленной боли.</p>
+        <p class="service-brief">
+          Работа не с «прошлыми жизнями», а с тем, что человек не мог прожить, выразить или вынести. 
+          Собирание личности обратно.
+        </p>
+        <p class="service-price">от 2500&nbsp;€</p>
+      </a>
 
-      <div class="service-item">
-        <a href="service13.html">
-          <h2>Точка происхождения. Вспоминание первого кода</h2>
-          <p>Работа с первичной структурой сознания — тем, что было до ролей, биографии и социальных оболочек.</p>
-        </a>
-      </div>
+      <!-- 9 -->
+      <a class="service-card" href="service9.html">
+        <div class="service-icon">09</div>
+        <h2>Карта миров. Искра между воплощениями</h2>
+        <p class="service-tagline">Сознание вне социальных форм.</p>
+        <p class="service-brief">
+          Разбор глубинной структуры сознания и чувства «я чужой этому миру». 
+          О том, как твой внутренний мир устроен за пределами человеческого.
+        </p>
+        <p class="service-price">от 5500&nbsp;€</p>
+      </a>
 
-      <div class="service-item">
-        <a href="service14.html">
-          <h2>Алхимия тишины</h2>
-          <p>Распаковка силы недействия. Остановка внутреннего шума и настройка на собственные частоты.</p>
-        </a>
-      </div>
+      <!-- 10 -->
+      <a class="service-card" href="service10.html">
+        <div class="service-icon">10</div>
+        <h2>Архитектура личного кода</h2>
+        <p class="service-tagline">Увидеть код и переписать.</p>
+        <p class="service-brief">
+          Осознание своего внутреннего кода, уязвимости и перестройка жизни в соответствии с реальной структурой «я».
+        </p>
+        <p class="service-price">от 9000&nbsp;€</p>
+      </a>
 
-      <div class="service-item">
-        <a href="service15.html">
-          <h2>Реконструкция линии реальности</h2>
-          <p>Исцеление искажённой личной линии жизни. Восстановление внутренней траектории и структуры судьбы.</p>
-        </a>
-      </div>
+      <!-- 11 -->
+      <a class="service-card" href="service11.html">
+        <div class="service-icon">11</div>
+        <h2>Алхимия несоответствия</h2>
+        <p class="service-tagline">Сознание vs мир.</p>
+        <p class="service-brief">
+          Для тех, у кого глубина не совпадает с грубой реальностью. Настройка связи между внутренним и внешним.
+        </p>
+        <p class="service-price">от 9000&nbsp;€</p>
+      </a>
 
-      <div class="service-item">
-        <a href="service16.html">
-          <h2>Эхо архитектора</h2>
-          <p>Пробуждение творческой силы материи. Возвращение доступа к способности создавать форму из смысла.</p>
-        </a>
-      </div>
+      <!-- 12 -->
+      <a class="service-card" href="service12.html">
+        <div class="service-icon">12</div>
+        <h2>Сдвиг оси</h2>
+        <p class="service-tagline">Перенастройка личной реальности.</p>
+        <p class="service-brief">
+          Для тех, кто ясно чувствует: «я не там». Работа с архитектурой личности и положением точки сборки.
+        </p>
+        <p class="service-price">от 8500&nbsp;€</p>
+      </a>
+
+      <!-- 13 -->
+      <a class="service-card" href="service13.html">
+        <div class="service-icon">13</div>
+        <h2>Точка происхождения</h2>
+        <p class="service-tagline">Вспоминание первого кода.</p>
+        <p class="service-brief">
+          Работа с первичной структурой сознания, тем, что было до ролей, биографии и социальных оболочек.
+        </p>
+        <p class="service-price">от 7000&nbsp;€</p>
+      </a>
+
+      <!-- 14 -->
+      <a class="service-card" href="service14.html">
+        <div class="service-icon">14</div>
+        <h2>Алхимия тишины</h2>
+        <p class="service-tagline">Сила недействия.</p>
+        <p class="service-brief">
+          Остановка внутреннего шума, возвращение внутрь себя и формирование устойчивости к раздражителям.
+        </p>
+        <p class="service-price">от 5500&nbsp;€</p>
+      </a>
+
+      <!-- 15 -->
+      <a class="service-card" href="service15.html">
+        <div class="service-icon">15</div>
+        <h2>Реконструкция линии реальности</h2>
+        <p class="service-tagline">Исправление траектории.</p>
+        <p class="service-brief">
+          Для тех, кто чувствует, что живёт не свою жизнь. Работа с искажением личной линии судьбы.
+        </p>
+        <p class="service-price">от 9000&nbsp;€</p>
+      </a>
+
+      <!-- 16 -->
+      <a class="service-card" href="service16.html">
+        <div class="service-icon">16</div>
+        <h2>Эхо архитектора</h2>
+        <p class="service-tagline">Творческая сила материи.</p>
+        <p class="service-brief">
+          Пробуждение подавленной способности создавать форму из смысла. 
+          Возвращение доступа к творческой силе сознания и материи.
+        </p>
+        <p class="service-price">от 8000&nbsp;€</p>
+      </a>
 
     </div>
+  </div>
 
+  <script src="script.js"></script>
+</body>
+</html>
