@@ -1,205 +1,148 @@
-/* Фундамент */
-body {
+/* ===== БАЗА ===== */
+
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background: #05050a;
-  color: #e4dfff;
-  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  letter-spacing: 0.4px;
-  overflow-x: hidden;
 }
 
-/* Полёт звёзд — canvas на заднем плане */
-#stars {
-  position: fixed;
-  inset: 0;
-  z-index: -3;
-  display: block;
-  background: #05050a; /* запасной фон */
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, #2b3660 0, #050813 55%, #01030a 100%);
+  color: #f5f3ff;
+  min-height: 100vh;
 }
 
-/* Мягкая туманность поверх звёзд (даёт глубину) */
+/* Звезды и туман позади всего */
+
+canvas#stars,
 .nebula {
   position: fixed;
-  inset: -10%;
+  inset: 0;
   z-index: -2;
-  background:
-    radial-gradient(circle at 18% 22%, rgba(140,110,255,0.20), transparent 55%),
-    radial-gradient(circle at 82% 70%, rgba(255,145,190,0.18), transparent 58%),
-    radial-gradient(circle at 8% 85%,  rgba(90,200,255,0.15), transparent 55%);
-  filter: blur(12px);
-  animation: nebulaShift 50s ease-in-out infinite alternate;
 }
 
-@keyframes nebulaShift {
-  0%   { transform: translate3d(0,0,0) scale(1);   opacity: 0.65; }
-  100% { transform: translate3d(-40px,15px,0) scale(1.06); opacity: 0.9; }
+/* Общий контейнер страницы */
+
+.page {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 80px auto 60px;
+  padding: 32px 24px 40px;
+  background: rgba(6, 8, 20, 0.86);
+  border-radius: 18px;
+  border: 1px solid rgba(180, 165, 255, 0.25);
+  box-shadow: 0 0 40px rgba(80, 60, 180, 0.55);
 }
 
-/* Контент */
-.container {
-  max-width: 780px;
-  margin: 0 auto;
-  padding: 80px 30px 120px;
-  text-align: center;
-}
+/* Заголовки */
 
 .title {
-  font-size: 48px;
-  margin-bottom: 20px;
-  color: #e6e0ff;
-  text-shadow: 0 0 20px rgba(160, 138, 255, 0.7);
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 12px;
 }
 
 .subtitle {
-  font-size: 18px;
-  color: #a79ad1;
-  margin-bottom: 60px;
+  font-size: 16px;
+  text-align: center;
+  color: #c6c0f0;
+  margin-bottom: 24px;
 }
 
-.nav a {
-  display: block;
-  margin: 18px 0;
-  font-size: 22px;
-  color: #c0b1ff;
-  text-decoration: none;
-  transition: 0.25s;
-}
-.nav a:hover {
-  color: #f0e8ff;
-  text-shadow: 0 0 16px #b384ff;
+/* Обычный текст */
+
+.page p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #ddd8ff;
+  margin-bottom: 14px;
 }
 
-.fade-in { animation: fade 1.6s ease forwards; opacity: 0; }
-@keyframes fade { to { opacity: 1; } }
+/* Ссылка "назад" */
 
-.page { max-width: 760px; margin: 0 auto; padding: 70px 30px 120px; }
-.page .title { font-size: 40px; text-align: left; }
-.page .subtitle { text-align: left; margin-bottom: 40px; }
-.page p { font-size: 17px; line-height: 1.7; color: #dcd2ff; }
-
-.page a {
-  color: #c7a5ff;
-  text-decoration: none;
-  border-bottom: 1px solid rgba(199, 165, 255, 0.5);
-}
-.page a:hover { color: #f1e5ff; border-bottom-color: rgba(241,229,255,0.9); }
-/* Сетка и карточки консультаций */
-
-.services-grid {
+.back-link {
+  display: inline-block;
   margin-top: 24px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
-}
-
-.service-card {
-  position: relative;
-  display: block;
-  padding: 18px 20px 16px;
-  border-radius: 16px;
-  background: rgba(8, 10, 28, 0.85);
-  border: 1px solid rgba(180, 170, 255, 0.35);
+  font-size: 14px;
+  color: #d4c9ff;
   text-decoration: none;
-  color: #f5f1ff;
-  box-shadow: 0 0 18px rgba(10, 8, 40, 0.8);
-  backdrop-filter: blur(10px);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
-.service-card:hover {
-  transform: translateY(-3px) scale(1.01);
-  box-shadow: 0 0 26px rgba(140, 125, 255, 0.6);
-  border-color: rgba(210, 200, 255, 0.9);
+.back-link:hover {
+  text-decoration: underline;
 }
 
-.service-icon {
-  font-size: 0.9rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #b9b0ff;
-  opacity: 0.85;
-  margin-bottom: 6px;
+/* ===== ГЛАВНАЯ (index) — МЕНЮ ===== */
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 24px;
 }
 
-.service-card h2 {
-  margin: 0 0 4px;
-  font-size: 1.1rem;
-  color: #f9f6ff;
+.menu a {
+  font-size: 16px;
+  color: #f0ebff;
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  transition: 0.2s ease;
 }
 
-.service-tagline {
-  margin: 0 0 6px;
-  font-size: 0.9rem;
-  color: #d6cffc;
-  font-style: italic;
+.menu a:hover {
+  border-color: rgba(197, 179, 255, 0.7);
+  background: rgba(84, 65, 170, 0.5);
 }
 
-.service-brief {
-  margin: 0;
-  font-size: 0.9rem;
-  color: #c4b8ff;
-  line-height: 1.5;
-}
-
-.service-price {
-  margin: 10px 0 0;
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #ffd9a0;
-}
-/* Список услуг — без нумерации, с картинкой галактики */
+/* ===== СПИСОК УСЛУГ (consulting) ===== */
 
 .service-list {
   margin-top: 24px;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 14px;
 }
 
 .service-item {
-  display: flex;
-  gap: 16px;
   padding: 14px 16px;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: 0.25s ease;
+  border-radius: 14px;
+  background: rgba(18, 16, 40, 0.9);
+  border: 1px solid rgba(160, 140, 250, 0.4);
+  transition: 0.24s ease;
 }
 
 .service-item:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.25);
+  background: rgba(36, 30, 84, 0.95);
+  border-color: rgba(210, 190, 255, 0.9);
   transform: translateY(-2px);
-  box-shadow: 0 0 18px rgba(160, 138, 255, 0.4);
+  box-shadow: 0 0 16px rgba(145, 122, 255, 0.6);
 }
 
-.service-thumb img {
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.service-text a {
-  text-decoration: none;
-  color: #e6e0ff;
-}
-
-.service-text h2 {
-  margin: 0 0 6px;
+.service-item h2 {
   font-size: 18px;
-  color: #f0eaff;
+  margin-bottom: 4px;
+  color: #f5f1ff;
 }
 
-.service-text p {
-  margin: 0;
+.service-item p {
   font-size: 14px;
-  color: #c9bdf5;
+  margin: 0;
+  color: #cbc4ff;
 }
-/* ================== ГАЛАКТИЧЕСКИЕ СТЕНЫ ДЛЯ УСЛУГ ================== */
+
+/* убираем стандартное оформление ссылок в карточках */
+.service-item a {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+}
+
+/* ===== СТРАНИЦЫ КОНКРЕТНЫХ УСЛУГ ===== */
 
 body.service-page {
   position: relative;
@@ -212,43 +155,29 @@ body.service-page::before {
   inset: 0;
   background-size: cover;
   background-position: center;
-  opacity: 0.17;           /* тусклый фон, только атмосфера */
-  filter: blur(1px);       /* лёгкое размытие */
+  opacity: 0.18;
+  filter: blur(1px);
   transform: scale(1.05);
   animation: wall-drift 55s ease-in-out infinite alternate;
-  z-index: 0;
+  z-index: -3;
 }
 
-/* Поднимаем существующий фон и контент выше стены */
-canvas#stars,
-.nebula {
-  position: fixed;
-  inset: 0;
-  z-index: 1;
-}
-
-.page {
-  position: relative;
-  z-index: 2;
-}
-
-/* Медленное дыхание стены */
 @keyframes wall-drift {
   0% {
     transform: scale(1.04) translate3d(0, 0, 0);
-    opacity: 0.15;
+    opacity: 0.16;
   }
   50% {
     transform: scale(1.08) translate3d(-6px, -4px, 0);
-    opacity: 0.20;
+    opacity: 0.22;
   }
   100% {
     transform: scale(1.06) translate3d(5px, 3px, 0);
-    opacity: 0.17;
+    opacity: 0.18;
   }
 }
 
-/* Каждой услуге — своя картинка */
+/* Привязка картинок к услугам */
 
 body.service-1::before  { background-image: url("images/SFVbGkHY8AQDkS8BPMiSMD-1200-80.jpg"); }
 body.service-2::before  { background-image: url("images/STScI-01GA6KKWG229B16K4Q38CH3BXS.png"); }
@@ -264,27 +193,11 @@ body.service-11::before { background-image: url("images/potw1434a.jpg"); }
 body.service-12::before { background-image: url("images/potw2506a.jpg"); }
 body.service-13::before { background-image: url("images/weic2209a.jpg"); }
 body.service-14::before { background-image: url("images/x25th-casa.webp"); }
-/* 15-ю можно продублировать, пусть будет та же, что и 12 */
 body.service-15::before { background-image: url("images/potw2506a.jpg"); }
 body.service-16::before { background-image: url("images/potw2506a.jpg"); }
-/* ==== ФИКС: текст всегда поверх фона и звёзд ==== */
 
-/* Звёзды и туман ставим НА ФОН, ниже контента */
-canvas#stars,
-.nebula {
-  position: fixed;
-  inset: 0;
-  z-index: -2 !important;
-}
+/* Доп. оформление текста внутри страниц услуг */
 
-/* Галактическая стена услуг — тоже ниже контента */
-body.service-page::before {
-  z-index: -3 !important;
-}
-
-/* А контент страниц — выше всего этого */
-.page {
-  position: relative;
-  z-index: 10 !important;
-  opacity: 1 !important;
+.service-detail p {
+  margin-bottom: 10px;
 }
