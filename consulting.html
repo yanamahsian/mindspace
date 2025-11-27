@@ -4,225 +4,138 @@
   <meta charset="UTF-8">
   <title>Консультации</title>
   <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
 
-  <!-- Фон: звёзды / туманность (как на главной) -->
-  <canvas id="stars"></canvas>
-  <div class="nebula"></div>
+<canvas id="stars"></canvas>
+<div class="nebula"></div>
 
-  <div class="page fade-in">
-    <h1 class="title">Консультации</h1>
+<div class="page">
+  <h1 class="title">Консультации</h1>
 
-    <p class="subtitle">
-      Точечная работа с сознанием. Не про «как жить правильно», а про то, как устроено то, что с тобой происходит.
-    </p>
+  <p class="subtitle">
+    Точечная работа с сознанием. Не про «как жить правильно», а про то, как устроено то, что с тобой происходит.
+  </p>
 
-    <p>
-      Ниже — направления работы. Внутри каждой консультации несколько форматов, где уже указана длительность и стоимость.
-    </p>
+  <div class="service-list">
 
-    <div class="service-list">
+    <div class="service-item">
+      <a href="service1.html">
+        <h2>Услуга 1</h2>
+        <p>Краткое описание услуги 1 (потом заменишь на своё).</p>
+      </a>
+    </div>
 
-      <!-- 1 -->
-      <div class="service-item">
-        <div class="service-thumb">
-          <img src="images/img1.jpg" alt="галактика">
-        </div>
-        <div class="service-text">
-          <a href="service1.html">
-            <h2>Карта сознания</h2>
-            <p>Базовое сканирование устройства твоего сознания: ось, искажения, сильные зоны.</p>
-          </a>
-        </div>
-      </div>
+    <div class="service-item">
+      <a href="service2.html">
+        <h2>Услуга 2</h2>
+        <p>Краткое описание услуги 2.</p>
+      </a>
+    </div>
 
-      <!-- 2 -->
-      <div class="service-item">
-        <div class="service-thumb">
-          <img src="images/img2.jpg" alt="галактика">
-        </div>
-        <div class="service-text">
-          <a href="service2.html">
-            <h2>Навигация на пороге</h2>
-            <p>Когда ты застряла между старым и новым и не понимаешь, куда двигаться дальше.</p>
-          </a>
-        </div>
-      </div>
+    <div class="service-item">
+      <a href="service3.html">
+        <h2>Услуга 3</h2>
+        <p>Краткое описание услуги 3.</p>
+      </a>
+    </div>
 
-      <!-- 3 -->
-      <div class="service-item">
-        <div class="service-thumb">
-          <img src="images/img3.jpg" alt="галактика">
-        </div>
-        <div class="service-text">
-          <a href="service3.html">
-            <h2>Разбор внутреннего конфликта</h2>
-            <p>Две противоречащие части внутри: разбираем, кто за что отвечает и кто здесь лишний.</p>
-          </a>
-        </div>
-      </div>
+    <div class="service-item">
+      <a href="service4.html">
+        <h2>Услуга 4</h2>
+        <p>Описание услуги 4.</p>
+      </a>
+    </div>
 
-      <!-- 4 -->
-      <div class="service-item">
-        <div class="service-thumb">
-          <img src="images/img4.jpg" alt="галактика">
-        </div>
-        <div class="service-text">
-          <a href="service4.html">
-            <h2>Точка сборки</h2>
-            <p>Поиск и настройка твоей исходной точки опоры, из которой вообще можно жить.</p>
-          </a>
-        </div>
-      </div>
+    <div class="service-item">
+      <a href="service5.html">
+        <h2>Услуга 5</h2>
+        <p>Описание услуги 5.</p>
+      </a>
+    </div>
 
-      <!-- 5 -->
-      <div class="service-item">
-        <div class="service-thumb">
-          <img src="images/img5.jpg" alt="галактика">
-        </div>
-        <div class="service-text">
-          <a href="service5.html">
-            <h2>Декомпозиция страха</h2>
-            <p>Разбор страха как структуры: из чего он состоит и что оттуда можно вытащить.</p>
-          </a>
-        </div>
-      </div>
+    <div class="service-item">
+      <a href="service6.html">
+        <h2>Услуга 6</h2>
+        <p>Описание услуги 6.</p>
+      </a>
+    </div>
 
-      <!-- 6 -->
-      <div class="service-item">
-        <div class="service-thumb">
-          <img src="images/img6.jpg" alt="галактика">
-        </div>
-        <div class="service-text">
-          <a href="service6.html">
-            <h2>Выход из родовой матрицы</h2>
-            <p>Когда родовая система больше не имеет права управлять твоими решениями и жизнью.</p>
-          </a>
-        </div>
-      </div>
+    <div class="service-item">
+      <a href="service7.html">
+        <h2>Услуга 7</h2>
+        <p>Описание услуги 7.</p>
+      </a>
+    </div>
 
-      <!-- 7 -->
-      <div class="service-item">
-        <div class="service-thumb">
-          <img src="images/img7.jpg" alt="галактика">
-        </div>
-        <div class="service-text">
-          <a href="service7.html">
-            <h2>Телесная тюрьма</h2>
-            <p>Работа с ощущением, что тело — клетка, а не инструмент (особенно при ограничениях по здоровью).</p>
-          </a>
-        </div>
-      </div>
+    <div class="service-item">
+      <a href="service8.html">
+        <h2>Услуга 8</h2>
+        <p>Описание услуги 8.</p>
+      </a>
+    </div>
 
-      <!-- 8 -->
-      <div class="service-item">
-        <div class="service-thumb">
-          <img src="images/img8.jpg" alt="галактика">
-        </div>
-        <div class="service-text">
-          <a href="service8.html">
-            <h2>Финансовая ось сознания</h2>
-            <p>Разбор того, как твоя структура сознания держит / режет деньги и ощущение опоры.</p>
-          </a>
-        </div>
-      </div>
+    <div class="service-item">
+      <a href="service9.html">
+        <h2>Услуга 9</h2>
+        <p>Описание услуги 9.</p>
+      </a>
+    </div>
 
-      <!-- 9 -->
-      <div class="service-item">
-        <div class="service-thumb">
-          <img src="images/img9.jpg" alt="галактика">
-        </div>
-        <div class="service-text">
-          <a href="service9.html">
-            <h2>Пороговые состояния и кризисы</h2>
-            <p>Когда «всё развалилось» и дальше жить так невозможно — что на самом деле происходит.</p>
-          </a>
-        </div>
-      </div>
+    <div class="service-item">
+      <a href="service10.html">
+        <h2>Услуга 10</h2>
+        <p>Описание услуги 10.</p>
+      </a>
+    </div>
 
-      <!-- 10 -->
-      <div class="service-item">
-        <div class="service-thumb">
-          <img src="images/img10.jpg" alt="галактика">
-        </div>
-        <div class="service-text">
-          <a href="service10.html">
-            <h2>Предназначение последнего воплощения</h2>
-            <p>Разбор задачи этого воплощения, если ты чувствуешь, что больше сюда не вернёшься.</p>
-          </a>
-        </div>
-      </div>
+    <div class="service-item">
+      <a href="service11.html">
+        <h2>Услуга 11</h2>
+        <p>Описание услуги 11.</p>
+      </a>
+    </div>
 
-      <!-- 11 -->
-      <div class="service-item">
-        <div class="service-thumb">
-          <img src="images/img11.jpg" alt="галактика">
-        </div>
-        <div class="service-text">
-          <a href="service11.html">
-            <h2>Архитектура одиночества</h2>
-            <p>Одиночество как форма свободы, а не наказания. Как жить, не проваливаясь в пустоту.</p>
-          </a>
-        </div>
-      </div>
+    <div class="service-item">
+      <a href="service12.html">
+        <h2>Услуга 12</h2>
+        <p>Описание услуги 12.</p>
+      </a>
+    </div>
 
-      <!-- 12 -->
-      <div class="service-item">
-        <div class="service-thumb">
-          <img src="images/img12.jpg" alt="галактика">
-        </div>
-        <div class="service-text">
-          <a href="service12.html">
-            <h2>Настройка творческого канала</h2>
-            <p>Когда внутри много образов и идей, но они не доводятся до формы и застревают в голове.</p>
-          </a>
-        </div>
-      </div>
+    <div class="service-item">
+      <a href="service13.html">
+        <h2>Услуга 13</h2>
+        <p>Описание услуги 13.</p>
+      </a>
+    </div>
 
-      <!-- 13 -->
-      <div class="service-item">
-        <div class="service-thumb">
-          <img src="images/img13.jpg" alt="галактика">
-        </div>
-        <div class="service-text">
-          <a href="service13.html">
-            <h2>Перезапись отношений с реальностью</h2>
-            <p>Если мир ощущается враждебным, тупым и несовместимым с тем, как устроена ты.</p>
-          </a>
-        </div>
-      </div>
+    <div class="service-item">
+      <a href="service14.html">
+        <h2>Услуга 14</h2>
+        <p>Описание услуги 14.</p>
+      </a>
+    </div>
 
-      <!-- 14 -->
-      <div class="service-item">
-        <div class="service-thumb">
-          <img src="images/img14.jpg" alt="галактика">
-        </div>
-        <div class="service-text">
-          <a href="service14.html">
-            <h2>Квантовый сдвиг восприятия</h2>
-            <p>Работа с изменением уровня сознания: когда старый способ видеть мир окончательно умер.</p>
-          </a>
-        </div>
-      </div>
+    <div class="service-item">
+      <a href="service15.html">
+        <h2>Услуга 15</h2>
+        <p>Описание услуги 15.</p>
+      </a>
+    </div>
 
-      <!-- 15 -->
-      <div class="service-item">
-        <div class="service-thumb">
-          <img src="images/img15.jpg" alt="галактика">
-        </div>
-        <div class="service-text">
-          <a href="service15.html">
-            <h2>Индивидуальное сопровождение перехода</h2>
-            <p>Долгий маршрут для тех, кто проходит через полный снос старой жизни и сборку новой.</p>
-          </a>
-        </div>
-      </div>
+    <div class="service-item">
+      <a href="service16.html">
+        <h2>Услуга 16</h2>
+        <p>Описание услуги 16.</p>
+      </a>
+    </div>
 
-    </div><!-- /service-list -->
+  </div>
 
-  </div><!-- /page -->
+  <a href="index.html" class="back-link">← На главную</a>
+</div>
 
-  <script src="script.js"></script>
 </body>
 </html>
