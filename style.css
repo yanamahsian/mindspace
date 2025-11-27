@@ -267,3 +267,24 @@ body.service-14::before { background-image: url("images/x25th-casa.webp"); }
 /* 15-ю можно продублировать, пусть будет та же, что и 12 */
 body.service-15::before { background-image: url("images/potw2506a.jpg"); }
 body.service-16::before { background-image: url("images/potw2506a.jpg"); }
+/* ==== ФИКС: текст всегда поверх фона и звёзд ==== */
+
+/* Звёзды и туман ставим НА ФОН, ниже контента */
+canvas#stars,
+.nebula {
+  position: fixed;
+  inset: 0;
+  z-index: -2 !important;
+}
+
+/* Галактическая стена услуг — тоже ниже контента */
+body.service-page::before {
+  z-index: -3 !important;
+}
+
+/* А контент страниц — выше всего этого */
+.page {
+  position: relative;
+  z-index: 10 !important;
+  opacity: 1 !important;
+}
