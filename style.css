@@ -201,3 +201,16 @@ body.service-16::before { background-image: url("images/potw2506a.jpg"); }
 .service-detail p {
   margin-bottom: 10px;
 }
+/* ========= ЧТОБЫ НЕ БЫЛО "СТЕНЫ ТЕКСТА" ВНУТРИ УСЛУГ ========= */
+
+body.service-page .service-detail {
+  white-space: pre-line;   /* учитывает переводы строк, как ты их писала */
+  line-height: 1.7;        /* воздух между строками */
+  font-size: 15px;
+  max-width: 72ch;         /* текст не растягивается на всю ширину экрана */
+  margin-top: 18px;
+}
+
+body.service-page .service-detail p {
+  margin-bottom: 10px;
+}
