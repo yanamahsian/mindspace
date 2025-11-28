@@ -255,3 +255,46 @@ body.service-page .page {
     text-decoration: underline;
     cursor: pointer;
 }
+/* ===== СЕТКА И КАРТОЧКИ ДЛЯ CONSULTING ===== */
+
+.consulting-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 22px;
+  margin-top: 26px;
+}
+
+.consult-card {
+  background: rgba(14, 12, 40, 0.75);
+  border-radius: 14px;
+  padding: 18px 18px 16px;
+  border: 1px solid rgba(190, 175, 255, 0.35);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 18px rgba(80, 60, 160, 0.45);
+}
+
+.consult-card h2 {
+  font-size: 16px;
+  margin-bottom: 6px;
+  color: #f3efff;
+}
+
+.consult-card p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #d4cfef;
+  margin-bottom: 10px;
+}
+
+.consult-card a {
+  font-size: 13px;
+  color: #c7b6ff;
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(199, 182, 255, 0.8);
+  padding-bottom: 1px;
+}
+
+.consult-card a:hover {
+  color: #f0e8ff;
+  border-bottom-style: solid;
+}
