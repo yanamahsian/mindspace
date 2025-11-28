@@ -150,16 +150,14 @@ body.service-page {
 }
 
 body.service-page::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  opacity: 0.06;      /* было 0.18 — стало в три раза тише */
-  filter: blur(2px);  /* было 1px — фон мягче и менее навязчивый */
-  transform: scale(1.05);
-  animation: wall-drift 55s ease-in-out infinite alternate;
-  z-index: -3;
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.05; 
+    filter: blur(3px);
+    z-index: -3;
 
 }
 
@@ -306,4 +304,15 @@ body.service-page .service-detail {
   font-size: 15px;
   max-width: 72ch;         /* ширина строки под глаз, а не на весь экран */
   margin-top: 18px;
+}
+/* ===== ПРОКРУТКА НА ВСЕХ СТРАНИЦАХ УСЛУГ ===== */
+body.service-page {
+    overflow-y: auto !important;
+    overflow-x: hidden;
+    height: auto !important;
+}
+
+/* Чтобы текст не прилипал к низу */
+.service-detail {
+    padding-bottom: 80px;
 }
