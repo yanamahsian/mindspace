@@ -316,3 +316,46 @@ body.service-page {
 .service-detail {
     padding-bottom: 80px;
 }
+/* ===== СТРАНИЦА ЭССЕ ===== */
+
+.essays-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+  margin-top: 26px;
+}
+
+.essay-card {
+  background: rgba(14, 13, 40, 0.8);
+  border-radius: 14px;
+  padding: 18px 18px 16px;
+  border: 1px solid rgba(190, 180, 255, 0.35);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 16px rgba(70, 60, 150, 0.4);
+}
+
+.essay-card h2 {
+  font-size: 17px;
+  margin-bottom: 6px;
+  color: #f4f1ff;
+}
+
+.essay-preview {
+  font-size: 14px;
+  line-height: 1.55;
+  color: #d4cfef;
+  margin-bottom: 10px;
+}
+
+.essay-link {
+  font-size: 13px;
+  color: #c7b6ff;
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(199, 182, 255, 0.8);
+  padding-bottom: 1px;
+}
+
+.essay-link:hover {
+  color: #f0e8ff;
+  border-bottom-style: solid;
+}
