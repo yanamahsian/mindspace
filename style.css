@@ -215,3 +215,12 @@ body.service-page .service-detail {
 body.service-page .service-detail p {
   margin-bottom: 10px;
 }
+/* ========= МЯГЧЕЕ ОФОРМЛЕНИЕ КОНТЕЙНЕРА С УСЛУГОЙ ========= */
+
+body.service-page .page {
+  max-width: 780px;                /* уже, легче глазу */
+  padding: 28px 24px 32px;
+  background: rgba(6, 8, 18, 0.88); /* менее яркая плашка */
+  border-radius: 16px;
+  border: 1px solid rgba(160, 145, 245, 0.4);
+}
