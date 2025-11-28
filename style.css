@@ -359,3 +359,61 @@ body.service-page {
   color: #f0e8ff;
   border-bottom-style: solid;
 }
+/* Контактная форма — эстетичная, аккуратная, выровненная */
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 25px;
+}
+
+.contact-form label {
+    font-size: 18px;
+    color: #e8e8e8;
+    margin-bottom: 6px;
+    display: block;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: white;
+    font-size: 16px;
+    outline: none;
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: rgba(255, 255, 255, 0.35);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.28);
+}
+
+.contact-form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* Кнопка */
+.contact-form button {
+    width: 180px;
+    padding: 12px 20px;
+    margin-top: 10px;
+    background: linear-gradient(135deg, #6a5acd, #836fff);
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.contact-form button:hover {
+    background: linear-gradient(135deg, #7b68ee, #9b8bff);
+    transform: translateY(-2px);
+}
