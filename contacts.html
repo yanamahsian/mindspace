@@ -7,50 +7,43 @@
 </head>
 
 <body>
-<div class="bg"></div>
+    <div class="bg"></div>
 
-<div class="page fade-in" style="max-width: 700px; margin: 0 auto; padding: 40px;">
+    <div class="page fade-in" style="max-width: 700px; margin: 0 auto; padding: 40px;">
 
-    <h1 class="title">Контакты</h1>
-    <p class="subtitle">
-        Это пространство для входа в контакт со мной.  
-        Если вы чувствуете резонанс — вы можете написать напрямую.
-    </p>
+        <h1 class="title">Контакты</h1>
 
-    <div class="contact-block">
+        <p class="subtitle" style="margin-bottom: 30px;">
+            Это пространство для тех, кто чувствует резонанс и хочет выйти на связь.
+        </p>
 
-        <!-- WhatsApp -->
-        <div class="contact-item">
-            <h2>WhatsApp</h2>
-            <p>Можете написать мне напрямую — я отвечаю лично.</p>
-            <a class="whatsapp-btn" href="https://wa.me/49015161016316" target="_blank">
-                Открыть WhatsApp
-            </a>
+        <div class="contact-block">
+
+            <!-- WhatsApp -->
+            <div class="contact-item">
+                <h2>WhatsApp</h2>
+                <p>Вы можете написать мне напрямую — я отвечаю лично.</p>
+                <a class="whatsapp-btn" 
+                   href="https://wa.me/49015161016316" 
+                   target="_blank">Открыть WhatsApp</a>
+            </div>
+
+            <!-- Email -->
+            <div class="contact-item" style="margin-top: 40px;">
+                <h2>Email</h2>
+                <p>Если вам удобнее написать по почте — вы можете сделать это здесь.</p>
+
+                <a class="email-btn" href="mailto:oceandrinksnosugar@gmail.com">
+                    Написать на Email
+                </a>
+            </div>
+
         </div>
 
-        <!-- Форма -->
-        <div class="contact-item">
-            <h2>Форма обратной связи</h2>
-
-            <form action="https://formspree.io/f/xayrvlwn" method="POST" class="contact-form">
-
-                <label>Имя</label>
-                <input type="text" name="name" required>
-
-                <label>Email</label>
-                <input type="email" name="email" required>
-
-                <label>Сообщение</label>
-                <textarea name="message" rows="5" required></textarea>
-
-                <button type="submit" class="contact-submit">Отправить</button>
-            </form>
+        <div style="margin-top: 40px;">
+            <a href="index.html" class="back-link">← Назад</a>
         </div>
-
-        <a href="index.html" class="back-link">← Назад</a>
 
     </div>
-
-</div>
 </body>
 </html>
