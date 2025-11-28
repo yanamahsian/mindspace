@@ -155,11 +155,12 @@ body.service-page::before {
   inset: 0;
   background-size: cover;
   background-position: center;
-  opacity: 0.18;
-  filter: blur(1px);
+  opacity: 0.06;      /* было 0.18 — стало в три раза тише */
+  filter: blur(2px);  /* было 1px — фон мягче и менее навязчивый */
   transform: scale(1.05);
   animation: wall-drift 55s ease-in-out infinite alternate;
   z-index: -3;
+
 }
 
 @keyframes wall-drift {
