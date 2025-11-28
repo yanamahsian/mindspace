@@ -596,22 +596,22 @@ body.service-page {
               radial-gradient(circle at 95% 20%, #6ea6ff 0, transparent 52%),
               radial-gradient(circle at 50% 45%, #150a32 0, #050312 80%);
 }
-/* ===== АРОМАТЫ ===== */
+/* ===== АРОМАТЫ — НОВЫЙ СТИЛЬ ===== */
 
 .aroma-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 24px;
+  gap: 26px;
   margin-top: 26px;
 }
 
 .aroma-card {
-  background: rgba(10, 8, 30, 0.85);
-  border-radius: 16px;
-  padding: 18px 18px 18px;
-  border: 1px solid rgba(190, 180, 255, 0.38);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 0 22px rgba(40, 30, 90, 0.8);
+  background: radial-gradient(circle at 0% 0%, #1a1630 0, #070415 55%);
+  border-radius: 18px;
+  padding: 18px 18px 20px;
+  border: 1px solid rgba(190, 190, 240, 0.28);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 0 26px rgba(0, 0, 0, 0.85);
 }
 
 .aroma-card h2 {
@@ -622,119 +622,143 @@ body.service-page {
 
 .aroma-status {
   font-size: 14px;
-  color: #c3c0e6;
-  opacity: 0.92;
+  color: #cbc7eb;
+  opacity: 0.96;
 }
 
-/* “Флакон” аромата */
+/* Флакон — вертикальный, стеклянный, не похожий на воркбук */
+
 .aroma-bottle {
   position: relative;
-  height: 190px;
-  border-radius: 22px;
+  width: 92px;
+  height: 152px;
+  margin: 6px auto 18px;
+  border-radius: 40px;
   overflow: hidden;
-  margin-bottom: 14px;
-  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.7);
+  background: #111021;
+  box-shadow:
+    0 12px 26px rgba(0, 0, 0, 0.85),
+    0 0 18px rgba(180, 190, 255, 0.06);
   transform-origin: center;
-  animation: bottle-float 20s ease-in-out infinite alternate;
+  animation: aroma-float 20s ease-in-out infinite alternate;
 }
 
-/* “Горлышко” флакона */
+/* “Стекло” и внутренний свет */
+
 .aroma-bottle::before {
   content: "";
   position: absolute;
-  top: -26px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 46px;
-  height: 42px;
-  border-radius: 12px;
-  background: linear-gradient(
-    to bottom,
-    rgba(250, 250, 255, 0.85),
-    rgba(190, 190, 220, 0.85)
-  );
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.45);
+  inset: 3px;
+  border-radius: 36px;
+  border: 1px solid rgba(235, 235, 255, 0.14);
+  box-shadow:
+    inset 0 0 18px rgba(0, 0, 0, 0.9),
+    inset 0 0 30px rgba(255, 255, 255, 0.08);
 }
 
-/* Свет внутри флакона */
 .aroma-bottle::after {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(
-      circle at 10% 20%,
-      rgba(255, 255, 255, 0.18) 0,
-      transparent 50%
-    ),
-    radial-gradient(
-      circle at 80% 80%,
-      rgba(255, 255, 255, 0.12) 0,
+  background: radial-gradient(
+      circle at 20% 10%,
+      rgba(255, 255, 255, 0.24),
       transparent 55%
     );
   mix-blend-mode: screen;
   opacity: 0.8;
 }
 
-.aroma-label {
+/* Крышка флакона */
+
+.aroma-bottle-cap {
   position: absolute;
-  right: 14px;
-  bottom: 12px;
-  font-size: 13px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: rgba(250, 247, 255, 0.92);
-  text-shadow: 0 0 12px rgba(0, 0, 0, 0.8);
+  top: -26px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 46px;
+  height: 26px;
+  border-radius: 9px 9px 4px 4px;
+  background: linear-gradient(
+    to bottom,
+    rgba(245, 245, 255, 0.92),
+    rgba(185, 185, 220, 0.9)
+  );
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
 }
 
-/* Плавное “дыхание” флаконов */
-@keyframes bottle-float {
+/* Подпись номера */
+
+.aroma-label {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(244, 242, 255, 0.96);
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.9);
+}
+
+/* Лёгкое плавание флакона */
+
+@keyframes aroma-float {
   0% {
-    transform: translateY(2px) scale(1);
+    transform: translateY(1px) scale(1);
   }
   50% {
     transform: translateY(-4px) scale(1.01);
   }
   100% {
-    transform: translateY(3px) scale(0.995);
+    transform: translateY(2px) scale(0.995);
   }
 }
 
-/* Градиенты для флаконов */
+/* Градиенты содержимого — каждый флакон свой */
 
 .bottle-1 {
-  background: radial-gradient(circle at 10% 0%, #7f5cff 0, transparent 45%),
-              radial-gradient(circle at 80% 100%, #ffb4d0 0, transparent 52%),
-              radial-gradient(circle at 50% 40%, #1b0f40 0, #050312 75%);
+  background:
+    radial-gradient(circle at 50% 80%, #4b3cff 0, transparent 58%),
+    radial-gradient(circle at 30% 20%, #ff9ad6 0, transparent 52%),
+    #070414;
 }
 
 .bottle-2 {
-  background: radial-gradient(circle at 0% 50%, #4fd5ff 0, transparent 52%),
-              radial-gradient(circle at 100% 10%, #d6a8ff 0, transparent 48%),
-              radial-gradient(circle at 50% 60%, #12082f 0, #050312 78%);
+  background:
+    radial-gradient(circle at 50% 85%, #00d1ff 0, transparent 55%),
+    radial-gradient(circle at 25% 18%, #c69bff 0, transparent 50%),
+    #06041b;
 }
 
 .bottle-3 {
-  background: radial-gradient(circle at 10% 90%, #ffcf71 0, transparent 50%),
-              radial-gradient(circle at 90% 20%, #ff8ad1 0, transparent 52%),
-              radial-gradient(circle at 45% 35%, #1a0b3a 0, #050312 80%);
+  background:
+    radial-gradient(circle at 50% 82%, #ffd067 0, transparent 52%),
+    radial-gradient(circle at 22% 20%, #ff8aa8 0, transparent 52%),
+    #140616;
 }
 
 .bottle-4 {
-  background: radial-gradient(circle at 0% 10%, #6cfaf2 0, transparent 48%),
-              radial-gradient(circle at 100% 80%, #ffc38f 0, transparent 55%),
-              radial-gradient(circle at 50% 55%, #12072c 0, #050312 80%);
+  background:
+    radial-gradient(circle at 55% 78%, #6cfaf2 0, transparent 55%),
+    radial-gradient(circle at 20% 22%, #ffc38f 0, transparent 52%),
+    #05071a;
 }
 
 .bottle-5 {
-  background: radial-gradient(circle at 15% 30%, #ff9aff 0, transparent 50%),
-              radial-gradient(circle at 85% 70%, #9fffff 0, transparent 55%),
-              radial-gradient(circle at 50% 50%, #170a36 0, #050312 78%);
+  background:
+    radial-gradient(circle at 50% 80%, #ff9aff 0, transparent 54%),
+    radial-gradient(circle at 18% 24%, #9fffff 0, transparent 52%),
+    #11041f;
 }
 
 .bottle-6 {
-  background: radial-gradient(circle at 0% 80%, #ffb3a7 0, transparent 50%),
-              radial-gradient(circle at 95% 15%, #b7a4ff 0, transparent 52%),
-              radial-gradient(circle at 50% 40%, #130726 0, #050312 78%);
+  background:
+    radial-gradient(circle at 52% 80%, #ffb3a7 0, transparent 54%),
+    radial-gradient(circle at 24% 18%, #b7a4ff 0, transparent 52%),
+    #12051a;
+}
+
 }
 /* ===== АРТ ===== */
 
