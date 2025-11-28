@@ -445,3 +445,154 @@ body.service-page {
     background: rgba(150, 170, 255, 0.4);
     border-color: rgba(200, 210, 255, 0.5);
 }
+/* ===== ВОРКБУКИ ===== */
+
+.workbooks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin-top: 26px;
+}
+
+.workbook-card {
+  background: rgba(10, 8, 30, 0.85);
+  border-radius: 16px;
+  padding: 18px 18px 18px;
+  border: 1px solid rgba(190, 180, 255, 0.38);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 22px rgba(40, 30, 90, 0.8);
+}
+
+.workbook-card h2 {
+  font-size: 17px;
+  margin-bottom: 6px;
+  color: #f3f0ff;
+}
+
+.workbook-status {
+  font-size: 14px;
+  color: #c3c0e6;
+  opacity: 0.92;
+}
+
+/* Обложка воркбука */
+.workbook-cover {
+  position: relative;
+  height: 180px;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 14px;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.65);
+  transform-origin: center;
+  animation: workbook-float 18s ease-in-out infinite alternate;
+}
+
+/* Корешок */
+.workbook-cover::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 18px;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.55),
+    rgba(50, 40, 120, 0.8)
+  );
+  box-shadow: 6px 0 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Туман/свет на обложке */
+.workbook-cover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+      circle at 10% 20%,
+      rgba(255, 255, 255, 0.18) 0,
+      transparent 48%
+    ),
+    radial-gradient(
+      circle at 80% 80%,
+      rgba(255, 255, 255, 0.12) 0,
+      transparent 52%
+    );
+  mix-blend-mode: screen;
+  opacity: 0.6;
+}
+
+/* Подпись */
+.workbook-tag {
+  position: absolute;
+  right: 14px;
+  bottom: 12px;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(250, 247, 255, 0.9);
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+}
+
+/* Анимация */
+@keyframes workbook-float {
+  0% {
+    transform: translateY(2px) rotate(-0.4deg);
+  }
+  50% {
+    transform: translateY(-4px) rotate(0.4deg);
+  }
+  100% {
+    transform: translateY(3px) rotate(-0.2deg);
+  }
+}
+
+/* ===== ГАЛАКТИЧЕСКИЕ ОБЛОЖКИ (1–8) ===== */
+
+.cover-1 {
+  background: radial-gradient(circle at 10% 0%, #7f5cff 0, transparent 45%),
+              radial-gradient(circle at 80% 100%, #ffb4d0 0, transparent 52%),
+              radial-gradient(circle at 50% 40%, #1b0f40 0, #050312 75%);
+}
+
+.cover-2 {
+  background: radial-gradient(circle at 0% 50%, #4fd5ff 0, transparent 52%),
+              radial-gradient(circle at 100% 10%, #d6a8ff 0, transparent 48%),
+              radial-gradient(circle at 50% 60%, #12082f 0, #050312 78%);
+}
+
+.cover-3 {
+  background: radial-gradient(circle at 10% 90%, #ffcf71 0, transparent 50%),
+              radial-gradient(circle at 90% 20%, #ff8ad1 0, transparent 52%),
+              radial-gradient(circle at 45% 35%, #1a0b3a 0, #050312 80%);
+}
+
+.cover-4 {
+  background: radial-gradient(circle at 0% 10%, #6cfaf2 0, transparent 48%),
+              radial-gradient(circle at 100% 80%, #ffc38f 0, transparent 55%),
+              radial-gradient(circle at 50% 55%, #12072c 0, #050312 80%);
+}
+
+.cover-5 {
+  background: radial-gradient(circle at 15% 30%, #ff9aff 0, transparent 50%),
+              radial-gradient(circle at 85% 70%, #9fffff 0, transparent 55%),
+              radial-gradient(circle at 50% 50%, #170a36 0, #050312 78%);
+}
+
+.cover-6 {
+  background: radial-gradient(circle at 0% 80%, #ffb3a7 0, transparent 50%),
+              radial-gradient(circle at 95% 15%, #b7a4ff 0, transparent 52%),
+              radial-gradient(circle at 50% 40%, #130726 0, #050312 78%);
+}
+
+.cover-7 {
+  background: radial-gradient(circle at 20% 15%, #66ffc8 0, transparent 45%),
+              radial-gradient(circle at 90% 85%, #ffd1ff 0, transparent 55%),
+              radial-gradient(circle at 50% 50%, #0e0628 0, #050312 78%);
+}
+
+.cover-8 {
+  background: radial-gradient(circle at 5% 70%, #ffd56a 0, transparent 48%),
+              radial-gradient(circle at 95% 20%, #6ea6ff 0, transparent 52%),
+              radial-gradient(circle at 50% 45%, #150a32 0, #050312 80%);
+}
