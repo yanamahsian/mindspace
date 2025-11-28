@@ -224,3 +224,34 @@ body.service-page .page {
   border-radius: 16px;
   border: 1px solid rgba(160, 145, 245, 0.4);
 }
+.consulting-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    margin-top: 30px;
+}
+
+.consult-card {
+    background: rgba(14, 14, 32, 0.55);
+    padding: 22px;
+    border-radius: 14px;
+    border: 1px solid rgba(200, 180, 255, 0.25);
+    backdrop-filter: blur(6px);
+}
+
+.consult-card h2 {
+    font-size: 18px;
+    margin-bottom: 6px;
+}
+
+.consult-card p {
+    margin-bottom: 12px;
+    color: #d5d5d5;
+    line-height: 1.5;
+}
+
+.consult-card a {
+    color: #c2b7ff;
+    text-decoration: underline;
+    cursor: pointer;
+}
