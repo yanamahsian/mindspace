@@ -1304,3 +1304,64 @@ body.service-page {
 .back-btn:hover {
     text-decoration: underline;
 }
+.section {
+    margin-bottom: 30px;
+}
+
+.text-block {
+    margin: 20px 0;
+    padding-left: 22px;
+    line-height: 1.7;
+    color: #dcdcdc;
+}
+
+.formats {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.format-card {
+    background: rgba(0,0,0,0.45);
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(6px);
+}
+
+.format-card h3 {
+    margin-top: 0;
+    color: #fff;
+    font-size: 20px;
+}
+
+.price {
+    margin: 10px 0;
+    font-weight: 600;
+    color: #c3b7ff;
+}
+
+.pay-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 18px;
+    border-radius: 8px;
+    background: #7b5dff;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.pay-btn:hover {
+    background: #9c80ff;
+}
+
+.pay-btn.secondary {
+    background: #4a3bb3;
+}
+
+.pay-btn.secondary:hover {
+    background: #6a55dd;
+}
