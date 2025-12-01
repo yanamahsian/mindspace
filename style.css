@@ -880,3 +880,18 @@ body.service-page {
               radial-gradient(circle at 100% 10%, #b7a4ff 0, transparent 55%),
               radial-gradient(circle at 52% 42%, #12051f 0, #010008 82%);
 }
+.book-button {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 22px;
+    background: #6a4fff;
+    color: white;
+    font-size: 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.book-button:hover {
+    background: #8f6fff;
+}
