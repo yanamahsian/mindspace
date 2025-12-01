@@ -205,22 +205,21 @@ body.service-16::before { background-image: url("images/potw2506a.jpg"); }
 }
 
 body.service-page .service-detail {
-  white-space: pre-line;   /* учитывает переводы строк, как ты их писала */
-  line-height: 1.7;        /* воздух между строками */
+  white-space: pre-line;   
+  line-height: 1.7;      
   font-size: 15px;
-  max-width: 72ch;         /* текст не растягивается на всю ширину экрана */
+  max-width: 72ch;        
   margin-top: 18px;
 }
 
 body.service-page .service-detail p {
   margin-bottom: 10px;
 }
-/* ========= МЯГЧЕЕ ОФОРМЛЕНИЕ КОНТЕЙНЕРА С УСЛУГОЙ ========= */
 
 body.service-page .page {
-  max-width: 780px;                /* уже, легче глазу */
+  max-width: 780px;               
   padding: 28px 24px 32px;
-  background: rgba(6, 8, 18, 0.88); /* менее яркая плашка */
+  background: rgba(6, 8, 18, 0.88); 
   border-radius: 16px;
   border: 1px solid rgba(160, 145, 245, 0.4);
 }
@@ -255,7 +254,6 @@ body.service-page .page {
     text-decoration: underline;
     cursor: pointer;
 }
-/* ===== СЕТКА И КАРТОЧКИ ДЛЯ CONSULTING ===== */
 
 .consulting-grid {
   display: grid;
@@ -298,27 +296,23 @@ body.service-page .page {
   color: #f0e8ff;
   border-bottom-style: solid;
 }
-/* ===== ЧТОБЫ ТЕКСТ ВНУТРИ УСЛУГ НЕ БЫЛ СТЕНОЙ ===== */
 
 body.service-page .service-detail {
-  white-space: pre-line;   /* уважает переводы строк, как ты их написала */
+  white-space: pre-line;  
   line-height: 1.7;
   font-size: 15px;
-  max-width: 72ch;         /* ширина строки под глаз, а не на весь экран */
+  max-width: 72ch;        
   margin-top: 18px;
 }
-/* ===== ПРОКРУТКА НА ВСЕХ СТРАНИЦАХ УСЛУГ ===== */
 body.service-page {
     overflow-y: auto !important;
     overflow-x: hidden;
     height: auto !important;
 }
 
-/* Чтобы текст не прилипал к низу */
 .service-detail {
     padding-bottom: 80px;
 }
-/* ===== СТРАНИЦА ЭССЕ ===== */
 
 .essays-grid {
   display: grid;
@@ -361,7 +355,6 @@ body.service-page {
   color: #f0e8ff;
   border-bottom-style: solid;
 }
-/* Контактная форма — эстетичная, аккуратная, выровненная */
 
 .contact-form {
     display: flex;
@@ -401,7 +394,6 @@ body.service-page {
     resize: vertical;
 }
 
-/* Кнопка */
 .contact-form button {
     width: 180px;
     padding: 12px 20px;
@@ -447,7 +439,6 @@ body.service-page {
     background: rgba(150, 170, 255, 0.4);
     border-color: rgba(200, 210, 255, 0.5);
 }
-/* ===== ВОРКБУКИ ===== */
 
 .workbooks-grid {
   display: grid;
@@ -477,7 +468,6 @@ body.service-page {
   opacity: 0.92;
 }
 
-/* Обложка воркбука */
 .workbook-cover {
   position: relative;
   height: 180px;
@@ -489,7 +479,6 @@ body.service-page {
   animation: workbook-float 18s ease-in-out infinite alternate;
 }
 
-/* Корешок */
 .workbook-cover::before {
   content: "";
   position: absolute;
@@ -505,7 +494,6 @@ body.service-page {
   box-shadow: 6px 0 12px rgba(0, 0, 0, 0.4);
 }
 
-/* Туман/свет на обложке */
 .workbook-cover::after {
   content: "";
   position: absolute;
@@ -524,7 +512,6 @@ body.service-page {
   opacity: 0.6;
 }
 
-/* Подпись */
 .workbook-tag {
   position: absolute;
   right: 14px;
@@ -536,7 +523,6 @@ body.service-page {
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
 }
 
-/* Анимация */
 @keyframes workbook-float {
   0% {
     transform: translateY(2px) rotate(-0.4deg);
@@ -549,7 +535,6 @@ body.service-page {
   }
 }
 
-/* ===== ГАЛАКТИЧЕСКИЕ ОБЛОЖКИ (1–8) ===== */
 
 .cover-1 {
   background: radial-gradient(circle at 10% 0%, #7f5cff 0, transparent 45%),
@@ -598,7 +583,6 @@ body.service-page {
               radial-gradient(circle at 95% 20%, #6ea6ff 0, transparent 52%),
               radial-gradient(circle at 50% 45%, #150a32 0, #050312 80%);
 }
-/* ===== АРОМАТЫ — НОВЫЙ СТИЛЬ ===== */
 
 .aroma-grid {
   display: grid;
@@ -628,7 +612,6 @@ body.service-page {
   opacity: 0.96;
 }
 
-/* Флакон — вертикальный, стеклянный, не похожий на воркбук */
 
 .aroma-bottle {
   position: relative;
@@ -645,7 +628,6 @@ body.service-page {
   animation: aroma-float 20s ease-in-out infinite alternate;
 }
 
-/* “Стекло” и внутренний свет */
 
 .aroma-bottle::before {
   content: "";
@@ -671,7 +653,6 @@ body.service-page {
   opacity: 0.8;
 }
 
-/* Крышка флакона */
 
 .aroma-bottle-cap {
   position: absolute;
@@ -689,7 +670,6 @@ body.service-page {
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
 }
 
-/* Подпись номера */
 
 .aroma-label {
   position: absolute;
@@ -703,7 +683,6 @@ body.service-page {
   text-shadow: 0 0 8px rgba(0, 0, 0, 0.9);
 }
 
-/* Лёгкое плавание флакона */
 
 @keyframes aroma-float {
   0% {
@@ -717,7 +696,6 @@ body.service-page {
   }
 }
 
-/* Градиенты содержимого — каждый флакон свой */
 
 .bottle-1 {
   background:
@@ -762,7 +740,6 @@ body.service-page {
 }
 
 }
-/* ===== АРТ ===== */
 
 .art-grid {
   display: grid;
@@ -792,7 +769,6 @@ body.service-page {
   opacity: 0.95;
 }
 
-/* “Рамка” арт-работы */
 .art-frame {
   position: relative;
   height: 200px;
@@ -805,7 +781,6 @@ body.service-page {
   animation: frame-breathe 22s ease-in-out infinite alternate;
 }
 
-/* Внутреннее “стекло” */
 .art-frame::before {
   content: "";
   position: absolute;
@@ -824,7 +799,6 @@ body.service-page {
   opacity: 0.75;
 }
 
-/* Лёгкое свечение */
 .art-frame::after {
   content: "";
   position: absolute;
@@ -832,7 +806,6 @@ body.service-page {
   box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.85);
 }
 
-/* Анимация рамки */
 @keyframes frame-breathe {
   0% {
     transform: translateY(1px);
@@ -844,8 +817,6 @@ body.service-page {
     transform: translateY(2px);
   }
 }
-
-/* Градиенты “картин” */
 
 .art-1 {
   background: radial-gradient(circle at 20% 10%, #7f5cff 0, transparent 45%),
@@ -897,7 +868,6 @@ body.service-page {
 .book-button:hover {
     background: #8f6fff;
 }
-/* ===== Кнопки оплаты на услугах ===== */
 
 .price-buttons {
     margin-top: 30px;
@@ -931,7 +901,6 @@ body.service-page {
     box-shadow: 0 0 24px rgba(170, 120, 255, 0.8);
 }
 
-/* ===== Страница оплаты ===== */
 
 .payment-page {
     position: relative;
@@ -1038,9 +1007,7 @@ body.service-page {
         padding: 26px 22px;
         margin: 0 12px;
     }
-}
 
-/* ===== АДАПТИВ: ТЕЛЕФОНЫ ===== */
 @media (max-width: 768px) {
 
     .page {
@@ -1106,7 +1073,6 @@ body.service-page {
     }
 }
 
-/* ===== СОВСЕМ МАЛЕНЬКИЕ ЭКРАНЫ ===== */
 @media (max-width: 480px) {
 
     .page {
