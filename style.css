@@ -14,7 +14,6 @@ img {
     display: block;
 }
 
-/* ===== БАЗА ===== */
 
 * {
   box-sizing: border-box;
@@ -29,7 +28,6 @@ body {
   min-height: 100vh;
 }
 
-/* Звезды и туман позади всего */
 
 canvas#stars,
 .nebula {
@@ -38,7 +36,6 @@ canvas#stars,
   z-index: -2;
 }
 
-/* Общий контейнер страницы */
 
 .page {
   position: relative;
@@ -52,7 +49,6 @@ canvas#stars,
   box-shadow: 0 0 40px rgba(80, 60, 180, 0.55);
 }
 
-/* Заголовки */
 
 .title {
   font-size: 32px;
@@ -67,7 +63,6 @@ canvas#stars,
   margin-bottom: 24px;
 }
 
-/* Обычный текст */
 
 .page p {
   font-size: 15px;
@@ -75,8 +70,6 @@ canvas#stars,
   color: #ddd8ff;
   margin-bottom: 14px;
 }
-
-/* Ссылка "назад" */
 
 .back-link {
   display: inline-block;
@@ -90,7 +83,6 @@ canvas#stars,
   text-decoration: underline;
 }
 
-/* ===== ГЛАВНАЯ (index) — МЕНЮ ===== */
 
 .menu {
   display: flex;
@@ -115,7 +107,6 @@ canvas#stars,
   background: rgba(84, 65, 170, 0.5);
 }
 
-/* ===== СПИСОК УСЛУГ (consulting) ===== */
 
 .service-list {
   margin-top: 24px;
@@ -151,14 +142,12 @@ canvas#stars,
   color: #cbc4ff;
 }
 
-/* убираем стандартное оформление ссылок в карточках */
 .service-item a {
   color: inherit;
   text-decoration: none;
   display: block;
 }
 
-/* ===== СТРАНИЦЫ КОНКРЕТНЫХ УСЛУГ ===== */
 
 body.service-page {
   position: relative;
@@ -192,7 +181,6 @@ body.service-page::before {
   }
 }
 
-/* Привязка картинок к услугам */
 
 body.service-1::before  { background-image: url("images/SFVbGkHY8AQDkS8BPMiSMD-1200-80.jpg"); }
 body.service-2::before  { background-image: url("images/STScI-01GA6KKWG229B16K4Q38CH3BXS.png"); }
@@ -211,12 +199,10 @@ body.service-14::before { background-image: url("images/x25th-casa.webp"); }
 body.service-15::before { background-image: url("images/potw2506a.jpg"); }
 body.service-16::before { background-image: url("images/potw2506a.jpg"); }
 
-/* Доп. оформление текста внутри страниц услуг */
 
 .service-detail p {
   margin-bottom: 10px;
 }
-/* ========= ЧТОБЫ НЕ БЫЛО "СТЕНЫ ТЕКСТА" ВНУТРИ УСЛУГ ========= */
 
 body.service-page .service-detail {
   white-space: pre-line;   /* учитывает переводы строк, как ты их писала */
@@ -1154,4 +1140,11 @@ body.service-page {
         font-size: 16px;
         padding: 12px 10px;
     }
+.price-buttons {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center; /* это — центрирование */
 }
+
