@@ -1,3 +1,19 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
 /* ===== БАЗА ===== */
 
 * {
@@ -1010,4 +1026,132 @@ body.service-page {
 
 .back-btn:hover {
     text-decoration: underline;
+}
+/* ===== АДАПТИВ: ПЛАНШЕТЫ И НИЖЕ ===== */
+@media (max-width: 1024px) {
+
+    .page {
+        padding: 30px 24px;
+    }
+
+    .consulting-grid,
+    .workbook-grid,
+    .art-grid {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 18px;
+    }
+
+    .consult-card,
+    .workbook-card,
+    .art-card {
+        padding: 18px 16px;
+    }
+
+    .payment-card {
+        max-width: 540px;
+        padding: 26px 22px;
+        margin: 0 12px;
+    }
+}
+
+/* ===== АДАПТИВ: ТЕЛЕФОНЫ ===== */
+@media (max-width: 768px) {
+
+    .page {
+        padding: 24px 16px;
+    }
+
+    h1, .title, .payment-title {
+        font-size: 22px;
+        line-height: 1.2;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    .consulting-grid,
+    .workbook-grid,
+    .art-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .consult-card,
+    .workbook-card,
+    .art-card {
+        padding: 16px 14px;
+    }
+
+    .price-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .pay-btn,
+    .pay-btn.secondary {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .payment-page {
+        padding: 24px 10px;
+    }
+
+    .payment-card {
+        padding: 22px 18px;
+        border-radius: 18px;
+        margin: 0 auto;
+    }
+
+    .payment-info-line {
+        font-size: 14px;
+    }
+
+    .payment-footer {
+        font-size: 12px;
+    }
+
+    .pay-container {
+        padding: 24px 18px;
+        margin: 0 8px;
+    }
+}
+
+/* ===== СОВСЕМ МАЛЕНЬКИЕ ЭКРАНЫ ===== */
+@media (max-width: 480px) {
+
+    .page {
+        padding: 18px 12px;
+    }
+
+    h1, .title, .payment-title {
+        font-size: 20px;
+    }
+
+    .subtitle,
+    .payment-subtitle {
+        font-size: 13px;
+    }
+
+    .consult-card p,
+    .workbook-card p,
+    .art-card p {
+        font-size: 13px;
+    }
+
+    .btn-book,
+    .btn-subscribe,
+    .back-btn {
+        font-size: 13px;
+        padding: 8px 14px;
+    }
+
+    .pay-btn-big {
+        width: 100%;
+        font-size: 16px;
+        padding: 12px 10px;
+    }
 }
