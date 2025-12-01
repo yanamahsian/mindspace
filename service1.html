@@ -1,51 +1,62 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Консультация</title>
-    <link rel="stylesheet" href="style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-</head>
-
 <body class="service-page">
 <div class="bg"></div>
 
 <div class="page fade-in">
+
     <h1 class="title">Индивидуальные консультации</h1>
 
-    <p class="subtitle">
-        Базовая. Это не “поговорить”. Это работа уровня «разобраться один раз — и качественно».
-Внутри сессии:
-— Чёткое разоблачение иллюзий клиента
-— Разделение его личности и навязанных программ
-— Анализ стратегии мышления
-— Выявление саботажа и самообмана
-— Разбор текущего жизненного тупика
-— Построение новой логики решений
-— Ответ на вопрос: «Где ты сейчас» без эзотерики
-Это не терапия. Это архитектурная работа с мышлением.
-    </p>
+    <!-- КРАТКОЕ ОПИСАНИЕ -->
+    <div class="section">
+        <p class="subtitle">
+            Базовая. Это не “поговорить”. Это работа уровня «разобраться один раз — и качественно».
+        </p>
 
-    <h2 class="subtitle">Форматы работы</h2>
+        <ul class="text-block">
+            <li>Чёткое разоблачение иллюзий клиента</li>
+            <li>Разделение его личности и навязанных программ</li>
+            <li>Анализ стратегии мышления</li>
+            <li>Выявление саботажа и самообмана</li>
+            <li>Разбор текущего жизненного тупика</li>
+            <li>Построение новой логики решений</li>
+            <li>Ответ на вопрос: «Где ты сейчас» без эзотерики</li>
+        </ul>
 
-    <div class="service-detail">
-        <p>Формат 1 — Разовая сессия 1,5-2 часа - 800 €
-Формат 2 — Серия из 3 сессий (1 раз в 7–10 дней) - 2100 €</p>
+        <p class="subtitle">
+            Это не терапия. Это архитектурная работа с мышлением.
+        </p>
     </div>
 
-    <a href="consulting.html" class="back-link">← Назад к списку услуг</a>
-</div>
-   
-    <a href="payment.html" class="book-button">Забронировать консультацию</a>
+    <!-- ФОРМАТЫ -->
+    <h2 class="subtitle">Форматы работы</h2>
 
-    <div class="price-buttons">
-    <a href="payment.html?id=individ_single" class="pay-btn">
-        Оплатить «Разовая сессия» — 800 €
+    <div class="formats">
+
+        <div class="format-card">
+            <h3>Формат 1 — Разовая сессия</h3>
+            <p>1,5–2 часа</p>
+            <p class="price">Цена: 800 €</p>
+
+            <a href="payment.html?id=individ_single" class="pay-btn">
+                Оплатить 800 €
+            </a>
+        </div>
+
+        <div class="format-card">
+            <h3>Формат 2 — Серия из 3 сессий</h3>
+            <p>1 раз в 7–10 дней</p>
+            <p class="price">Цена: 2100 €</p>
+
+            <a href="payment.html?id=individ_series" class="pay-btn secondary">
+                Оплатить 2100 €
+            </a>
+        </div>
+
+    </div>
+
+    <a href="consulting.html" class="back-link">
+        ← Назад к списку услуг
     </a>
-    <a href="payment.html?id=individ_series" class="pay-btn secondary">
-        Оплатить «Серия из 3 сессий» — 2100 €
-    </a>
+
 </div>
 
 </body>
-</html>
