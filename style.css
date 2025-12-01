@@ -1202,3 +1202,105 @@ body.service-page {
     text-decoration: none;
     font-size: 16px;
 }
+
+.service-container {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 24px 10px 40px;
+    color: #e6e6f0;
+    line-height: 1.65;
+}
+
+.service-title {
+    font-size: 30px;
+    margin-bottom: 10px;
+    color: #ffffff;
+    letter-spacing: 0.04em;
+}
+
+.service-intro {
+    font-size: 17px;
+    color: #cfcfe8;
+    margin-bottom: 24px;
+}
+
+.service-section {
+    margin: 26px 0;
+    padding-left: 10px;
+    border-left: 1px solid rgba(255,255,255,0.14);
+}
+
+.service-section h2 {
+    margin-bottom: 8px;
+    color: #b8aaff;
+    font-size: 20px;
+}
+
+.service-section p {
+    margin: 0;
+}
+
+.price-block {
+    margin-top: 34px;
+}
+
+.price-block h2 {
+    font-size: 20px;
+    margin-bottom: 14px;
+    color: #d8d2ff;
+}
+
+.price-card {
+    background: rgba(20, 18, 40, 0.68);
+    padding: 16px 16px 18px;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+.price-card h3 {
+    font-size: 18px;
+    color: #ffffff;
+    margin-bottom: 6px;
+}
+
+.price-card p {
+    font-size: 14px;
+    color: #cfd0fb;
+}
+
+.price {
+    font-size: 16px;
+    margin-top: 8px;
+    margin-bottom: 10px;
+    color: #f1efff;
+}
+
+.pay-btn {
+    display: inline-block;
+    padding: 9px 18px;
+    background: linear-gradient(90deg, #5e4bff, #8a72ff);
+    border-radius: 999px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: 0.2s ease;
+}
+
+.pay-btn:hover {
+    background: linear-gradient(90deg, #7260ff, #9c86ff);
+}
+
+.back-btn {
+    display: inline-block;
+    margin-top: 28px;
+    color: #aaaaff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.back-btn:hover {
+    text-decoration: underline;
+}
