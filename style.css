@@ -1365,48 +1365,34 @@ body.service-page {
 .pay-btn.secondary:hover {
     background: #6a55dd;
 }
-/* ----- Боковое меню (основные стили) ----- */
+/* простое вертикальное меню внутри карточки */
+
 .side-menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 200px;
-    height: 100vh;
-    background: rgba(25, 20, 46, 0.7);
-    backdrop-filter: blur(10px);
-    padding: 30px 18px;
-    z-index: 99999;
-    border-right: 1px solid rgba(255,255,255,0.15);
+    display: flex;
+    flex-direction: column;      /* ссылки идут столбиком */
+    align-items: flex-start;     /* выравнивание по левому краю */
+    gap: 4px;
+    margin: 20px 0 0;
 }
 
 .side-menu a {
-    display: block;
-    color: #e6e6ff;
+    font-size: 14px;
+    color: #dfe6ff;
     text-decoration: none;
-    font-size: 17px;
-    margin-bottom: 16px;
-    padding: 8px 0;
-    transition: 0.2s ease;
+    opacity: 0.86;
+    padding: 2px 0;
+    letter-spacing: 0.03em;
+    transition: opacity 0.2s ease;
 }
 
 .side-menu a:hover {
-    color: #ffffff;
-    transform: translateX(4px);
+    opacity: 1;
 }
 
-/* Отступ для всех страниц, чтобы текст не уезжал под меню */
-.page {
-    margin-left: 230px;
-}
+/* на очень узких экранах чуть уменьшим шрифт */
 
-/* ----- Адаптив: если ширина экрана меньше 900px ----- */
-@media (max-width: 899px) {
-    .side-menu {
-        width: 160px;
-        padding: 22px 14px;
-    }
-
-    .page {
-        margin-left: 180px;
+@media (max-width: 480px) {
+    .side-menu a {
+        font-size: 13px;
     }
 }
