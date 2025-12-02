@@ -1438,3 +1438,16 @@ body.service-page {
         font-size: 15px;
     }
 }
+/* ===== ФУТЕР ===== */
+
+.footer {
+  width: 100%;
+  text-align: center;
+  padding: 22px 12px;
+  color: rgba(240, 240, 255, 0.75);
+  font-size: 15px;
+  margin-top: 60px;
+  margin-bottom: 20px;
+  letter-spacing: 0.4px;
+  line-height: 1.5;
+}
