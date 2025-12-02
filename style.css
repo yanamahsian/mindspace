@@ -1395,31 +1395,35 @@ body.service-page {
     .side-menu a {
         font-size: 13px;
     }
-}
-/* ===== ВЕРХНЕЕ МЕНЮ ===== */
+/* --- Верхнее вертикальное меню на главной --- */
 
 .top-nav {
-    margin-top: 24px;
-    display: flex;
-    flex-wrap: wrap;              /* чтобы ссылки могли переноситься */
-    justify-content: center;      /* центрируем */
-    gap: 10px 26px;               /* расстояние между ссылками */
+  margin-top: 26px;
+  display: flex;
+  flex-direction: column;      /* делаем список вертикальным */
+  align-items: flex-start;     /* выравниваем по левому краю */
+  gap: 6px;
 }
 
 .top-nav a {
-    color: #f2f2ff;
-    text-decoration: none;
-    font-size: 16px;
-    letter-spacing: 0.03em;
-    opacity: 0.88;
-    transition: opacity 0.2s ease, transform 0.2s ease;
+  font-size: 18px;
+  color: #f2f2ff;
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  padding: 2px 0;
+  transition: color 0.25s ease, transform 0.25s ease;
 }
 
 .top-nav a:hover {
-    opacity: 1;
-    transform: translateY(-1px);
+  color: #9dd6ff;
+  transform: translateX(3px);
 }
 
+/* на очень узких экранах немного уменьшаем */
+@media (max-width: 500px) {
+  .top-nav a {
+    font-size: 16px;
+  }
 /* На узких экранах — столбиком и чуть поменьше шрифт */
 
 @media (max-width: 600px) {
