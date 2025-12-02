@@ -1405,6 +1405,24 @@ body.service-page {
     transform: translateX(2px);
 }
 
+/* чтобы контент не залезал под меню */
+@media (min-width: 900px) {
+    .page {
+        margin-left: 230px;
+    }
+}
+
+@media (max-width: 899px) {
+    .side-menu {
+        width: 180px;
+        padding: 20px 14px;
+    }
+    .page {
+        margin-left: 190px;
+    }
+
+}
+
 /* Чтобы контент не налезал на меню на больших экранах */
 @media (min-width: 900px) {
     .page {
