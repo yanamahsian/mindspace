@@ -1396,3 +1396,41 @@ body.service-page {
         font-size: 13px;
     }
 }
+/* ===== ВЕРХНЕЕ МЕНЮ ===== */
+
+.top-nav {
+    margin-top: 24px;
+    display: flex;
+    flex-wrap: wrap;              /* чтобы ссылки могли переноситься */
+    justify-content: center;      /* центрируем */
+    gap: 10px 26px;               /* расстояние между ссылками */
+}
+
+.top-nav a {
+    color: #f2f2ff;
+    text-decoration: none;
+    font-size: 16px;
+    letter-spacing: 0.03em;
+    opacity: 0.88;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.top-nav a:hover {
+    opacity: 1;
+    transform: translateY(-1px);
+}
+
+/* На узких экранах — столбиком и чуть поменьше шрифт */
+
+@media (max-width: 600px) {
+    .top-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+        margin-top: 20px;
+    }
+
+    .top-nav a {
+        font-size: 15px;
+    }
+}
