@@ -1780,4 +1780,93 @@ body.service-page {
         font-size: 14px;
     }
 }
+/* ---------- ГЛАВНАЯ СТРАНИЦА ---------- */
+
+.home-page .page {
+  max-width: 960px;
+  margin: 60px auto 40px;
+  padding: 32px 40px 40px;
+}
+
+/* Заголовок и подзаголовок */
+.home-page .title {
+  text-align: left;
+}
+
+.home-page .subtitle {
+  margin-top: 8px;
+  text-align: left;
+}
+
+/* Меню */
+.main-nav {
+  margin-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+}
+
+.main-nav a {
+  color: #e4e5ff;
+  text-decoration: none;
+  font-size: 0.98rem;
+  position: relative;
+}
+
+.main-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 1px;
+  background: #9fd3ff;
+  transition: width 0.25s ease;
+}
+
+.main-nav a:hover::after,
+.main-nav a.active::after {
+  width: 100%;
+}
+
+/* Текст манифеста */
+.manifest {
+  margin-top: 26px;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  text-align: left;
+}
+
+.manifest p {
+  margin: 0 0 8px;
+}
+
+.manifest-line {
+  margin-top: 14px;
+  opacity: 0.9;
+}
+
+/* Футер под картой, а не посреди экрана */
+.footer {
+  text-align: center;
+  margin: 30px 0 16px;
+  font-size: 0.85rem;
+  color: #cfd3ff;
+}
+
+/* На очень узких экранах слегка поджимаем всё, но вёрстку не ломаем */
+@media (max-width: 600px) {
+  .home-page .page {
+    margin: 40px 14px 24px;
+    padding: 22px 18px 26px;
+  }
+
+  .main-nav {
+    gap: 6px 14px;
+  }
+
+  .manifest {
+    font-size: 0.95rem;
+  }
+}
 
