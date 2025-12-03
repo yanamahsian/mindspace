@@ -1,98 +1,58 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8" />
-    <title>Порог сознания — Mindspace</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description"
-          content="Mindspace — пространство, где сознание возвращается домой. Глубинные консультации, карты воплощения, алхимия сознания и тела." />
-    <link rel="stylesheet" href="style.css" />
-    <script src="script.js" defer></script>
+  <meta charset="UTF-8" />
+  <title>Порог сознания — Mindspace</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+        content="Mindspace — пространство для тех, кому тесно в человеческой игре. Глубинные консультации, карты воплощения, алхимия сознания и тела." />
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
 </head>
-<body>
 
-    <!-- космический фон, как и был -->
-    <canvas id="stars"></canvas>
-    <div class="nebula"></div>
+<body class="home-body">
+  <!-- звёзды и туманность -->
+  <canvas id="stars"></canvas>
+  <div class="nebula"></div>
 
-    <!-- ШАПКА + КНОПКА-МЕНЮ -->
-    <header class="site-header">
-        <div class="logo-block">
-            <h1 class="title">Порог сознания</h1>
-            <p class="subtitle">
-                Здесь — вход. Здесь — место, где твой внутренний мир обретает форму.
+  <!-- основная карточка -->
+  <main class="home-card fade-in">
+    <h1 class="home-title">Порог сознания</h1>
+    <p class="home-subtitle">
+      Здесь — вход. Здесь — место, где твой внутренний мир обретает форму.
+    </p>
 
-            </p>
-        </div>
-
-        <button class="burger" aria-label="Открыть меню">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-    </header>
-    <div class="page">
-     <div class="manifest">
-  <p>Пространство для тех, кто не совпадает с этим миром и уверен, что оказался не там.<br>
-  Для тех, кто видит суть и людей, которым неинтересно ничего за пределами их быта.<br>
-  Для тех, кто почти нащупал ключ к своей жизни, но не понимает, как его повернуть.<br>
-  Для тех, кто чувствует, что он больше, чем тело и чем вселенная, но боится признать это перед собой.<br>
-  Для тех, кто себя вспомнил, но не нашёл ответ на вопрос: «Зачем я здесь на этот раз?»<br>
-  Для тех, кто в человеческом шуме и мраке потерял свою ось и не может вернуть её в одиночку.<br>
-  Для тех, кто полностью себя вспомнил и хочет синхронизировать свою природу и материальный мир, чтобы воплотить то, что должен.<br>
-  Для любого, кому нужна рука, ведущая к свободе.</p>
-
-  <p style="margin-top:18px; opacity:0.9;">
-    Здесь — грань, за которой начинается бесконечность свободного бытия.
-  </p>
-</div>       
-        
-    <!-- ВЫЕЗЖАЮЩЕЕ МЕНЮ -->
-    <nav class="mobile-menu">
-        <button class="menu-close" aria-label="Закрыть меню">×</button>
-        <ul>
-            <li><a href="index.html">Главная</a></li>
-            <li><a href="mypath.html">Мой путь</a></li>
-            <li><a href="consulting.html">Консультации</a></li>
-            <li><a href="workbooks.html">Воркбуки</a></li>
-            <li><a href="art.html">Арт</a></li>
-            <li><a href="aroma.html">Ароматы</a></li>
-            <li><a href="essays.html">Эссе</a></li>
-            <li><a href="contacts.html">Контакты</a></li>
-        </ul>
+    <!-- аккуратное меню -->
+    <nav class="home-nav">
+      <a href="index.html" class="active">Главная</a>
+      <a href="mypath.html">Мой путь</a>
+      <a href="consulting.html">Консультации</a>
+      <a href="workbooks.html">Воркбуки</a>
+      <a href="art.html">Арт</a>
+      <a href="aroma.html">Ароматы</a>
+      <a href="essays.html">Эссе</a>
+      <a href="contacts.html">Контакты</a>
     </nav>
 
-    <!-- пока просто фон и пространство для будущих блоков -->
-    <main class="index-main"></main>
+    <!-- манифест -->
+    <section class="manifest">
+      <p>Пространство для тех, кто не совпадает с этим миром и уверен, что оказался не там.</p>
+      <p>Для тех, кто видит суть и людей, которым неинтересно ничего за пределами их быта.</p>
+      <p>Для тех, кто почти нащупал ключ к своей жизни, но не понимает, как его повернуть.</p>
+      <p>Для тех, кто чувствует, что он больше, чем тело и чем вселенная, но боится признать это перед собой.</p>
+      <p>Для тех, кто себя вспомнил, но не нашёл ответ на вопрос: «Зачем я здесь на этот раз?»</p>
+      <p>Для тех, кто в человеческом шуме и мраке потерял свою ось и не может вернуть её в одиночку.</p>
+      <p>Для тех, кто полностью себя вспомнил и хочет синхронизировать свою природу и материальный мир, чтобы воплотить то, что должен.</p>
+      <p>Для любого, кому нужна рука, ведущая к свободе.</p>
 
-    <!-- ФУТЕР ВНИЗУ -->
-    <footer class="footer">
-        <p>© 2025 Mindspace. Всё, что здесь, — для тех, кому тесно в человеческой игре.</p>
+      <p style="margin-top: 18px; opacity: 0.9;">
+        Здесь — грань, за которой начинается бесконечность свободного бытия.
+      </p>
+    </section>
+
+    <footer class="home-footer">
+      © 2025 Mindspace. Всё, что здесь, — для тех, кому тесно в человеческой игре.
     </footer>
-
-    <!-- маленький скрипт для бургера, чтобы не трогать script.js -->
-    <script>
-        const burger = document.querySelector('.burger');
-        const menu = document.querySelector('.mobile-menu');
-        const closeBtn = document.querySelector('.menu-close');
-
-        function openMenu() {
-            menu.classList.add('open');
-        }
-
-        function closeMenu() {
-            menu.classList.remove('open');
-        }
-
-        burger.addEventListener('click', openMenu);
-        closeBtn.addEventListener('click', closeMenu);
-
-        // Клик по фону меню — тоже закрывает
-        menu.addEventListener('click', (e) => {
-            if (e.target === menu) {
-                closeMenu();
-            }
-        });
-    </script>
+  </main>
 </body>
 </html>
