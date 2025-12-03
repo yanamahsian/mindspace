@@ -1652,5 +1652,16 @@ body.service-page {
     opacity: 1;
     transform: translateY(0);
   }
-    
+    /* ===== ДЫХАНИЕ КОСМОСА ===== */
+
+#stars {
+  animation: spaceBreath 18s ease-in-out infinite;
+  opacity: 0.85;
 }
+
+@keyframes spaceBreath {
+  0% { opacity: 0.82; transform: scale(1); }
+  50% { opacity: 0.94; transform: scale(1.03); }
+  100% { opacity: 0.82; transform: scale(1); }
+}
+
