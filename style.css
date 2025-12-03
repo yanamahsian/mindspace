@@ -1451,3 +1451,148 @@ body.service-page {
   letter-spacing: 0.4px;
   line-height: 1.5;
 }
+/* ───── ГЛАВНАЯ: ШАПКА, БУРГЕР, МЕНЮ, ФУТЕР ───── */
+
+.site-header {
+    position: relative;
+    max-width: 900px;
+    margin: 60px auto 40px;
+    padding: 32px 32px 28px;
+    border-radius: 24px;
+    background: rgba(8, 10, 26, 0.94);
+    box-shadow: 0 0 45px rgba(120, 150, 255, 0.45);
+    backdrop-filter: blur(14px);
+}
+
+.logo-block {
+    max-width: 640px;
+}
+
+.site-header .title {
+    margin: 0 0 8px;
+    text-align: left;
+}
+
+.site-header .subtitle {
+    margin: 0;
+    text-align: left;
+    color: #d6daff;
+}
+
+/* Кнопка-бургер */
+
+.burger {
+    position: absolute;
+    top: 22px;
+    right: 24px;
+    width: 32px;
+    height: 26px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.burger span {
+    display: block;
+    height: 3px;
+    border-radius: 999px;
+    background: #f5f7ff;
+    box-shadow: 0 0 6px rgba(160, 190, 255, 0.9);
+}
+
+/* Выезжающее меню */
+
+.mobile-menu {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at top, rgba(40, 60, 130, 0.96), rgba(4, 6, 20, 0.98));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease-out;
+    z-index: 50;
+}
+
+.mobile-menu.open {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.mobile-menu ul {
+    list-style: none;
+    padding: 28px 36px;
+    margin: 0;
+    border-radius: 24px;
+    background: rgba(4, 6, 20, 0.9);
+    box-shadow: 0 0 40px rgba(110, 140, 255, 0.6);
+    text-align: center;
+}
+
+.mobile-menu li + li {
+    margin-top: 14px;
+}
+
+.mobile-menu a {
+    font-size: 1.1rem;
+    color: #f5f6ff;
+    text-decoration: none;
+}
+
+.mobile-menu a:hover {
+    color: #9cc4ff;
+}
+
+/* Кнопка закрытия меню */
+
+.menu-close {
+    position: absolute;
+    top: 18px;
+    right: 24px;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    border: 1px solid rgba(220, 230, 255, 0.6);
+    background: rgba(5, 8, 26, 0.9);
+    color: #f8f8ff;
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+/* Основной блок и футер */
+
+.index-main {
+    min-height: 40vh;
+}
+
+.footer {
+    text-align: center;
+    padding: 24px 16px 32px;
+    color: #d1d4ff;
+    font-size: 0.86rem;
+    text-shadow: 0 0 8px rgba(8, 10, 26, 0.85);
+}
+
+/* Адаптация под телефон */
+
+@media (max-width: 640px) {
+    .site-header {
+        margin: 40px 16px 24px;
+        padding: 24px 20px 22px;
+    }
+
+    .site-header .title {
+        font-size: 1.4rem;
+    }
+
+    .site-header .subtitle {
+        font-size: 0.95rem;
+    }
+}
