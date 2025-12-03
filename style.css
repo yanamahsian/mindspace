@@ -1664,4 +1664,120 @@ body.service-page {
   50% { opacity: 0.94; transform: scale(1.03); }
   100% { opacity: 0.82; transform: scale(1); }
 }
+/* ===== ГЛАВНАЯ СТРАНИЦА ===== */
+
+.home-body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: #e7ecff;
+    overflow-x: hidden;
+}
+
+/* основная карточка на главной */
+.home-card {
+    position: relative;
+    max-width: 920px;
+    margin: 70px auto 80px auto;
+    padding: 32px 40px 28px;
+    background: radial-gradient(circle at top left, rgba(120, 140, 255, 0.2), transparent 55%)
+                rgba(2, 4, 18, 0.96);
+    border-radius: 30px;
+    box-shadow: 0 28px 60px rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(22px);
+}
+
+/* заголовок и подзаголовок */
+.home-title {
+    font-size: 32px;
+    letter-spacing: 0.03em;
+    text-align: center;
+    margin: 0 0 10px;
+}
+
+.home-subtitle {
+    font-size: 16px;
+    text-align: center;
+    margin: 0 0 22px;
+    color: #d7ddff;
+}
+
+/* меню на главной */
+.home-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 22px;
+    margin-bottom: 22px;
+    font-size: 15px;
+}
+
+.home-nav a {
+    color: #e5e8ff;
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 2px;
+}
+
+.home-nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 1px;
+    background: linear-gradient(90deg, #9fd0ff, #f7b6ff);
+    transition: width 0.25s ease;
+}
+
+.home-nav a:hover::after,
+.home-nav a.active::after {
+    width: 100%;
+}
+
+/* текст манифеста */
+.manifest {
+    margin-top: 8px;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #d3d8ff;
+}
+
+.manifest p + p {
+    margin-top: 6px;
+}
+
+/* футер */
+.home-footer {
+    margin-top: 24px;
+    font-size: 13px;
+    text-align: center;
+    color: #a4acd9;
+    opacity: 0.9;
+}
+
+/* адаптация для мобильных */
+@media (max-width: 768px) {
+    .home-card {
+        margin: 40px 14px 50px;
+        padding: 22px 18px 20px;
+        border-radius: 22px;
+    }
+
+    .home-title {
+        font-size: 24px;
+    }
+
+    .home-subtitle {
+        font-size: 14px;
+    }
+
+    .home-nav {
+        gap: 8px 18px;
+        font-size: 14px;
+    }
+
+    .manifest {
+        font-size: 14px;
+    }
+}
 
