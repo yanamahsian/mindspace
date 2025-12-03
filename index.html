@@ -1,40 +1,82 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <title>Порог сознания — Mindspace</title>
-  <meta name="description"
-        content="Глубинные консультации, карты воплощения, алхимия сознания и тела. Пространство для тех, кому тесно в человеческой игре." />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
-  <script src="script.js" defer></script>
+    <meta charset="UTF-8" />
+    <title>Порог сознания — Mindspace</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+          content="Mindspace — пространство, где сознание возвращается домой. Глубинные консультации, карты воплощения, алхимия сознания и тела." />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
 </head>
-
 <body>
-  <canvas id="stars"></canvas>
-  <div class="nebula"></div>
 
-  <div class="page">
-    <h1 class="title">Порог сознания</h1>
-    <p class="subtitle">
-      Здесь — вход. Здесь — место, где твой внутренний мир обретает форму.
-    </p>
+    <!-- космический фон, как и был -->
+    <canvas id="stars"></canvas>
+    <div class="nebula"></div>
 
-    <!-- вертикальное меню внутри блока -->
-    <nav class="top-nav">
-      <a href="index.html">Главная</a>
-      <a href="mypath.html">Мой путь</a>
-      <a href="consulting.html">Консультации</a>
-      <a href="workbooks.html">Воркбуки</a>
-      <a href="art.html">Арт</a>
-      <a href="aroma.html">Ароматы</a>
-      <a href="essays.html">Эссе</a>
-      <a href="contacts.html">Контакты</a>
+    <!-- ШАПКА + КНОПКА-МЕНЮ -->
+    <header class="site-header">
+        <div class="logo-block">
+            <h1 class="title">Порог сознания</h1>
+            <p class="subtitle">
+                Здесь — вход. Здесь — место, где твой внутренний мир обретает форму.
+            </p>
+        </div>
+
+        <button class="burger" aria-label="Открыть меню">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <!-- ВЫЕЗЖАЮЩЕЕ МЕНЮ -->
+    <nav class="mobile-menu">
+        <button class="menu-close" aria-label="Закрыть меню">×</button>
+        <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="mypath.html">Мой путь</a></li>
+            <li><a href="consulting.html">Консультации</a></li>
+            <li><a href="workbooks.html">Воркбуки</a></li>
+            <li><a href="art.html">Арт</a></li>
+            <li><a href="aroma.html">Ароматы</a></li>
+            <li><a href="essays.html">Эссе</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+        </ul>
     </nav>
-  </div>
 
-  <footer class="footer">
-    <p>© 2025 Mindspace. Всё, что здесь, — для тех, кому тесно в человеческой игре.</p>
-  </footer>
+    <!-- пока просто фон и пространство для будущих блоков -->
+    <main class="index-main"></main>
+
+    <!-- ФУТЕР ВНИЗУ -->
+    <footer class="footer">
+        <p>© 2025 Mindspace. Всё, что здесь, — для тех, кому тесно в человеческой игре.</p>
+    </footer>
+
+    <!-- маленький скрипт для бургера, чтобы не трогать script.js -->
+    <script>
+        const burger = document.querySelector('.burger');
+        const menu = document.querySelector('.mobile-menu');
+        const closeBtn = document.querySelector('.menu-close');
+
+        function openMenu() {
+            menu.classList.add('open');
+        }
+
+        function closeMenu() {
+            menu.classList.remove('open');
+        }
+
+        burger.addEventListener('click', openMenu);
+        closeBtn.addEventListener('click', closeMenu);
+
+        // Клик по фону меню — тоже закрывает
+        menu.addEventListener('click', (e) => {
+            if (e.target === menu) {
+                closeMenu();
+            }
+        });
+    </script>
 </body>
 </html>
