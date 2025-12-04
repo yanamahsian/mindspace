@@ -595,3 +595,87 @@ body {
     line-height: 1.5;
     font-size: 15px;
 }
+/* Страница эссе */
+
+.essay-page {
+    max-width: 900px;
+    margin: 40px auto 40px;
+}
+
+/* Красный мёртвый мир сверху */
+
+.essay-hero {
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    min-height: 220px;
+    display: flex;
+    align-items: flex-end;
+    box-shadow: 0 0 32px rgba(0, 0, 0, 0.65);
+}
+
+.essay-hero-red {
+    background-image:
+        linear-gradient(to bottom, rgba(5, 0, 0, 0.2), rgba(0, 0, 0, 0.9)),
+        url("images/weic2209a.jpg"); /* если картинка лежит в другой папке – поправишь путь */
+    background-size: cover;
+    background-position: center;
+}
+
+.essay-hero-inner {
+    padding: 26px 28px 30px;
+}
+
+.essay-main-title {
+    margin: 0 0 10px 0;
+    font-size: 26px;
+    line-height: 1.25;
+    color: #ffffff;
+    letter-spacing: 0.04em;
+    text-transform: none;
+}
+
+.essay-subtitle {
+    margin: 0;
+    color: #f3d0d0;
+    font-size: 15px;
+    opacity: 0.95;
+}
+
+/* Тело эссе */
+
+.essay-body {
+    background: rgba(18, 18, 30, 0.8);
+    border-radius: 16px;
+    padding: 26px 28px 30px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 26px rgba(0, 0, 0, 0.7);
+}
+
+.essay-body p {
+    color: #e1e1f0;
+    line-height: 1.6;
+    margin: 0 0 16px 0;
+    font-size: 15px;
+}
+
+.essay-body p:last-child {
+    margin-bottom: 0;
+}
+
+/* Ссылка из списка эссе (если будешь делать) */
+
+.essay-link-title {
+    color: #ffffff;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    padding-bottom: 2px;
+    transition: 0.25s;
+}
+
+.essay-link-title:hover {
+    color: #ffb3b3;
+    border-bottom-color: rgba(255, 179, 179, 0.8);
+}
