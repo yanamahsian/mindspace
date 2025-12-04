@@ -531,4 +531,28 @@ body {
   .btn-row {
     gap: 8px;
   }
+ }
+.back-btn-container {
+    text-align: center;
+    margin: 20px 0 50px;
+}
+
+.back-btn {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    padding: 10px 22px;
+    border-radius: 8px;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 0 18px rgba(0, 0, 0, 0.6);
+    transition: 0.25s ease;
+}
+
+.back-btn:hover {
+    background: rgba(255, 255, 255, 0.14);
+    border-color: rgba(255, 255, 255, 0.55);
 }
