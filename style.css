@@ -556,3 +556,42 @@ body {
     background: rgba(255, 255, 255, 0.14);
     border-color: rgba(255, 255, 255, 0.55);
 }
+/* Раздел эссе */
+.essay-info {
+    background: rgba(20, 20, 35, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 26px 32px;
+    border-radius: 14px;
+    backdrop-filter: blur(10px);
+    margin-bottom: 40px;
+    line-height: 1.55;
+    color: #d6d6e8;
+}
+
+/* Анонс эссе */
+.essay-preview {
+    background: rgba(30, 30, 45, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 26px 32px;
+    border-radius: 14px;
+    backdrop-filter: blur(10px);
+}
+
+.essay-preview h2 {
+    margin: 0 0 12px 0;
+    font-size: 22px;
+    color: #ffffff;
+}
+
+.preview-title {
+    font-size: 20px;
+    margin: 6px 0 10px 0;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.preview-note {
+    color: #c8c8dc;
+    line-height: 1.5;
+    font-size: 15px;
+}
