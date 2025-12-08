@@ -1,38 +1,118 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AN.KI</title>
 
 <style>
-    body {
-        margin: 0;
-        padding: 0;
-        background-color: #000;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
+  :root {
+    --bg: #000000;
+    --text: #e5dec4;
+    --muted: #8f8370;
+    --gold: #c3a86d;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, sans-serif;
+    line-height: 1.5;
+  }
+
+  .container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 30px 20px 100px;
+  }
+
+  /* ЛОГОТИП */
+  .anki-logo-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 60px 0 40px;
+  }
+
+  .anki-logo {
+    width: 300px;
+    max-width: 60vw;
+    height: auto;
+    opacity: 0;
+    animation: ankiReveal 2s ease-out forwards;
+  }
+
+  @keyframes ankiReveal {
+    0% { opacity: 0; filter: blur(10px); transform: translateY(10px); }
+    100% { opacity: 1; filter: blur(0); transform: translateY(0); }
+  }
+
+  /* СЕКЦИИ ТЕКСТА */
+  section {
+    padding: 40px 0;
+  }
+
+  section + section {
+    border-top: 1px solid rgba(195,168,109,0.25);
+  }
+
+  h1, h2, h3 {
+    margin: 0 0 16px;
+    padding: 0;
+    font-weight: 400;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  p {
+    margin: 0 0 14px;
+    font-size: 16px;
+  }
+
+  @media(max-width: 768px) {
+    .anki-logo-wrapper {
+      padding: 40px 0 20px;
     }
 
-    img.logo {
-        width: 420px; /* БОЛЬШЕ, главное */
-        max-width: 80vw; /* адаптация для телефонов */
-        opacity: 0;
-        animation: fadeIn 3s ease forwards;
+    section {
+      padding: 30px 0;
     }
+  }
 
-    @keyframes fadeIn {
-        0% { opacity: 0; filter: blur(12px); transform: scale(0.92); }
-        100% { opacity: 1; filter: blur(0); transform: scale(1); }
-    }
 </style>
-
 </head>
+
 <body>
+  <div class="container">
 
-<img src="AnKi logo.png" class="logo" alt="AN.KI">
+    <!-- 🔱 ЛОГОТИП ВСТРОЕН -->
+    <div class="anki-logo-wrapper">
+      <img src="anki-logo.png" class="anki-logo" alt="AN.KI">
+    </div>
 
+    <!-- 🔳 СЕКЦИИ. НИЧЕГО НЕ МЕНЯЙ. ПОТОМ ПРОСТО ЗАПОЛНИШЬ ТЕКСТОМ -->
+    <section>
+      <h1>Раздел 1</h1>
+      <p>Твой текст здесь. Можешь потом просто заменить это на свой.</p>
+    </section>
+
+    <section>
+      <h2>Раздел 2</h2>
+      <p>Твой текст здесь. Можешь потом просто заменить это на свой.</p>
+    </section>
+
+    <section>
+      <h2>Раздел 3</h2>
+      <p>Твой текст здесь. Можешь потом просто заменить это на свой.</p>
+    </section>
+
+  </div>
 </body>
 </html>
