@@ -752,3 +752,65 @@ body {
   background: rgba(255, 255, 255, 0.14);
   border-color: rgba(255, 255, 255, 0.6);
 }
+/* --- AN.KI: сакральное дыхание и золото --- */
+
+/* Цветовые акценты */
+.anki-page .title,
+.anki-page h2,
+.anki-page strong {
+  color: #c8a86e; /* глубокое золото */
+  text-shadow: 0 0 18px rgba(200,168,110,0.25);
+}
+
+/* Тонкие линии подчёркивания */
+.anki-page h2 {
+  position: relative;
+  margin-top: 26px;
+  margin-bottom: 14px;
+}
+
+.anki-page h2::after {
+  content: "";
+  display: block;
+  width: 62px;
+  height: 1px;
+  background: linear-gradient(90deg, #c8a86e, rgba(200,168,110,0));
+  margin-top: 6px;
+}
+
+/* Мягкое дыхание блока текста */
+.anki-page .manifest {
+  animation: ankiBreath 8s ease-in-out infinite;
+}
+
+@keyframes ankiBreath {
+  0%   { opacity: 0.86; filter: blur(0px); }
+  50%  { opacity: 1;    filter: blur(0.5px); }
+  100% { opacity: 0.86; filter: blur(0px); }
+}
+
+/* Мягкое дыхание золотого логотипа */
+.anki-logo {
+  animation: ankiPulse 7s ease-in-out infinite;
+  filter: drop-shadow(0 0 16px rgba(200,168,110,0.28));
+}
+
+@keyframes ankiPulse {
+  0%   { opacity: 0.85; transform: translateY(0); }
+  50%  { opacity: 1;    transform: translateY(-2px); }
+  100% { opacity: 0.85; transform: translateY(0); }
+}
+
+/* Священная атмосфера страницы (еще глубже и теплее) */
+.anki-page .page {
+  background: rgba(7, 10, 22, 0.92);
+  box-shadow:
+    0 0 0 1px rgba(200,168,110,0.1),
+    0 18px 50px rgba(0, 0, 0, 0.8),
+    0 0 120px rgba(200,168,110,0.2);
+}
+
+/* Золотые маркеры списков */
+.anki-page ul li::marker {
+  color: #c8a86e;
+}
