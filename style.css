@@ -859,3 +859,11 @@ body {
     font-size: 14px;
     opacity: 0.9;
 }
+/* --- Исправление и сакральное свечение логотипа на странице Об учении --- */
+.anki-page .anki-logo {
+    max-width: 120px;
+    height: auto;
+    opacity: 0.95;
+    margin-bottom: 6px;
+    filter: drop-shadow(0 0 12px rgba(200,168,110,0.28)); /* золотое дыхание */
+}
