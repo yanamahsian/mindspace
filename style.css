@@ -814,3 +814,48 @@ body {
 .anki-page ul li::marker {
   color: #c8a86e;
 }
+/* --- Эссе: сакральная золотая шапка вместо картинки --- */
+
+.essay-header {
+    position: relative;
+    border-radius: 18px;
+    margin-bottom: 30px;
+    padding: 22px 26px 24px;
+    background:
+        radial-gradient(circle at 0 0, rgba(200,168,110,0.18), transparent 60%),
+        rgba(8, 10, 26, 0.96);
+    box-shadow:
+        0 0 0 1px rgba(200,168,110,0.18),
+        0 18px 40px rgba(0, 0, 0, 0.85),
+        0 0 80px rgba(200,168,110,0.2);
+}
+
+.essay-header-gold {
+    /* запасной хук, если захочешь потом варьировать стили разных эссе */
+}
+
+.essay-header-inner {
+    position: relative;
+}
+
+.essay-header-line {
+    width: 72px;
+    height: 2px;
+    background: linear-gradient(90deg, #c8a86e, rgba(200,168,110,0));
+    margin-bottom: 14px;
+    opacity: 0.9;
+}
+
+/* Чуть усилим ощущение "драгоценности" заголовка эссе */
+.essay-page .essay-main-title {
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-size: 22px;
+    text-shadow: 0 0 18px rgba(200,168,110,0.35);
+}
+
+.essay-page .essay-subtitle {
+    color: #e6dcc3;
+    font-size: 14px;
+    opacity: 0.9;
+}
