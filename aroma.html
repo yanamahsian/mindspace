@@ -2,120 +2,102 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8" />
-    <title>Ароматы</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Ароматы — Mindspace</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
 </head>
 
 <body>
+
     <!-- Боковое меню -->
-   <nav class="top-nav">
-    <a href="index.html">Главная</a>
-    <a href="mypath.html">Мой путь</a>
-    <a href="consulting.html">Консультации</a>
-    <a href="workbooks.html">Воркбуки</a>
-    <a href="art.html">Арт</a>
-    <a href="aroma.html">Ароматы</a>
-    <a href="essays.html">Эссе</a>
-    <a href="contacts.html">Контакты</a>
-</nav>
+    <nav class="top-nav">
+        <a href="index.html">Главная</a>
+        <a href="mypath.html">Мой путь</a>
+        <a href="consulting.html">Консультации</a>
+        <a href="workbooks.html">Воркбуки</a>
+        <a href="art.html">Арт</a>
+        <a href="aroma.html">Ароматы</a>
+        <a href="essays.html">Эссе</a>
+        <a href="contacts.html">Контакты</a>
+    </nav>
 
-
-    <!-- Всё, что уже было: космический фон -->
+    <!-- Космический фон -->
     <canvas id="stars"></canvas>
     <div class="nebula"></div>
 
-    <!-- Страница контента, как была -->
-    <div class="page fade-in" style="max-width: 980px; margin: 40px auto; padding: 40px;">
+    <div class="page fade-in" style="max-width: 900px; margin: 40px auto; padding: 40px;">
 
-    <h1 class="title">Ароматы</h1>
+        <h1 class="title">Ароматы</h1>
+        <p class="subtitle" style="margin-bottom: 22px;">
+            Аромат как вход в состояние сознания.  
+        </p>
 
-    <p class="subtitle" style="margin-bottom: 18px;">
-        Здесь появятся ароматы как самостоятельные миры.  
-        Не «парфюм», а концентрации состояний, собранные в физическую форму.
-    </p>
+        <div class="panel-grid">
 
-    <p style="color:#c7c7dd; margin-bottom: 26px;">
-        Сейчас это пространство в стадии формировки.  
-        <span style="opacity:0.85;">Все ароматы находятся в статусе: «концепт in progress».</span>
-    </p>
-
-    <div class="aroma-grid">
-
-        <!-- Аромат 1 -->
-        <article class="aroma-card">
-            <div class="aroma-bottle bottle-1">
-                <span class="aroma-label">No.1</span>
+            <!-- Панель 1 -->
+            <div class="panel">
+                <h2>Аромат как ключ к измерению</h2>
+                <p class="panel-sub">
+                    Каждый аромат — это не парфюм, а врата: настройка сознания, сдвиг положения в отношении мира,
+                    способ ощутить себя иначе.
+                </p>
+                <p class="panel-note">
+                    Здесь нет идей изменённых состояний через вещества.  
+                    Только сознание, тело и форма запаха, которая соединяет их мягко и точно.
+                </p>
             </div>
-            <h2>Тело тишины</h2>
-            <p class="aroma-status">
-                Концепт в разработке. Аромат для состояния внутренней тишины и выключения шума мира.
-            </p>
-        </article>
 
-        <!-- Аромат 2 -->
-        <article class="aroma-card">
-            <div class="aroma-bottle bottle-2">
-                <span class="aroma-label">No.2</span>
+            <!-- Панель 2 -->
+            <div class="panel">
+                <h2>Индивидуальное создание аромата и флакона</h2>
+                <p class="panel-sub">
+                    Аромат создаётся лично под вас. Формула рождается только под одного человека и не повторяется.
+                </p>
+                <p class="panel-note">
+                    Флакон — это отдельный артефакт, индивидуальная форма:  
+                    смола, свет, структура, соответствующая вашему состоянию.  
+                    Он создаётся вручную и существует в единственном экземпляре.
+                </p>
             </div>
-            <h2>Сознание вне системы</h2>
-            <p class="aroma-status">
-                Концепт в разработке. Формируется база запаха «внешнего наблюдателя».
-            </p>
-        </article>
 
-        <!-- Аромат 3 -->
-        <article class="aroma-card">
-            <div class="aroma-bottle bottle-3">
-                <span class="aroma-label">No.3</span>
-            </div>
-            <h2>Ледяное ядро</h2>
-            <p class="aroma-status">
-                Концепт в разработке. Аромат холода, ясности и дистанции от человеческой суеты.
-            </p>
-        </article>
+            <!-- Панель 3 — Цены -->
+            <div class="panel">
+                <h2>Стоимость</h2>
+                <p class="panel-sub">
+                    Создание личного аромата-состояния
+                    Это настройка сознания + создание структуры
+                    <span style="color:#e4e4ff; opacity:0.95;">— 480–620 €</span>
+                </p>
+                <p class="panel-sub">
+                    Создание индивидуального флакона-артефакта
+                    Это объект, созданный с нуля специально для вас, а не просто флакон
+                    <span style="color:#e4e4ff; opacity:0.95;">— 320–900 €</span>
+                </p>
+                <p class="panel-sub">
+                    Повторное наполнение (refill)
+                    (повторное создание той же формулы)
+                    <span style="color:#e4e4ff; opacity:0.95;">— 260–380 €</span>
+                </p>
 
-        <!-- Аромат 4 -->
-        <article class="aroma-card">
-            <div class="aroma-bottle bottle-4">
-                <span class="aroma-label">No.4</span>
+                <p class="panel-note" style="margin-top: 12px;">
+                   Это не парфюмерия, созданная на заказ индивидуально. 
+                    Это работа с состоянием, сознанием и формой, которую оно принимает в материи посредсвом аромата.
+                    Аромат - родная гавань вашего сознания.
+                </p>
             </div>
-            <h2>Глубина созвездий</h2>
-            <p class="aroma-status">
-                Концепт в разработке. Медленный темный аромат для погружения в собственное пространство.
-            </p>
-        </article>
 
-        <!-- Аромат 5 -->
-        <article class="aroma-card">
-            <div class="aroma-bottle bottle-5">
-                <span class="aroma-label">No.5</span>
-            </div>
-            <h2>Ночной замок</h2>
-            <p class="aroma-status">
-                Концепт в разработке. Аромат внутреннего замка, приглушённого огня и закрытого мира.
-            </p>
-        </article>
+        </div>
 
-        <!-- Аромат 6 -->
-        <article class="aroma-card">
-            <div class="aroma-bottle bottle-6">
-                <span class="aroma-label">No.6</span>
-            </div>
-            <h2>Туман между мирами</h2>
-            <p class="aroma-status">
-                Концепт in progress. Появится здесь, когда форма и содержание совпадут.
-            </p>
-        </article>
+        <a href="index.html" class="back-link" style="display:inline-block; margin-top: 30px;">
+            ← На главную
+        </a>
 
     </div>
 
-    <a href="index.html" class="back-link" style="display:inline-block; margin-top: 30px;">
-        ← На главную
-    </a>
-</div>
+    <footer class="footer">
+        <p>© 2025 Mindspace. Всё, что здесь, — для тех, кому тесно в человеческой игре.</p>
+    </footer>
 
-<script src="script.js" defer></script>
 </body>
 </html>
