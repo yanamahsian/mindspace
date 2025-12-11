@@ -9,8 +9,8 @@
 
 <body>
 
-    <!-- Боковое меню -->
-    <nav class="top-nav">
+<!-- Меню -->
+<nav class="top-nav">
     <a href="index.html">Главная</a>
     <a href="mypath.html">Мой путь</a>
     <a href="consulting.html">Консультации</a>
@@ -21,48 +21,53 @@
     <a href="contacts.html">Контакты</a>
 </nav>
 
+<!-- Фон -->
+<canvas id="stars"></canvas>
+<div class="nebula"></div>
 
-    <!-- Космический фон -->
-    <canvas id="stars"></canvas>
-    <div class="nebula"></div>
+<!-- Контейнер -->
+<div class="page fade-in" style="max-width: 700px; margin: 40px auto; padding: 40px;">
 
-    <!-- Контент страницы -->
-    <div class="page fade-in" style="max-width: 700px; margin: 40px auto; padding: 40px;">
+    <h1 class="title">Контакты</h1>
 
+    <p class="subtitle" style="margin-bottom: 30px;">
+        Это пространство для тех, кто чувствует резонанс и хочет выйти на связь.
+    </p>
 
-        <h1 class="title">Контакты</h1>
+    <!-- НОВЫЕ LED-ПАНЕЛИ -->
+    <div class="panel-grid">
 
-        <p class="subtitle" style="margin-bottom: 30px;">
-            Это пространство для тех, кто чувствует резонанс и хочет выйти на связь.
-        </p>
-
-        <div class="contact-block">
-
-            <!-- WhatsApp -->
-            <div class="contact-item">
-                <h2>WhatsApp</h2>
-                <p>Вы можете написать мне напрямую — я отвечаю лично.</p>
-                <a class="whatsapp-btn" 
-                   href="https://wa.me/49015161016316" 
-                   target="_blank">Открыть WhatsApp</a>
-            </div>
-
-            <!-- Email -->
-            <div class="contact-item" style="margin-top: 40px;">
-                <h2>Email</h2>
-                <p>Если вам удобнее написать по почте — вы можете сделать это здесь.</p>
-
-                <a class="email-btn" href="mailto:oceandrinksnosugar@gmail.com">
-                    Написать на Email
-                </a>
-            </div>
-
+        <!-- WhatsApp панель -->
+        <div class="panel">
+            <h2>WhatsApp</h2>
+            <p class="panel-sub" style="margin-bottom: 12px;">
+                Вы можете написать мне напрямую — я отвечаю лично.
+            </p>
+            <a class="whatsapp-btn"
+               href="https://wa.me/49015161016316"
+               target="_blank">Открыть WhatsApp</a>
         </div>
 
-        <div style="margin-top: 40px;">
-            <a href="index.html" class="back-link">← Назад</a>
+        <!-- Email панель -->
+        <div class="panel">
+            <h2>Email</h2>
+            <p class="panel-sub" style="margin-bottom: 12px;">
+                Если вам удобнее написать по почте — вы можете сделать это здесь.
+            </p>
+
+            <a class="email-btn"
+               href="mailto:oceandrinksnosugar@gmail.com">
+               Написать на Email
+            </a>
         </div>
 
     </div>
+
+    <div style="margin-top: 40px;">
+        <a href="index.html" class="back-link">← Назад</a>
+    </div>
+
+</div>
+
 </body>
 </html>
