@@ -1029,3 +1029,36 @@ body {
   text-decoration: none;
   color: inherit;
 }
+/* =============== AN.KI LOGO MARK =============== */
+
+.anki-mark {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 22px;
+}
+
+.anki-mark img {
+  width: 120px;              /* размер логотипа */
+  height: auto;
+  filter: drop-shadow(0 0 18px rgba(200,168,110,0.55));
+  opacity: 0.95;
+  transition: transform 0.4s ease, filter 0.4s ease, opacity 0.4s ease;
+}
+
+.anki-mark span {
+  font-size: 0.78rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: #caa86e;
+  opacity: 0.85;
+}
+
+/* лёгкое "дыхание" при наведении */
+.anki-mark:hover img {
+  transform: translateY(-1px);
+  filter: drop-shadow(0 0 26px rgba(200,168,110,0.85));
+  opacity: 1;
+}
