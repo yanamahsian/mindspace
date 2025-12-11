@@ -2,107 +2,64 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8" />
-    <title>Арт</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Арт — Mindspace</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
 </head>
 
 <body>
+
     <!-- Боковое меню -->
     <nav class="top-nav">
-    <a href="index.html">Главная</a>
-    <a href="mypath.html">Мой путь</a>
-    <a href="consulting.html">Консультации</a>
-    <a href="workbooks.html">Воркбуки</a>
-    <a href="art.html">Арт</a>
-    <a href="aroma.html">Ароматы</a>
-    <a href="essays.html">Эссе</a>
-    <a href="contacts.html">Контакты</a>
-</nav>
+        <a href="index.html">Главная</a>
+        <a href="mypath.html">Мой путь</a>
+        <a href="consulting.html">Консультации</a>
+        <a href="workbooks.html">Воркбуки</a>
+        <a href="art.html">Арт</a>
+        <a href="aroma.html">Ароматы</a>
+        <a href="essays.html">Эссе</a>
+        <a href="contacts.html">Контакты</a>
+    </nav>
 
-    <!-- Космический фон, как был -->
+    <!-- Космический фон -->
     <canvas id="stars"></canvas>
     <div class="nebula"></div>
 
-    <!-- Страница контента, как была -->
-    <div class="page fade-in" style="max-width: 1100px; margin: 40px auto; padding: 40px;">
+    <!-- Контент -->
+    <div class="page fade-in" style="max-width: 900px; margin: 40px auto; padding: 40px;">
+
         <h1 class="title">Арт</h1>
-        ...
+        <p class="subtitle" style="margin-bottom: 22px;">
+            Материя, которая ещё не вышла наружу.
+        </p>
 
-    <h1 class="title">Арт</h1>
+        <div class="panel-grid">
 
-    <p class="subtitle" style="margin-bottom: 18px;">
-        Здесь будут появляться формы — картины, визуальные пространства, музыкальные и ритуальные работы.
-    </p>
+            <div class="panel">
+                <h2>Пространство форм, которые не торопятся родиться</h2>
+                <p class="panel-sub" style="margin-bottom: 10px;">
+                    Здесь будут вещи, которые невозможно придумать ради размещения на сайт: артефакты, формы,
+                    которые проявляются только тогда, когда сознание дозревает до материи.
+                </p>
+                <p class="panel-note">
+                    Я не выношу “контент”, чтобы что-то показать. Я вынашиваю формы, чтобы они родились вовремя.
+                    Этот раздел появится тогда, когда следующие слои моего сознания будут готовы стать формой искусства.
+                    Как рожу, так покажу.
+                </p>
+            </div>
 
-    <p style="color:#c7c7dd; margin-bottom: 26px;">
-        Сейчас это галерея будущего.  
-        <span style="opacity:0.85;">Все работы находятся в статусе: «пространство подготовлено, содержание в пути».</span>
-    </p>
+        </div>
 
-    <div class="art-grid">
-
-        <!-- Арт 1 -->
-        <article class="art-card">
-            <div class="art-frame art-1"></div>
-            <h2>Портал внутри замка</h2>
-            <p class="art-status">
-                Будущая серия работ о внутреннем замке и тишине, которая сильнее внешнего мира. Формат in progress.
-            </p>
-        </article>
-
-        <!-- Арт 2 -->
-        <article class="art-card">
-            <div class="art-frame art-2"></div>
-            <h2>Миры за человеческим контуром</h2>
-            <p class="art-status">
-                Будущие визуальные работы о пространствах, где человеческое уже не центр. В процессе вынашивания.
-            </p>
-        </article>
-
-        <!-- Арт 3 -->
-        <article class="art-card">
-            <div class="art-frame art-3"></div>
-            <h2>Тёмные ритуалы света</h2>
-            <p class="art-status">
-                Концепт серии: свет, проявляющийся через мрак, а не вместо него. Формат in progress.
-            </p>
-        </article>
-
-        <!-- Арт 4 -->
-        <article class="art-card">
-            <div class="art-frame art-4"></div>
-            <h2>Туман между воплощениями</h2>
-            <p class="art-status">
-                Будущие полотна / визуалы о промежутках между мирами, о состоянии “до” и “после” воплощения.
-            </p>
-        </article>
-
-        <!-- Арт 5 -->
-        <article class="art-card">
-            <div class="art-frame art-5"></div>
-            <h2>Глубина тишины</h2>
-            <p class="art-status">
-                Серия для тех, кто узнаёт себя в холоде, пустоте и отказе от человеческого шума. Пока в стадии внутреннего рисунка.
-            </p>
-        </article>
-
-        <!-- Арт 6 -->
-        <article class="art-card">
-            <div class="art-frame art-6"></div>
-            <h2>Фрагменты чужого мира</h2>
-            <p class="art-status">
-                Будущие рельефные работы и визуалы, фиксирующие атмосферу мира, который не похож на Землю.
-            </p>
-        </article>
+        <a href="index.html" class="back-link" style="display:inline-block; margin-top: 30px;">
+            ← На главную
+        </a>
 
     </div>
 
-    <a href="index.html" class="back-link" style="display:inline-block; margin-top: 30px;">
-        ← На главную
-    </a>
-</div>
+    <footer class="footer">
+        <p>© 2025 Mindspace. Всё, что здесь, — для тех, кому тесно в человеческой игре.</p>
+    </footer>
 
-<script src="script.js" defer></script>
 </body>
 </html>
