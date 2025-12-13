@@ -66,3 +66,41 @@
     if (e.key === 'ArrowDown') speed = Math.max(0.2, speed - 0.1);
   });
 })();
+// =============== BURGER NAV ===============
+(function () {
+  const body = document.body;
+  const btn = document.querySelector('[data-burger]');
+  const overlay = document.querySelector('[data-nav-overlay]');
+  const drawer = document.querySelector('[data-nav-drawer]');
+
+  if (!btn || !overlay || !drawer) return;
+
+  const open = () => {
+    body.classList.add('nav-open');
+    btn.setAttribute('aria-expanded', 'true');
+    // фишка: запоминаем состояние
+    localStorage.setItem('anki_nav_open', '1');
+  };
+
+  const close = () => {
+    body.classList.remove('nav-open');
+    btn.setAttribute('aria-expanded', 'false');
+    localStorage.setItem('anki_nav_open', '0');
+  };
+
+  const toggle = () => {
+    body.classList.contains('nav-open') ? close() : open();
+  };
+
+  btn.addEventListener('click', toggle);
+  overlay.addEventListener('click', close);
+
+  // закрыть по ESC
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && body.classList.contains('nav-open')) close();
+  });
+
+  // фишка: восстановление состояния (можно удалить, если не надо)
+  const saved = localStorage.getItem('anki_nav_open');
+  if (saved === '1') open();
+})();
