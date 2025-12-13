@@ -10,92 +10,115 @@
 
 <body>
 
-    <!-- Боковое меню -->
-    <nav class="top-nav">
-        <a href="index.html">Главная</a>
-        <a href="mypath.html">Мой путь</a>
-        <a href="consulting.html">Консультации</a>
-        <a href="workbooks.html">Воркбуки</a>
-        <a href="art.html">Арт</a>
-        <a href="aroma.html">Ароматы</a>
-        <a href="essays.html">Эссе</a>
-        <a href="contacts.html">Контакты</a>
-    </nav>
+<!-- BURGER HEADER -->
+<header class="site-header">
+  <div class="header-inner">
 
-    <!-- Космический фон -->
-    <canvas id="stars"></canvas>
-    <div class="nebula"></div>
+    <a class="brand-mini" href="index.html">
+      <img src="anki-logo.png" alt="AN.KI">
+      <span>AN.KI</span>
+    </a>
 
-    <div class="page fade-in" style="max-width: 900px; margin: 40px auto; padding: 40px;">
+    <button class="burger-btn" type="button"
+            data-burger
+            aria-label="Открыть меню"
+            aria-expanded="false">
+      <div class="burger-icon"><span></span></div>
+    </button>
 
-        <div class="anki-mark">
-  <img src="anki-logo.png" alt="AN.KI">
-  <span>AN.KI</span>
-</div>
+  </div>
+</header>
 
+<div class="nav-overlay" data-nav-overlay></div>
 
-        <h1 class="title">Ароматы</h1>
-        <p class="subtitle" style="margin-bottom: 22px;">
-            Аромат как вход в состояние сознания.  
+<aside class="nav-drawer" data-nav-drawer>
+  <h3>Навигация</h3>
+
+  <nav class="drawer-nav">
+    <a href="index.html">Главная</a>
+    <a href="anki.html">Об учении</a>
+    <a href="mypath.html">Мой путь</a>
+    <a href="consulting.html">Консультации</a>
+    <a href="workbooks.html">Воркбуки</a>
+    <a href="art.html">Арт</a>
+    <a href="aroma.html">Ароматы</a>
+    <a href="essays.html">Эссе</a>
+    <a href="contacts.html">Контакты</a>
+  </nav>
+
+  <div class="drawer-bottom">
+    Входишь тихо. Выходишь свободно.
+  </div>
+</aside>
+
+<!-- ФОН -->
+<canvas id="stars"></canvas>
+<div class="nebula"></div>
+
+<div class="page fade-in" style="max-width: 900px; margin: 40px auto; padding: 40px;">
+
+    <h1 class="title">Ароматы</h1>
+    <p class="subtitle" style="margin-bottom: 22px;">
+        Аромат как вход в состояние сознания.  
+    </p>
+
+    <!-- ОДНА СПЛОШНАЯ САКРАЛЬНАЯ ПЛИТА -->
+    <div class="panel" style="margin-top: 26px;">
+
+        <h2>Аромат как ключ к измерению</h2>
+        <p class="panel-sub">
+            Каждый аромат — это не парфюм, а врата: настройка сознания, сдвиг положения в отношении мира,
+            способ ощутить себя иначе.
+        </p>
+        <p class="panel-note">
+            Здесь нет идей изменённых состояний через вещества.  
+            Только сознание, тело и форма запаха, которая соединяет их мягко и точно.
         </p>
 
-        <!-- ОДНА СПЛОШНАЯ САКРАЛЬНАЯ ПЛИТА -->
-        <div class="panel" style="margin-top: 26px;">
+        <h2 style="margin-top: 26px;">Индивидуальное создание аромата и флакона</h2>
+        <p class="panel-sub">
+            Аромат создаётся лично под вас. Формула рождается только под одного человека и не повторяется.
+        </p>
+        <p class="panel-note">
+            Флакон — это отдельный артефакт, индивидуальная форма:  
+            смола, свет, структура, соответствующая вашему состоянию.  
+            Он создаётся вручную и существует в единственном экземпляре.
+        </p>
 
-            <h2>Аромат как ключ к измерению</h2>
-            <p class="panel-sub">
-                Каждый аромат — это не парфюм, а врата: настройка сознания, сдвиг положения в отношении мира,
-                способ ощутить себя иначе.
-            </p>
-            <p class="panel-note">
-                Здесь нет идей изменённых состояний через вещества.  
-                Только сознание, тело и форма запаха, которая соединяет их мягко и точно.
-            </p>
+        <h2 style="margin-top: 26px;">Стоимость</h2>
+        <p class="panel-sub">
+            Создание личного аромата-состояния  
+            Это настройка сознания + создание структуры  
+            <span style="color:#e4e4ff; opacity:0.95;">— 480–620 €</span>
+        </p>
+        <p class="panel-sub">
+            Создание индивидуального флакона-артефакта  
+            Это объект, созданный с нуля специально для вас, а не просто флакон  
+            <span style="color:#e4e4ff; opacity:0.95;">— 320–900 €</span>
+        </p>
+        <p class="panel-sub">
+            Повторное наполнение (refill)  
+            (повторное создание той же формулы)  
+            <span style="color:#e4e4ff; opacity:0.95;">— 260–380 €</span>
+        </p>
 
-            <h2 style="margin-top: 26px;">Индивидуальное создание аромата и флакона</h2>
-            <p class="panel-sub">
-                Аромат создаётся лично под вас. Формула рождается только под одного человека и не повторяется.
-            </p>
-            <p class="panel-note">
-                Флакон — это отдельный артефакт, индивидуальная форма:  
-                смола, свет, структура, соответствующая вашему состоянию.  
-                Он создаётся вручную и существует в единственном экземпляре.
-            </p>
-
-            <h2 style="margin-top: 26px;">Стоимость</h2>
-            <p class="panel-sub">
-                Создание личного аромата-состояния  
-                Это настройка сознания + создание структуры  
-                <span style="color:#e4e4ff; opacity:0.95;">— 480–620 €</span>
-            </p>
-            <p class="panel-sub">
-                Создание индивидуального флакона-артефакта  
-                Это объект, созданный с нуля специально для вас, а не просто флакон  
-                <span style="color:#e4e4ff; opacity:0.95;">— 320–900 €</span>
-            </p>
-            <p class="panel-sub">
-                Повторное наполнение (refill)  
-                (повторное создание той же формулы)  
-                <span style="color:#e4e4ff; opacity:0.95;">— 260–380 €</span>
-            </p>
-
-            <p class="panel-note" style="margin-top: 12px;">
-               Это не парфюмерия, созданная на заказ индивидуально. 
-                Это работа с состоянием, сознанием и формой, которую оно принимает в материи посредством аромата.
-                Аромат — родная гавань вашего сознания.
-            </p>
-
-        </div>
-
-        <a href="index.html" class="back-link" style="display:inline-block; margin-top: 30px;">
-            ← На главную
-        </a>
+        <p class="panel-note" style="margin-top: 12px;">
+           Это не парфюмерия, созданная на заказ индивидуально. 
+            Это работа с состоянием, сознанием и формой, которую оно принимает в материи посредством аромата.
+            Аромат — родная гавань вашего сознания.
+        </p>
 
     </div>
 
-    <footer class="footer">
-        <p>© 2025 Mindspace. Всё, что здесь, — для тех, кому тесно в человеческой игре.</p>
-    </footer>
+    <a href="index.html" class="back-link" style="display:inline-block; margin-top: 30px;">
+        ← На главную
+    </a>
+
+</div>
+
+<footer class="footer">
+    <p>© 2025 Mindspace. Всё, что здесь, — для тех, кому тесно в человеческой игре.</p>
+</footer>
 
 </body>
 </html>
