@@ -5,12 +5,38 @@
     <title>Консультации</title>
     <link rel="stylesheet" href="style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="script.js" defer></script>
 </head>
 
 <body>
 
-<nav class="top-nav">
+<!-- BURGER HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+
+    <a class="brand-mini" href="index.html">
+      <img src="anki-logo.png" alt="AN.KI">
+      <span>AN.KI</span>
+    </a>
+
+    <button class="burger-btn" type="button"
+            data-burger
+            aria-label="Открыть меню"
+            aria-expanded="false">
+      <div class="burger-icon"><span></span></div>
+    </button>
+
+  </div>
+</header>
+
+<div class="nav-overlay" data-nav-overlay></div>
+
+<aside class="nav-drawer" data-nav-drawer>
+  <h3>Навигация</h3>
+
+  <nav class="drawer-nav">
     <a href="index.html">Главная</a>
+    <a href="anki.html">Об учении</a>
     <a href="mypath.html">Мой путь</a>
     <a href="consulting.html">Консультации</a>
     <a href="workbooks.html">Воркбуки</a>
@@ -18,116 +44,19 @@
     <a href="aroma.html">Ароматы</a>
     <a href="essays.html">Эссе</a>
     <a href="contacts.html">Контакты</a>
-</nav>
+  </nav>
 
-<!-- Космический фон -->
+  <div class="drawer-bottom">
+    Входишь тихо. Выходишь свободно.
+  </div>
+</aside>
+
+<!-- ФОН -->
 <canvas id="stars"></canvas>
 <div class="nebula"></div>
 
-<!-- Контейнер -->
+<!-- КОНТЕНТ -->
 <div class="page fade-in" style="max-width: 900px; margin: 40px auto; padding: 40px;">
-  
-    <div class="anki-mark">
-  <img src="anki-logo.png" alt="AN.KI">
-  <span>AN.KI</span>
-</div>
-
 
     <h1>Консультации</h1>
     <p style="margin-top: 8px; color: #cfcfcf;">
-        Выберите нужный вам формат. Каждая услуга имеет свою собственную страницу с подробным описанием.
-    </p>
-
-    <!-- НОВЫЕ СВЕТОДИОДНЫЕ ПАНЕЛИ -->
-    <div class="panel-grid">
-
-        <a href="service1.html" class="panel panel-link">
-            <h2>Индивидуальные консультации</h2>
-            <p class="panel-sub">Работа уровня «разобраться один раз — и качественно».</p>
-        </a>
-
-        <a href="service2.html" class="panel panel-link">
-            <h2>Глубинная индивидуальная консультация</h2>
-            <p class="panel-sub">Для людей на уровне внутреннего кризиса, перелома, утраты старой идентичности.</p>
-        </a>
-
-        <a href="service3.html" class="panel panel-link">
-            <h2>Экзистенциальная архитектура личности</h2>
-            <p class="panel-sub">Выявление своей природы и философии существования.</p>
-        </a>
-
-        <a href="service4.html" class="panel panel-link">
-            <h2>Карта воплощения</h2>
-            <p class="panel-sub">Анализ структуры личности через призму жизненного сценария.</p>
-        </a>
-
-        <a href="service5.html" class="panel panel-link">
-            <h2>Алхимическая программа для сознания и тела. 30 дней</h2>
-            <p class="panel-sub">Перепрошивка связки: мышление — тело — реакция на реальность.</p>
-        </a>
-
-        <a href="service6.html" class="panel panel-link">
-            <h2>Навигация пути, короткая консультация 40–60 мин</h2>
-            <p class="panel-sub">Настройка вектора, когда человек застрял или стоит перед выбором.</p>
-        </a>
-
-        <a href="service7.html" class="panel panel-link">
-            <h2>Реабилитация сознания, программа 3–5 сессий</h2>
-            <p class="panel-sub">Восстановление способности быть в себе. Ремонт психического фундамента.</p>
-        </a>
-
-        <a href="service8.html" class="panel panel-link">
-            <h2>Интеграция теней</h2>
-            <p class="panel-sub">Работа с тем, что человек не мог прожить или выразить. Собирание разрушенных частей.</p>
-        </a>
-
-        <a href="service9.html" class="panel panel-link">
-            <h2>Карта миров. Искра между воплощениями</h2>
-            <p class="panel-sub">Структура сознания и чувство «чуждости миру». Анализ архитектуры за пределами форм.</p>
-        </a>
-
-        <a href="service10.html" class="panel panel-link">
-            <h2>Архитектура личного кода</h2>
-            <p class="panel-sub">Определение структуры личности как системы. Переписывание собственного кода.</p>
-        </a>
-
-        <a href="service11.html" class="panel panel-link">
-            <h2>Алхимия несоответствия</h2>
-            <p class="panel-sub">Интеграция сознания в несовершенный мир. Настройка связи «внутреннее ↔ внешнее».</p>
-        </a>
-
-        <a href="service12.html" class="panel panel-link">
-            <h2>Сдвиг оси</h2>
-            <p class="panel-sub">Кристаллизация внутренней оси и отсечение чужих смысловых структур.</p>
-        </a>
-
-        <a href="service13.html" class="panel panel-link">
-            <h2>Точка происхождения. Первый код</h2>
-            <p class="panel-sub">Работа с первичной структурой сознания до ролей и биографии.</p>
-        </a>
-
-        <a href="service14.html" class="panel panel-link">
-            <h2>Алхимия тишины</h2>
-            <p class="panel-sub">Возвращение силы недействия. Остановка внутреннего шума.</p>
-        </a>
-
-        <a href="service15.html" class="panel panel-link">
-            <h2>Реконструкция линии реальности</h2>
-            <p class="panel-sub">Выявление мест, где человек проживает не своё. Работа с картой памяти.</p>
-        </a>
-
-        <a href="service16.html" class="panel panel-link">
-            <h2>Возврат способности создавать форму из смысла</h2>
-            <p class="panel-sub">Программа архитектора: актвация творческой силы сознания.</p>
-        </a>
-
-    </div>
-
-</div>
-
-<footer class="footer">
-    <p>© 2025 Mindspace. Всё, что здесь, — для тех, кому тесно в человеческой игре.</p>
-</footer>
-
-</body>
-</html>
