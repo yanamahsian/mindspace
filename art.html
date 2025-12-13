@@ -10,59 +10,82 @@
 
 <body>
 
-    <!-- Боковое меню -->
-    <nav class="top-nav">
-        <a href="index.html">Главная</a>
-        <a href="mypath.html">Мой путь</a>
-        <a href="consulting.html">Консультации</a>
-        <a href="workbooks.html">Воркбуки</a>
-        <a href="art.html">Арт</a>
-        <a href="aroma.html">Ароматы</a>
-        <a href="essays.html">Эссе</a>
-        <a href="contacts.html">Контакты</a>
-    </nav>
+<!-- BURGER HEADER -->
+<header class="site-header">
+  <div class="header-inner">
 
-    <!-- Космический фон -->
-    <canvas id="stars"></canvas>
-    <div class="nebula"></div>
+    <a class="brand-mini" href="index.html">
+      <img src="anki-logo.png" alt="AN.KI">
+      <span>AN.KI</span>
+    </a>
 
-    <!-- Контент -->
-    <div class="page fade-in" style="max-width: 900px; margin: 40px auto; padding: 40px;">
-        
-        <div class="anki-mark">
-  <img src="anki-logo.png" alt="AN.KI">
-  <span>AN.KI</span>
-</div>
+    <button class="burger-btn" type="button"
+            data-burger
+            aria-label="Открыть меню"
+            aria-expanded="false">
+      <div class="burger-icon"><span></span></div>
+    </button>
 
+  </div>
+</header>
 
-        <h1 class="title">Арт</h1>
-        <p class="subtitle" style="margin-bottom: 22px;">
-            Материя, которая ещё не вышла наружу.
+<div class="nav-overlay" data-nav-overlay></div>
+
+<aside class="nav-drawer" data-nav-drawer>
+  <h3>Навигация</h3>
+
+  <nav class="drawer-nav">
+    <a href="index.html">Главная</a>
+    <a href="anki.html">Об учении</a>
+    <a href="mypath.html">Мой путь</a>
+    <a href="consulting.html">Консультации</a>
+    <a href="workbooks.html">Воркбуки</a>
+    <a href="art.html">Арт</a>
+    <a href="aroma.html">Ароматы</a>
+    <a href="essays.html">Эссе</a>
+    <a href="contacts.html">Контакты</a>
+  </nav>
+
+  <div class="drawer-bottom">
+    Входишь тихо. Выходишь свободно.
+  </div>
+</aside>
+
+<!-- ФОН -->
+<canvas id="stars"></canvas>
+<div class="nebula"></div>
+
+<!-- КОНТЕНТ -->
+<div class="page fade-in" style="max-width: 900px; margin: 40px auto; padding: 40px;">
+
+    <h1 class="title">Арт</h1>
+    <p class="subtitle" style="margin-bottom: 22px;">
+        Материя, которая ещё не вышла наружу.
+    </p>
+
+    <!-- ОДНА СПЛОШНАЯ ПЛИТА -->
+    <div class="panel" style="margin-top: 26px;">
+        <h2>Пространство форм, которые не торопятся родиться</h2>
+        <p class="panel-sub" style="margin-bottom: 10px;">
+            Здесь будут вещи, которые невозможно придумать ради размещения на сайт: артефакты, формы,
+            которые проявляются только тогда, когда сознание дозревает до материи.
         </p>
-
-        <!-- ОДНА СПЛОШНАЯ ПЛИТА -->
-        <div class="panel" style="margin-top: 26px;">
-            <h2>Пространство форм, которые не торопятся родиться</h2>
-            <p class="panel-sub" style="margin-bottom: 10px;">
-                Здесь будут вещи, которые невозможно придумать ради размещения на сайт: артефакты, формы,
-                которые проявляются только тогда, когда сознание дозревает до материи.
-            </p>
-            <p class="panel-note">
-                Я не выношу “контент”, чтобы что-то показать. Я вынашиваю формы, чтобы они родились вовремя.
-                Этот раздел появится тогда, когда следующие слои моего сознания будут готовы стать формой искусства.
-                Как рожу, так покажу.
-            </p>
-        </div>
-
-        <a href="index.html" class="back-link" style="display:inline-block; margin-top: 30px;">
-            ← На главную
-        </a>
-
+        <p class="panel-note">
+            Я не выношу “контент”, чтобы что-то показать. Я вынашиваю формы, чтобы они родились вовремя.
+            Этот раздел появится тогда, когда следующие слои моего сознания будут готовы стать формой искусства.
+            Как рожу, так покажу.
+        </p>
     </div>
 
-    <footer class="footer">
-        <p>© 2025 Mindspace. Всё, что здесь, — для тех, кому тесно в человеческой игре.</p>
-    </footer>
+    <a href="index.html" class="back-link" style="display:inline-block; margin-top: 30px;">
+        ← На главную
+    </a>
+
+</div>
+
+<footer class="footer">
+    <p>© 2025 Mindspace. Всё, что здесь, — для тех, кому тесно в человеческой игре.</p>
+</footer>
 
 </body>
 </html>
