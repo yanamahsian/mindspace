@@ -2,16 +2,41 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8" />
-    <title>Контакты</title>
+    <title>Контакты — Mindspace</title>
     <link rel="stylesheet" href="style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="script.js" defer></script>
 </head>
 
 <body>
 
-<!-- Меню -->
-<nav class="top-nav">
+<!-- BURGER HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+
+    <a class="brand-mini" href="index.html">
+      <img src="anki-logo.png" alt="AN.KI">
+      <span>AN.KI</span>
+    </a>
+
+    <button class="burger-btn" type="button"
+            data-burger
+            aria-label="Открыть меню"
+            aria-expanded="false">
+      <div class="burger-icon"><span></span></div>
+    </button>
+
+  </div>
+</header>
+
+<div class="nav-overlay" data-nav-overlay></div>
+
+<aside class="nav-drawer" data-nav-drawer>
+  <h3>Навигация</h3>
+
+  <nav class="drawer-nav">
     <a href="index.html">Главная</a>
+    <a href="anki.html">Об учении</a>
     <a href="mypath.html">Мой путь</a>
     <a href="consulting.html">Консультации</a>
     <a href="workbooks.html">Воркбуки</a>
@@ -19,7 +44,12 @@
     <a href="aroma.html">Ароматы</a>
     <a href="essays.html">Эссе</a>
     <a href="contacts.html">Контакты</a>
-</nav>
+  </nav>
+
+  <div class="drawer-bottom">
+    Связь — это всегда резонанс.
+  </div>
+</aside>
 
 <!-- Фон -->
 <canvas id="stars"></canvas>
@@ -29,10 +59,9 @@
 <div class="page fade-in" style="max-width: 700px; margin: 40px auto; padding: 40px;">
 
     <div class="anki-mark">
-  <img src="anki-logo.png" alt="AN.KI">
-  <span>AN.KI</span>
-</div>
-
+        <img src="anki-logo.png" alt="AN.KI">
+        <span>AN.KI</span>
+    </div>
 
     <h1 class="title">Контакты</h1>
 
@@ -40,10 +69,10 @@
         Это пространство для тех, кто чувствует резонанс и хочет выйти на связь.
     </p>
 
-    <!-- НОВЫЕ LED-ПАНЕЛИ -->
+    <!-- LED-ПАНЕЛИ -->
     <div class="panel-grid">
 
-        <!-- WhatsApp панель -->
+        <!-- WhatsApp -->
         <div class="panel">
             <h2>WhatsApp</h2>
             <p class="panel-sub" style="margin-bottom: 12px;">
@@ -54,13 +83,12 @@
                target="_blank">Открыть WhatsApp</a>
         </div>
 
-        <!-- Email панель -->
+        <!-- Email -->
         <div class="panel">
             <h2>Email</h2>
             <p class="panel-sub" style="margin-bottom: 12px;">
                 Если вам удобнее написать по почте — вы можете сделать это здесь.
             </p>
-
             <a class="email-btn"
                href="mailto:oceandrinksnosugar@gmail.com">
                Написать на Email
