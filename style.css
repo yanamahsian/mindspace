@@ -1245,6 +1245,21 @@ body {
 .nav-open .nav-drawer {
   transform: translateX(0);
 }
+.telegram-btn {
+    display: inline-block;
+    padding: 12px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #eaeaff;
+    border: 1px solid rgba(180,180,255,0.35);
+    background: rgba(40,40,70,0.25);
+    transition: all 0.3s ease;
+}
+
+.telegram-btn:hover {
+    background: rgba(80,80,140,0.35);
+    box-shadow: 0 0 18px rgba(160,160,255,0.35);
+}
 
 /* превращаем бургер в крестик */
 .nav-open .burger-icon::before { top: 5px; transform: rotate(45deg); }
