@@ -67,9 +67,6 @@
     }
   }
 
-  function cycleBackground(bg) {
-    let i = Math.floor(Math.random() * GALAXIES.length);
-
     setInterval(() => {
       i = (i + 1) % GALAXIES.length;
       bg.style.opacity = "0.0";
