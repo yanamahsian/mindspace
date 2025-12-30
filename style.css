@@ -1265,3 +1265,43 @@ body {
 .nav-open .burger-icon::before { top: 5px; transform: rotate(45deg); }
 .nav-open .burger-icon span { opacity: 0; }
 .nav-open .burger-icon::after { top: 5px; transform: rotate(-45deg); }
+
+/* ===== PWA: кнопка установки ===== */
+.install-wrap{
+  margin: 14px 0 18px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.install-btn{
+  appearance:none;
+  border: 1px solid rgba(255, 214, 140, 0.35);
+  background: rgba(8, 10, 30, 0.55);
+  color: rgba(255, 232, 190, 0.95);
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  box-shadow:
+    0 0 0 1px rgba(255, 214, 140, 0.08),
+    0 12px 28px rgba(0,0,0,0.55);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+
+.install-btn:hover{
+  transform: translateY(-1px);
+  border-color: rgba(255, 214, 140, 0.6);
+  box-shadow:
+    0 0 0 1px rgba(255, 214, 140, 0.16),
+    0 16px 38px rgba(0,0,0,0.7);
+}
+
+.install-hint{
+  margin:0;
+  color:#cfd3ff;
+  font-size: 0.95rem;
+  opacity: 0.95;
+}
