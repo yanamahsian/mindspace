@@ -110,3 +110,61 @@ if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("./service-worker.js");
   });
 }
+// ===== PWA Install Button (Android/Chrome/Edge + подсказка для iOS) =====
+let deferredPrompt = null;
+
+function isIOS() {
+  return /iphone|ipad|ipod/i.test(navigator.userAgent);
+}
+
+function isInStandaloneMode() {
+  return window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone === true;
+}
+
+window.addEventListener("beforeinstallprompt", (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+
+  const btn = document.getElementById("installBtn");
+  const hint = document.getElementById("installHint");
+  if (!btn) return;
+
+  if (!isInStandaloneMode()) {
+    btn.style.display = "inline-flex";
+    if (hint) hint.style.display = "none";
+  }
+});
+
+window.addEventListener("load", () => {
+  const btn = document.getElementById("installBtn");
+  const hint = document.getElementById("installHint");
+  if (!btn) return;
+
+  // Если уже установлено — ничего не показываем
+  if (isInStandaloneMode()) {
+    btn.style.display = "none";
+    if (hint) hint.style.display = "none";
+    return;
+  }
+
+  // iOS: нет системного окна установки, даём подсказку
+  if (isIOS()) {
+    btn.style.display = "inline-flex";
+    btn.addEventListener("click", () => {
+      if (!hint) return;
+      hint.style.display = "block";
+      hint.textContent = "iPhone: Поделиться → «На экран Домой»";
+    });
+    return;
+  }
+
+  // Остальные: если beforeinstallprompt не пришёл, кнопка останется скрыта
+  btn.addEventListener("click", async () => {
+    if (!deferredPrompt) return;
+    deferredPrompt.prompt();
+    await deferredPrompt.userChoice;
+    deferredPrompt = null;
+    btn.style.display = "none";
+    if (hint) hint.style.display = "none";
+  });
+});
