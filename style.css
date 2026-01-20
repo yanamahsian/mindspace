@@ -15,7 +15,7 @@ body {
     "Segoe UI", Roboto, sans-serif;
   color: #f5f5ff;
   background: #020616;
-  overflow-x: hidden;
+  -x: hidden;
 }
 
 /* Канвас со звёздами и туманность */
@@ -626,7 +626,7 @@ body {
 .essay-hero {
   position: relative;
   border-radius: 18px;
-  overflow: hidden;
+  : hidden;
   margin-bottom: 30px;
   min-height: 220px;
   display: flex;
@@ -948,7 +948,7 @@ body {
   box-shadow:
     0 0 0 1px rgba(200,168,110,0.16),
     0 16px 40px rgba(0, 0, 0, 0.85);
-  overflow: hidden;
+  : hidden;
   transition: transform 0.25s ease, box-shadow 0.25s ease,
               background 0.3s ease;
 }
@@ -1175,7 +1175,7 @@ body {
   transform: translateX(102%);
   transition: transform 0.26s ease;
   z-index: 70;
-  overflow: auto;
+  : auto;
 }
 
 /* "LED" край панели */
@@ -1314,7 +1314,7 @@ body {
   inset: 0;
   z-index: 1;              /* выше stars/nebula, но ниже меню/контента */
   pointer-events: none;
-  overflow: hidden;
+  : hidden;
 }
 
 /* Фон-галактика (меняется) */
@@ -1368,4 +1368,25 @@ body {
 .top-nav, .main-nav, .page, footer, .footer{
   position: relative;
   z-index: 5;
+}
+/* ===== UNIVERSAL SCROLL FIX (leave it at the END of style.css) ===== */
+html, body {
+  height: auto !important;
+  min-height: 100%;
+  overflow-y: auto !important;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
+}
+
+/* Если у тебя есть космические слои/канвасы — они НЕ должны ловить мышь/тачпад */
+#stars, canvas, .nebula {
+  pointer-events: none !important;
+}
+
+/* На всякий случай: контейнеры не должны запирать прокрутку */
+.page, .essay-page, .fade-in {
+  height: auto !important;
+  min-height: 0 !important;
+  overflow: visible !important;
 }
