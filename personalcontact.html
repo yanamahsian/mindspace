@@ -34,25 +34,76 @@
       font-weight: 600;
     }
   </style>
+  <style>
+  /* Только для personalcontact.html */
+  body { background:#07070a !important; }
+  #stars, .nebula { display:none !important; }
+
+  .page{
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 56px 24px !important;
+    max-width: 980px !important;
+  }
+
+  .title{ font-size: 2.4rem !important; margin-bottom: 10px; }
+  .subtitle{ opacity: .85; }
+
+  .panel-grid{
+    display: grid !important;
+    grid-template-columns: 1fr !important; /* одна колонка = солидно */
+    gap: 14px !important;
+    margin-top: 26px !important;
+  }
+
+  .panel{
+    background: rgba(255,255,255,0.04) !important;
+    border: 1px solid rgba(255,255,255,0.10) !important;
+    border-radius: 18px !important;
+    padding: 18px 18px !important;
+    box-shadow: none !important;
+    overflow: visible !important;   /* ключ: не режем текст */
+    height: auto !important;        /* ключ: не фиксируем высоту */
+  }
+
+  .panel h2{ margin: 0 0 6px 0 !important; font-size: 1.25rem !important; }
+  .panel-sub, .panel-note{ margin: 8px 0 0 0 !important; opacity: .82; line-height: 1.55; }
+
+  .price{ margin-top: 12px !important; font-weight: 700 !important; opacity: .95; }
+
+  .book-btn{
+    display:inline-block;
+    margin-top: 12px;
+    padding: 10px 14px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.18);
+    background: rgba(255,255,255,0.06);
+    transition: transform .15s ease, border-color .15s ease, background .15s ease;
+  }
+  .book-btn:hover{
+    transform: translateY(-1px);
+    border-color: rgba(255,255,255,0.28);
+    background: rgba(255,255,255,0.09);
+  }
+
+  /* Аккуратный “скрытый текст”, если захочешь оставить описание */
+  details{
+    margin-top: 10px;
+    opacity: .9;
+  }
+  summary{
+    cursor: pointer;
+    list-style: none;
+    opacity: .75;
+  }
+  summary::-webkit-details-marker{ display:none; }
+</style>
 </head>
 
 <body>
-
-  <!-- Меню -->
-  <nav class="top-nav">
-    <a href="index.html">Главная</a>
-    <a href="mypath.html">Мой путь</a>
-    <a href="personalcontact.html" class="active">Личный контакт</a>
-    <a href="workbooks.html">Воркбуки</a>
-    <a href="art.html">Арт</a>
-    <a href="aroma.html">Ароматы</a>
-    <a href="essays.html">Эссе</a>
-    <a href="contacts.html">Контакты</a>
-  </nav>
-
-  <!-- Фон -->
-  <canvas id="stars"></canvas>
-  <div class="nebula"></div>
 
   <!-- Контейнер -->
   <div class="page fade-in" style="max-width: 1100px; margin: 40px auto; padding: 40px;">
@@ -74,66 +125,24 @@
 
     <!-- Панели -->
     <div class="panel-grid">
+<div class="panel">
+  <h2>Точка истины</h2>
+  <div class="price">3 000 €</div>
+  <a class="book-btn" href="pay-truth.html">Забронировать</a>
+</div>
 
-      <!-- 1 -->
-      <div class="panel">
-        <h2>Точка истины</h2>
+<div class="panel">
+  <h2>Структурное зрение</h2>
+  <div class="price">9 000 €</div>
+  <a class="book-btn" href="pay-structure.html">Забронировать</a>
+</div>
 
-        <p class="panel-sub" style="margin-bottom: 10px;">
-          (базовая точка входа, основа твоего поля)
-        </p>
+<div class="panel">
+  <h2>Тихий контакт</h2>
+  <div class="price">10 000 €+</div>
+  <a class="book-btn" href="pay-silent.html">Забронировать</a>
+</div>
 
-        <p class="panel-note">
-          Один личный контакт. Не терапия, не сопровождение и не поиск решений.
-          Это точка, в которой человек сталкивается с тем, что он уже знает, но избегает видеть.
-        </p>
-
-        <div class="price">3 000 €</div>
-
-        <a class="book-btn" href="pay-truth.html">Забронировать</a>
-      </div>
-
-      <!-- 2 -->
-      <div class="panel">
-        <h2>Структурное зрение</h2>
-
-        <p class="panel-sub" style="margin-bottom: 10px;">
-          (закрытый / редкий формат — для людей с системой и ответственностью)
-        </p>
-
-        <p class="panel-note">
-          Контакт для людей, управляющих системами: бизнес, проекты, власть, структуры.
-          Не стратегия действий и не оптимизация.
-          Это указание на то место, где система лжёт сама себе и теряет устойчивость.
-        </p>
-
-        <div class="price">9 000 €</div>
-
-        <a class="book-btn" href="pay-structure.html">Забронировать</a>
-      </div>
-
-      <!-- 3 -->
-      <div class="panel">
-        <h2>Тихий контакт</h2>
-
-        <p class="panel-sub" style="margin-bottom: 10px;">
-        </p>
-
-        <p class="panel-note">
-          Доступ к персональному разговору. Один раз.
-          Диалог без сопровождения, без гарантий. Это не услуга, а формат общения.
-        </p>
-
-        <p class="panel-note" style="margin-top: 10px;">
-          Раазговор предполагает общение экзестенциально-философского направления.
-          Ответ не предполагает чётких рамок "да", "нет", "правильно", "неверно".
-          Я ничего не обязана и мои ответы могут не нравиться.
-        </p>
-
-        <div class="price">10 000 €+</div>
-
-        <a class="book-btn" href="pay-silent.html">Забронировать</a>
-      </div>
 
     </div>
 
