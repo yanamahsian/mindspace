@@ -1,63 +1,69 @@
-/* service-worker.js — Mindspace / AN.KI
-   Безопасный вариант для GitHub Pages:
-   - кеширует только базовые файлы
-   - обновляется без "залипания" на старой версии
+/* service-worker.js — AN.KI / Mindspace (anki.systems)
+   - работает на корне домена (/)
+   - не "залипает" на старой версии
+   - даёт нормальную установку PWA
 */
 
-const VERSION = "v2025-12-26-1"; // <-- меняй цифру при каждом апдейте (например, +1)
-const CACHE_NAME = `mindspace-${VERSION}`;
+const VERSION = "v2026-02-14-1"; // <-- меняй при каждом апдейте
+const CACHE_NAME = `anki-${VERSION}`;
 
-// ВАЖНО: относительные пути (без ведущего /), чтобы работало в /mindspace/
 const CORE_ASSETS = [
-  "./",
-  "./index.html",
-  "./style.css",
-  "./script.js",
-  "./anki-logo.png",
-  "./manifest.webmanifest",
-  "./icons/icon-192.png",
-  "./icons/icon-512.png"
+  "/",                    // главная
+  "/index.html",
+  "/style.css",
+  "/script.js",
+  "/anki-logo.png",
+  "/manifest.webmanifest",
+  "/icons/icon-192.png",
+  "/icons/icon-512.png"
 ];
 
-// Установка: кладём базу в кеш
+// Установка: кешируем базу
 self.addEventListener("install", (event) => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => cache.addAll(CORE_ASSETS))
-  );
-  self.skipWaiting();
+  event.waitUntil((async () => {
+    const cache = await caches.open(CACHE_NAME);
+    await cache.addAll(CORE_ASSETS);
+    await self.skipWaiting();
+  })());
 });
 
 // Активация: удаляем старые кеши
 self.addEventListener("activate", (event) => {
-  event.waitUntil(
-    caches.keys().then((keys) =>
-      Promise.all(
-        keys
-          .filter((key) => key.startsWith("mindspace-") && key !== CACHE_NAME)
-          .map((key) => caches.delete(key))
-      )
-    )
-  );
-  self.clients.claim();
+  event.waitUntil((async () => {
+    const keys = await caches.keys();
+    await Promise.all(
+      keys
+        .filter((k) => k.startsWith("anki-") && k !== CACHE_NAME)
+        .map((k) => caches.delete(k))
+    );
+    await self.clients.claim();
+  })());
 });
 
-// Fetch стратегия:
-// - навигация (открытие страниц): network-first, чтобы обновления приходили
-// - статика (css/js/png): stale-while-revalidate
+// (Опционально) даём странице команду "обновись сейчас"
+self.addEventListener("message", (event) => {
+  if (event.data && event.data.type === "SKIP_WAITING") {
+    self.skipWaiting();
+  }
+});
+
+// Fetch:
+// - навигация (HTML): network-first, fallback на кеш и /index.html
+// - статика: stale-while-revalidate
 self.addEventListener("fetch", (event) => {
   const req = event.request;
   const url = new URL(req.url);
 
-  // не трогаем чужие домены (например, Revolut)
+  // не трогаем внешние домены
   if (url.origin !== self.location.origin) return;
 
-  // HTML навигация
+  // навигация (страницы)
   if (req.mode === "navigate") {
     event.respondWith(networkFirst(req));
     return;
   }
 
-  // Остальная статика
+  // статика
   event.respondWith(staleWhileRevalidate(req));
 });
 
@@ -65,18 +71,18 @@ async function networkFirst(req) {
   const cache = await caches.open(CACHE_NAME);
   try {
     const fresh = await fetch(req, { cache: "no-store" });
-    // Кешируем копию (только успешные ответы)
     if (fresh && fresh.ok) cache.put(req, fresh.clone());
     return fresh;
   } catch (e) {
     const cached = await cache.match(req);
-    return cached || caches.match("./index.html");
+    return cached || cache.match("/index.html");
   }
 }
 
 async function staleWhileRevalidate(req) {
   const cache = await caches.open(CACHE_NAME);
   const cached = await cache.match(req);
+
   const fetchPromise = fetch(req)
     .then((fresh) => {
       if (fresh && fresh.ok) cache.put(req, fresh.clone());
