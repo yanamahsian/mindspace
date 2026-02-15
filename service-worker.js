@@ -1,14 +1,14 @@
 /* service-worker.js — AN.KI / Mindspace (anki.systems)
    - работает на корне домена (/)
    - не "залипает" на старой версии
-   - даёт нормальную установку PWA
+   - корректно кеширует базу
 */
 
-const VERSION = "v2026-02-14-1"; // <-- меняй при каждом апдейте
+const VERSION = "v2026-02-15-2"; // меняй при каждом апдейте
 const CACHE_NAME = `anki-${VERSION}`;
 
 const CORE_ASSETS = [
-  "/",                    // главная
+  "/",
   "/index.html",
   "/style.css",
   "/script.js",
@@ -18,7 +18,7 @@ const CORE_ASSETS = [
   "/images/icon-512.png"
 ];
 
-// Установка: кешируем базу
+// Install: кешируем базу
 self.addEventListener("install", (event) => {
   event.waitUntil((async () => {
     const cache = await caches.open(CACHE_NAME);
@@ -27,7 +27,7 @@ self.addEventListener("install", (event) => {
   })());
 });
 
-// Активация: удаляем старые кеши
+// Activate: удаляем старые кеши
 self.addEventListener("activate", (event) => {
   event.waitUntil((async () => {
     const keys = await caches.keys();
@@ -40,7 +40,7 @@ self.addEventListener("activate", (event) => {
   })());
 });
 
-// (Опционально) даём странице команду "обновись сейчас"
+// Сообщения от страницы (например, "обновись сейчас")
 self.addEventListener("message", (event) => {
   if (event.data && event.data.type === "SKIP_WAITING") {
     self.skipWaiting();
@@ -48,7 +48,7 @@ self.addEventListener("message", (event) => {
 });
 
 // Fetch:
-// - навигация (HTML): network-first, fallback на кеш и /index.html
+// - HTML навигация: network-first (обновления приходят)
 // - статика: stale-while-revalidate
 self.addEventListener("fetch", (event) => {
   const req = event.request;
@@ -57,7 +57,7 @@ self.addEventListener("fetch", (event) => {
   // не трогаем внешние домены
   if (url.origin !== self.location.origin) return;
 
-  // навигация (страницы)
+  // страницы
   if (req.mode === "navigate") {
     event.respondWith(networkFirst(req));
     return;
