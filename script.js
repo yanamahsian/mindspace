@@ -200,4 +200,3 @@ window.addEventListener("load", () => {
     btn.style.display = "none";
     if (hint) hint.style.display = "none";
   });
-});
