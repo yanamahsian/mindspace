@@ -65,16 +65,30 @@
     </div>
 
     <!-- Тело -->
-    <div class="essay-body">
-      <p><strong>Формат:</strong> 3–6 месяцев</p>
-      <p></strong> от 40 000 €</p>
+   /* ===== FIX: огромные картинки и логотип на страницах ===== */
+img { max-width: 100%; height: auto; display: block; }
 
-      <a href="contacts.html" class="panel-btn">
-      Запросить
-      </a>
-      <a class="panel-btn" href="./personalcontact.html">← Назад</a>
-      </div>
-    </div>
+/* Если на странице есть большой логотип сверху — ограничим его */
+.hero-logo,
+.page-hero img,
+.anki-mark img,
+.logo-hero img,
+main img.logo,
+img[alt*="AN.KI"],
+img[alt*="ANKI"] {
+  width: min(360px, 70vw);
+  margin: 24px auto 18px;
+}
+
+/* В “шапке” (brand-mini) логотип должен быть маленьким */
+.brand-mini img {
+  width: 28px !important;
+  height: auto !important;
+  margin: 0 !important;
+}
+
+/* Контент не должен прилипать к низу после огромной картинки */
+.page { padding-top: 28px; }
 
   </div>
 
