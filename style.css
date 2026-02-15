@@ -889,3 +889,31 @@ html, body{
   min-height: 0 !important;
   overflow: visible !important;
 }
+/* ====== PREMIUM FORMAT: Архитектура системы ====== */
+.premium-card{
+  border-radius: 20px;
+  padding: 18px 18px 16px;
+  background:
+    radial-gradient(circle at 15% 10%, rgba(200,168,110,0.20), transparent 55%),
+    radial-gradient(circle at 85% 25%, rgba(120,160,255,0.14), transparent 60%),
+    rgba(7, 10, 22, 0.92);
+  border: 1px solid rgba(200,168,110,0.22);
+  box-shadow:
+    0 0 0 1px rgba(200,168,110,0.08),
+    0 18px 55px rgba(0,0,0,0.78),
+    0 0 90px rgba(200,168,110,0.16);
+}
+
+.premium-btn{
+  border-color: rgba(200,168,110,0.45);
+  color: rgba(255,232,190,0.98);
+  background: rgba(8,10,30,0.55);
+}
+
+.premium-btn:hover{
+  border-color: rgba(200,168,110,0.75);
+  box-shadow:
+    0 0 0 1px rgba(200,168,110,0.18),
+    0 18px 44px rgba(0,0,0,0.70),
+    0 0 22px rgba(200,168,110,0.22);
+}
