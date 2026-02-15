@@ -108,23 +108,17 @@
 // =============== PWA: Service Worker ===============
 // ВАЖНО: для домена https://anki.systems/ регистрируем с корня.
 (function () {
-  if (!("serviceWorker" in navigator)) return;
-
+ if ("serviceWorker" in navigator) {
   window.addEventListener("load", async () => {
     try {
-      const reg = await navigator.serviceWorker.register("/service-worker.js");
-
-      // мягко подтягиваем обновление (чтобы не "залипало" на старой версии)
-      if (reg && reg.update) reg.update();
-
-      // если уже есть активный SW — ок
-      // если новый SW установился — просим его активироваться при следующем заходе
-      // (не перезагружаем страницу насильно)
+      const reg = await navigator.serviceWorker.register("/service-worker.js", { scope: "/" });
+      // по желанию: reg.update();
+      console.log("SW registered:", reg.scope);
     } catch (e) {
-      // намеренно молчим — сайт должен жить даже если SW не зарегистрировался
+      console.error("SW register failed:", e);
     }
   });
-})();
+}
 
 // =============== PWA Install Button ===============
 // Работает так:
