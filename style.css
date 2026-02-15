@@ -1,919 +1,460 @@
-/* =========================================================
-   AN.KI — Mindspace
-   STYLE vA (Obsidian + Glass)
-   - единый язык стекла
-   - мягкое свечение, без "чёрных гробов"
-   - исправлены ошибки/дубли
-   ========================================================= */
+/* ================================
+   AN.KI — ARCHITECTURAL SKIN v1
+   Graphite / Steel / Quiet Space
+   ================================ */
 
-/* =============== RESET / BASE =============== */
+/* ---- Reset / Base ---- */
 *,
 *::before,
 *::after { box-sizing: border-box; }
 
 :root{
-  --bg: #020616;
-  --ink: #f5f5ff;
-  --muted: rgba(215, 220, 255, 0.82);
-
-  /* стекло / панели */
-  --glass: rgba(12, 16, 40, 0.56);
-  --glass-strong: rgba(10, 14, 36, 0.72);
-  --stroke: rgba(160, 180, 255, 0.18);
-  --stroke-strong: rgba(200, 210, 255, 0.26);
-
-  /* glow */
-  --glow: rgba(111, 158, 255, 0.38);
-  --glow-soft: rgba(111, 158, 255, 0.22);
-
-  /* золото — только как специя */
-  --gold: #c8a86e;
-  --gold-soft: rgba(200, 168, 110, 0.22);
-  --gold-stroke: rgba(200, 168, 110, 0.18);
-
-  /* радиусы */
-  --r-lg: 26px;
-  --r-md: 18px;
-  --r-sm: 14px;
-
-  /* тени */
-  --shadow-xl: 0 28px 80px rgba(0,0,0,0.72);
-  --shadow-lg: 0 18px 44px rgba(0,0,0,0.62);
-  --shadow-md: 0 12px 28px rgba(0,0,0,0.52);
-
-  /* скорость */
-  --t: 180ms ease;
+  --bg: #0f1114;            /* глубокий графит */
+  --bg-2: #14171b;          /* чуть светлее для слоёв */
+  --line: rgba(210, 216, 224, 0.14);  /* холодная “сталь” */
+  --line-2: rgba(210, 216, 224, 0.22);
+  --text: rgba(235, 238, 242, 0.88);  /* мягкий светлый */
+  --text-2: rgba(235, 238, 242, 0.68);
+  --text-3: rgba(235, 238, 242, 0.52);
+  --accent: rgba(210, 216, 224, 0.9); /* стальной акцент */
+  --focus: rgba(210, 216, 224, 0.35);
+  --radius: 8px;            /* почти прямые углы */
+  --radius-2: 10px;
+  --gap: 28px;              /* воздух */
+  --gap-2: 40px;
+  --max: 980px;
+  --font: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+          "Segoe UI", Roboto, Arial, sans-serif;
 }
 
 html, body{
   margin: 0;
   padding: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
-    "Segoe UI", Roboto, sans-serif;
-  color: var(--ink);
+  min-height: 100%;
+  font-family: var(--font);
+  color: var(--text);
   background: var(--bg);
   overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: geometricPrecision;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
-/* Канвас со звёздами + туманность */
-#stars{
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -2;
-  pointer-events: none;
-}
-.nebula{
-  position: fixed;
-  inset: 0;
-  background:
-    radial-gradient(circle at 10% 10%, rgba(88, 157, 255, 0.30), transparent 55%),
-    radial-gradient(circle at 80% 20%, rgba(171, 94, 255, 0.28), transparent 60%),
-    radial-gradient(circle at 20% 80%, rgba(0, 210, 172, 0.22), transparent 60%);
-  opacity: 0.92;
-  z-index: -1;
-  pointer-events: none;
+/* Убираем “космос” глобально, без правок HTML */
+#stars, canvas#stars, .nebula{
+  display: none !important;
+  pointer-events: none !important;
 }
 
-/* =============== PAGE WRAP =============== */
-.page{
-  max-width: 980px;
-  margin: 66px auto 44px;
-  padding: 34px 44px 44px;
-  background: linear-gradient(180deg, rgba(8,12,32,0.72), rgba(6,10,28,0.78));
-  border-radius: var(--r-lg);
-  box-shadow:
-    0 0 0 1px rgba(140, 170, 255, 0.10),
-    var(--shadow-xl),
-    0 0 90px var(--glow-soft);
-  backdrop-filter: blur(14px);
-  position: relative;
-}
-
-/* плавное появление */
-.fade-in{ animation: fadeIn .7s ease-out; }
-@keyframes fadeIn{
-  from{ opacity:0; transform: translateY(8px); }
-  to  { opacity:1; transform: translateY(0); }
-}
-
-/* =============== TYPOGRAPHY =============== */
+/* ---- Typography ---- */
 .title{
-  margin: 0 0 6px;
-  font-size: 2.05rem;
-  font-weight: 760;
-  letter-spacing: 0.04em;
+  margin: 0 0 10px;
+  font-size: 28px;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  font-weight: 560;
+  color: var(--text);
 }
+
 .subtitle{
-  margin: 0 0 18px;
-  font-size: 0.98rem;
-  color: var(--muted);
-  line-height: 1.55;
+  margin: 0 0 var(--gap);
+  color: var(--text-2);
+  font-size: 14px;
+  line-height: 1.6;
 }
 
-/* ссылки */
-a{ color: inherit; }
-a:hover{ opacity: 0.98; }
-
-/* =============== HOME =============== */
-.home-page .page{ margin-top: 76px; }
-
-.home-page .brand{
-  display:flex;
-  justify-content:center;
-  margin: 10px 0 18px;
+/* Текст в блоках */
+p{
+  margin: 0 0 16px;
+  color: var(--text);
+  line-height: 1.8;
+  font-size: 15px;
 }
-.home-page .anki-logo{
-  max-width: 150px;
+p:last-child{ margin-bottom: 0; }
+
+strong{ color: var(--accent); font-weight: 650; }
+a{ color: var(--text); text-decoration: none; }
+a:hover{ color: var(--accent); }
+
+/* ---- Page wrapper ---- */
+.page{
+  max-width: var(--max);
+  margin: 64px auto 56px;
+  padding: 44px 44px 52px;
+  background: transparent;      /* важное: никакой “карточки-сайта” */
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+/* На мобиле больше воздуха, меньше “плитки” */
+@media (max-width: 900px){
+  .page{
+    margin: 22px 14px 34px;
+    padding: 28px 18px 34px;
+  }
+  .title{ font-size: 24px; }
+}
+
+/* ---- Animations (тихо) ---- */
+.fade-in{
+  animation: fadeIn 240ms ease-out;
+}
+@keyframes fadeIn{
+  from{ opacity: 0; transform: translateY(6px); }
+  to  { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- Header / Brand ---- */
+.anki-mark{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 0 0 var(--gap);
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.anki-mark img{
+  width: 54px;
   height: auto;
-  display:block;
-  opacity: 0.96;
-  filter: drop-shadow(0 0 18px rgba(150, 170, 255, 0.28));
+  opacity: 0.88;
+  filter: none; /* убираем “золото/свечения” */
 }
 
-/* меню на главной */
-.main-nav{
-  margin: 10px 0 26px;
-  display:flex;
-  flex-wrap:wrap;
-  gap: 10px 20px;
-}
-.main-nav a{
-  position: relative;
-  font-size: 0.95rem;
-  color: rgba(235, 238, 255, 0.92);
-  text-decoration: none;
-  padding-bottom: 2px;
-}
-.main-nav a::after{
-  content:"";
-  position:absolute;
-  left:0; bottom:0;
-  width:0; height:1px;
-  background: linear-gradient(90deg, rgba(150,200,255,0.95), rgba(210,165,255,0.85));
-  transition: width .22s ease;
-}
-.main-nav a:hover::after,
-.main-nav a.active::after{ width:100%; }
-
-/* манифест */
-.manifest{
-  margin-top: 10px;
-  font-size: 0.985rem;
-  line-height: 1.72;
-  color: rgba(235, 238, 255, 0.92);
-}
-.manifest p{ margin: 0 0 10px; }
-.manifest-line{
-  margin-top: 14px;
-  opacity: 0.86;
-  font-style: italic;
+.anki-mark span{
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--text-3);
 }
 
-/* футер */
-.footer{
-  text-align:center;
-  margin: 12px 0 18px;
-  font-size: 0.86rem;
-  color: rgba(205, 212, 255, 0.78);
+/* ---- Nav (если где-то есть top-nav/main-nav) ---- */
+.top-nav, .main-nav{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  margin: 0 0 var(--gap);
+  padding: 0 0 16px;
+  border-bottom: 1px solid var(--line);
 }
 
-/* =============== UNIVERSAL GLASS CARDS =============== */
-.glass{
-  background:
-    radial-gradient(circle at 20% 10%, rgba(120, 170, 255, 0.16), transparent 55%),
-    var(--glass);
-  border: 1px solid var(--stroke);
-  border-radius: var(--r-md);
-  backdrop-filter: blur(12px);
-  box-shadow:
-    0 0 0 1px rgba(255,255,255,0.04),
-    var(--shadow-md);
-  transition: transform var(--t), box-shadow var(--t), border-color var(--t), background var(--t);
-}
-.glass:hover{
-  transform: translateY(-4px);
-  border-color: rgba(180, 200, 255, 0.34);
-  box-shadow:
-    0 0 0 1px rgba(255,255,255,0.06),
-    var(--shadow-lg),
-    0 0 40px rgba(130, 170, 255, 0.18);
+.top-nav a, .main-nav a{
+  font-size: 13px;
+  color: var(--text-2);
+  padding: 6px 0;
+  border-bottom: 1px solid transparent;
 }
 
-/* =============== WORKBOOK / ART / AROMA GRID =============== */
-.card-grid{
-  margin-top: 24px;
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+.top-nav a:hover, .main-nav a:hover{
+  color: var(--text);
+  border-bottom-color: var(--line-2);
+}
+
+.top-nav a.active, .main-nav a.active{
+  color: var(--text);
+  border-bottom-color: var(--line-2);
+}
+
+/* ---- Panels / Cards (строгие) ---- */
+.panel-grid{
+  margin-top: var(--gap);
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 18px;
 }
 
-/* перепривязываем твои карточки к единому стилю */
-.workbook-card,
-.art-card,
-.aroma-card{
-  padding: 18px 18px 16px;
-  border-radius: var(--r-md);
-  background:
-    radial-gradient(circle at 16% 10%, rgba(120, 170, 255, 0.14), transparent 60%),
-    var(--glass);
-  border: 1px solid var(--stroke);
-  backdrop-filter: blur(12px);
-  box-shadow:
-    0 0 0 1px rgba(255,255,255,0.04),
-    var(--shadow-md);
-  transition: transform var(--t), box-shadow var(--t), border-color var(--t);
-}
-.workbook-card:hover,
-.art-card:hover,
-.aroma-card:hover{
-  transform: translateY(-4px);
-  border-color: rgba(180, 200, 255, 0.34);
-  box-shadow: var(--shadow-lg), 0 0 40px rgba(130,170,255,0.16);
+@media (min-width: 900px){
+  .panel-grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+  }
 }
 
-.workbook-card h2,
-.art-card h2,
-.aroma-card h2{
-  margin: 0 0 8px;
-  font-size: 1.02rem;
-  letter-spacing: 0.01em;
-}
-.workbook-card p,
-.art-card p,
-.aroma-card p{
-  margin: 0 0 6px;
-  font-size: 0.94rem;
-  color: rgba(225, 230, 255, 0.86);
-  line-height: 1.55;
-}
-.workbook-status,
-.aroma-status{
-  font-size: 0.86rem;
-  opacity: 0.86;
+.panel{
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 22px 22px 20px;
+  box-shadow: none !important;
+  transition: border-color 160ms ease, transform 160ms ease;
 }
 
-/* =============== CONTACTS =============== */
-.contact-block{
-  margin-top: 24px;
-  display:grid;
-  grid-template-columns: minmax(0,1fr);
-  gap: 22px;
-}
-.contact-item h2{ margin:0 0 6px; font-size:1.02rem; }
-.contact-item p{ margin:0 0 10px; font-size:0.95rem; color: rgba(225,230,255,0.86); }
-
-/* WhatsApp */
-.whatsapp-btn{
-  display:inline-flex;
-  align-items:center;
-  gap:6px;
-  padding: 10px 16px;
-  border-radius: 999px;
-  background: #1faf5a;
-  color:#fff;
-  text-decoration:none;
-  font-size:0.94rem;
-  font-weight:650;
-  box-shadow: var(--shadow-md);
-  transition: transform var(--t), box-shadow var(--t), background var(--t);
-}
-.whatsapp-btn:hover{
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
-  background: #26c567;
+.panel:hover{
+  border-color: var(--line-2);
+  transform: translateY(-1px);
 }
 
-/* Telegram */
-.telegram-btn{
-  display:inline-block;
-  padding: 12px 20px;
-  border-radius: 12px;
-  text-decoration:none;
-  color: rgba(235,238,255,0.92);
-  border: 1px solid rgba(180,180,255,0.30);
-  background: rgba(40,40,70,0.22);
-  backdrop-filter: blur(10px);
-  transition: transform var(--t), box-shadow var(--t), border-color var(--t), background var(--t);
-}
-.telegram-btn:hover{
-  transform: translateY(-2px);
-  background: rgba(80,80,140,0.28);
-  border-color: rgba(180,180,255,0.42);
-  box-shadow: 0 0 18px rgba(160,160,255,0.22);
-}
-
-/* форма */
-.contact-form{
-  margin-top: 8px;
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px 14px;
-}
-.contact-form label{ font-size:0.9rem; color: var(--muted); }
-.contact-form input,
-.contact-form textarea{
-  width:100%;
-  padding: 9px 11px;
-  border-radius: 12px;
-  border: 1px solid rgba(160,180,255,0.34);
-  background: rgba(7,10,28,0.72);
-  color: var(--ink);
-  font-size:0.95rem;
-  outline: none;
-}
-.contact-form input:focus,
-.contact-form textarea:focus{
-  border-color: rgba(200,210,255,0.52);
-  box-shadow: 0 0 0 3px rgba(140,170,255,0.12);
-}
-.contact-form textarea{ min-height:110px; resize: vertical; }
-
-/* =============== PAYMENT =============== */
-.payment-page .page{ max-width: 760px; }
-.payment-page h1.title{ margin-bottom: 10px; }
-.payment-page p{ margin:0 0 8px; font-size:0.96rem; }
-
-/* =============== BACK BUTTON =============== */
-.back-btn-container{ text-align:center; margin: 20px 0 50px; }
-.back-btn{
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.24);
-  padding: 10px 22px;
-  border-radius: 12px;
-  color:#fff;
-  cursor:pointer;
-  font-size: 16px;
-  font-weight: 560;
+.panel h2{
+  margin: 0 0 10px;
+  font-size: 15px;
   letter-spacing: 0.02em;
-  backdrop-filter: blur(10px);
-  box-shadow: var(--shadow-md);
-  transition: transform var(--t), background var(--t), border-color var(--t), box-shadow var(--t);
-}
-.back-btn:hover{
-  transform: translateY(-2px);
-  background: rgba(255,255,255,0.10);
-  border-color: rgba(255,255,255,0.38);
-  box-shadow: var(--shadow-lg);
+  font-weight: 620;
+  color: var(--text);
 }
 
-/* =============== ESSAYS LIST / CARDS =============== */
-.essay-info{
-  padding: 22px 26px;
-  border-radius: var(--r-md);
-  background:
-    radial-gradient(circle at 12% 0%, rgba(140,170,255,0.12), transparent 55%),
-    rgba(10,14,36,0.54);
-  border: 1px solid rgba(160,180,255,0.18);
-  backdrop-filter: blur(12px);
-  margin-bottom: 28px;
-  line-height: 1.62;
-  color: rgba(225,230,255,0.82);
-  box-shadow: var(--shadow-md);
+.panel-sub{
+  margin: 0;
+  color: var(--text-2);
+  font-size: 13px;
+  line-height: 1.65;
 }
 
-.essay-card{
-  padding: 22px 26px;
-  border-radius: var(--r-md);
-  background:
-    radial-gradient(circle at 18% 10%, rgba(140,170,255,0.13), transparent 60%),
-    var(--glass);
-  border: 1px solid var(--stroke);
-  backdrop-filter: blur(12px);
-  box-shadow: var(--shadow-md);
-  transition: transform var(--t), box-shadow var(--t), border-color var(--t);
+/* Если панель — ссылка целиком */
+.panel-link{
+  display: block;
+  color: inherit;
 }
-.essay-card:hover{
-  transform: translateY(-4px);
-  border-color: rgba(180,200,255,0.34);
-  box-shadow: var(--shadow-lg), 0 0 40px rgba(130,170,255,0.14);
+
+/* ---- Buttons (сталь, без глянца) ---- */
+.panel-actions{
+  margin-top: 16px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.panel-btn,
+.whatsapp-btn,
+.telegram-btn,
+.email-btn,
+.back-link,
+.install-btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 10px 14px;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: transparent;
+
+  font-size: 13px;
+  color: var(--text);
+  text-decoration: none;
+
+  transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
+}
+
+.panel-btn:hover,
+.whatsapp-btn:hover,
+.telegram-btn:hover,
+.email-btn:hover,
+.back-link:hover,
+.install-btn:hover{
+  border-color: var(--line-2);
+  background: rgba(235, 238, 242, 0.03);
+  transform: translateY(-1px);
+}
+
+/* Убираем “зелёный” WhatsApp стиль — всё в одном языке */
+.whatsapp-btn{ background: transparent; }
+
+/* ---- Footer ---- */
+.footer{
+  text-align: center;
+  margin: 22px 0 32px;
+  color: var(--text-3);
+  font-size: 12px;
+}
+
+/* ---- Essay layout (как “документ”, не блог) ---- */
+.essay-page{
+  max-width: var(--max);
+  margin: 0 auto;
+}
+
+.essay-header{
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  margin-bottom: var(--gap);
+  background: transparent;
+  box-shadow: none;
+}
+
+.essay-header-line{ display: none; } /* убираем декоративную “золотую линию” */
+
+.essay-main-title{
+  margin: 0 0 8px;
+  font-size: 18px;
+  letter-spacing: 0.06em;
+  font-weight: 650;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.essay-subtitle{
+  margin: 0;
+  color: var(--text-2);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.essay-body{
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 22px 22px 24px;
+  background: transparent;
+  backdrop-filter: none;
+  box-shadow: none;
+}
+
+.essay-body p{
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.9;
+  margin: 0 0 18px;
+}
+.essay-body p:last-child{ margin-bottom: 0; }
+
+/* ---- Essay list blocks ---- */
+.essay-info,
+.essay-card,
+.essay-preview{
+  background: transparent !important;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 22px 22px 20px;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
 }
 
 .essay-card-title{
   margin: 0 0 10px;
-  font-size: 1.15rem;
-  color: rgba(245,245,255,0.96);
-  letter-spacing: 0.01em;
-}
-.essay-card-note{
-  margin: 0 0 16px;
-  color: rgba(215,220,255,0.80);
-  line-height: 1.55;
-  font-size: 0.95rem;
+  font-size: 15px;
+  font-weight: 640;
+  letter-spacing: 0.02em;
+  color: var(--text);
 }
 
-.essay-link-title{
-  color: rgba(245,245,255,0.96);
-  text-decoration:none;
-  border-bottom: 1px solid rgba(200,210,255,0.34);
-  padding-bottom: 2px;
-  transition: border-color var(--t), color var(--t);
-}
-.essay-link-title:hover{
-  color: rgba(200,210,255,0.96);
-  border-bottom-color: rgba(200,210,255,0.62);
+.essay-card-note,
+.preview-note{
+  margin: 0 0 14px;
+  color: var(--text-2);
+  font-size: 13px;
+  line-height: 1.7;
 }
 
-.essay-card-link{
-  display:inline-block;
-  padding: 10px 18px;
-  border-radius: 999px;
-  border: 1px solid rgba(200,210,255,0.28);
-  color: rgba(245,245,255,0.96);
-  text-decoration:none;
-  font-size: 0.95rem;
-  font-weight: 620;
-  letter-spacing: 0.01em;
-  background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(10px);
-  transition: transform var(--t), background var(--t), border-color var(--t), box-shadow var(--t);
-}
-.essay-card-link:hover{
-  transform: translateY(-2px);
-  background: rgba(255,255,255,0.10);
-  border-color: rgba(200,210,255,0.48);
-  box-shadow: 0 0 18px rgba(140,170,255,0.16);
+/* ---- Back button ---- */
+.back-btn-container{
+  text-align: center;
+  margin: 24px 0 44px;
 }
 
-/* =============== ESSAY PAGE BODY =============== */
-.essay-page{
-  max-width: 980px;
-  margin: 40px auto;
-}
-
-.essay-header{
-  position: relative;
-  border-radius: var(--r-md);
-  margin-bottom: 22px;
-  padding: 22px 24px 24px;
-  background:
-    radial-gradient(circle at 10% 0%, rgba(140,170,255,0.16), transparent 58%),
-    rgba(10,14,36,0.62);
-  border: 1px solid rgba(160,180,255,0.18);
-  backdrop-filter: blur(14px);
-  box-shadow: var(--shadow-lg), 0 0 60px rgba(130,170,255,0.14);
-}
-
-.essay-header-line{
-  width: 72px;
-  height: 2px;
-  background: linear-gradient(90deg, rgba(200,210,255,0.8), rgba(200,210,255,0));
-  margin-bottom: 12px;
-  opacity: 0.9;
-}
-
-.essay-main-title{
-  margin: 0 0 10px;
-  font-size: 1.35rem;
-  letter-spacing: 0.04em;
-  text-transform: none;
-  color: rgba(245,245,255,0.96);
-}
-.essay-subtitle{
-  margin: 0;
-  color: rgba(215,220,255,0.82);
-  font-size: 0.95rem;
-  opacity: 0.95;
-}
-
-.essay-body{
-  background:
-    radial-gradient(circle at 18% 0%, rgba(140,170,255,0.10), transparent 60%),
-    rgba(10,14,36,0.58);
-  border-radius: var(--r-md);
-  padding: 24px 26px 28px;
-  border: 1px solid rgba(160,180,255,0.18);
-  backdrop-filter: blur(14px);
-  box-shadow: var(--shadow-lg);
-}
-
-.essay-body p{
-  color: rgba(235,238,255,0.90);
-  line-height: 1.72;
-  margin: 0 0 16px;
-  font-size: 0.98rem;
-}
-.essay-body p:last-child{ margin-bottom: 0; }
-
-/* =============== ANKI (GOLD AS ACCENT, NOT DOMINATION) =============== */
-.anki-page .title,
-.anki-page h2,
-.anki-page strong{
-  color: rgba(245,245,255,0.96); /* не делаем весь текст "золотым" */
-}
-
-.anki-page h2{
-  position: relative;
-  margin-top: 26px;
-  margin-bottom: 14px;
-}
-.anki-page h2::after{
-  content:"";
-  display:block;
-  width: 62px;
-  height: 1px;
-  background: linear-gradient(90deg, var(--gold), rgba(200,168,110,0));
-  margin-top: 7px;
-  opacity: 0.7;
-}
-
-/* логотип — мягкое дыхание */
-.anki-logo{
-  animation: ankiPulse 7s ease-in-out infinite;
-  filter: drop-shadow(0 0 16px rgba(150,170,255,0.22));
-}
-@keyframes ankiPulse{
-  0%{ opacity:0.86; transform: translateY(0); }
-  50%{ opacity:1; transform: translateY(-2px); }
-  100%{ opacity:0.86; transform: translateY(0); }
-}
-
-/* =============== PANELS (как карточки, но шире) =============== */
-.panel-grid{
-  margin-top: 24px;
-  display:grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 18px;
-}
-@media (min-width: 900px){
-  .panel-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
-}
-
-.panel{
-  padding: 18px 18px 16px;
-  border-radius: var(--r-md);
-  background:
-    radial-gradient(circle at 18% 10%, rgba(140,170,255,0.12), transparent 60%),
-    rgba(8,12,32,0.66);
-  border: 1px solid rgba(160,180,255,0.16);
-  backdrop-filter: blur(14px);
-  box-shadow: var(--shadow-md);
-  transition: transform var(--t), box-shadow var(--t), border-color var(--t);
-}
-.panel:hover{
-  transform: translateY(-4px);
-  border-color: rgba(180,200,255,0.30);
-  box-shadow: var(--shadow-lg), 0 0 38px rgba(130,170,255,0.14);
-}
-
-.panel-actions{
-  margin-top: 16px;
-  display:flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-.panel-btn{
+.back-btn{
+  appearance: none;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--text);
   padding: 10px 16px;
-  border-radius: 999px;
-  text-decoration:none;
-  font-size: 0.95rem;
-  font-weight: 620;
-  border: 1px solid rgba(200,210,255,0.24);
-  color: rgba(245,245,255,0.96);
-  background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(10px);
-  transition: transform var(--t), background var(--t), border-color var(--t), box-shadow var(--t);
-}
-.panel-btn:hover{
-  transform: translateY(-2px);
-  background: rgba(255,255,255,0.10);
-  border-color: rgba(200,210,255,0.44);
-  box-shadow: 0 0 18px rgba(140,170,255,0.14);
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 13px;
+  transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
 }
 
-/* =============== ANKI MARK =============== */
-.anki-mark{
-  display:flex;
-  flex-direction: column;
-  align-items:center;
-  justify-content:center;
-  gap: 6px;
-  margin-bottom: 22px;
-}
-.anki-mark img{
-  width: 120px;
-  height:auto;
-  filter: drop-shadow(0 0 18px rgba(150,170,255,0.26));
-  opacity: 0.95;
-  transition: transform .35s ease, filter .35s ease, opacity .35s ease;
-}
-.anki-mark span{
-  font-size: 0.78rem;
-  letter-spacing: 0.38em;
-  text-transform: uppercase;
-  color: rgba(235,238,255,0.80);
-  opacity: 0.88;
-}
-.anki-mark:hover img{
+.back-btn:hover{
+  border-color: var(--line-2);
+  background: rgba(235, 238, 242, 0.03);
   transform: translateY(-1px);
-  filter: drop-shadow(0 0 26px rgba(150,170,255,0.40));
-  opacity: 1;
 }
 
-/* =============== BURGER NAV =============== */
+/* ---- Burger nav (если используется) ---- */
 .site-header{
   position: sticky;
   top: 0;
   z-index: 50;
-  padding: 14px 16px;
-  backdrop-filter: blur(12px);
-  background: rgba(3, 6, 18, 0.55);
-  border-bottom: 1px solid rgba(160,180,255,0.14);
+  background: rgba(15, 17, 20, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+  padding: 12px 14px;
 }
 
 .header-inner{
   max-width: 1100px;
   margin: 0 auto;
-  display:flex;
-  align-items:center;
+  display: flex;
+  align-items: center;
   justify-content: space-between;
   gap: 14px;
 }
 
-.brand-mini{
-  display:flex;
-  align-items:center;
-  gap: 10px;
-  text-decoration:none;
-  color: inherit;
-}
-.brand-mini img{
-  width: 34px;
-  height:auto;
-  opacity: 0.95;
-  filter: drop-shadow(0 0 14px rgba(150,170,255,0.28));
-}
+.brand-mini img{ width: 28px; opacity: 0.85; filter: none; }
 .brand-mini span{
-  letter-spacing: 0.34em;
+  letter-spacing: 0.26em;
   text-transform: uppercase;
-  font-size: 0.78rem;
-  color: rgba(235,238,255,0.80);
-  opacity: 0.9;
+  font-size: 12px;
+  color: var(--text-3);
 }
 
 .burger-btn{
-  width: 44px;
-  height: 44px;
-  border-radius: 999px;
-  border: 1px solid rgba(160,180,255,0.18);
-  background: rgba(7, 10, 26, 0.52);
-  cursor:pointer;
-  display:grid;
-  place-items:center;
-  box-shadow: var(--shadow-md);
-  transition: transform var(--t), box-shadow var(--t), border-color var(--t);
-}
-.burger-btn:hover{
-  transform: translateY(-1px);
-  border-color: rgba(180,200,255,0.34);
-  box-shadow: var(--shadow-lg);
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: transparent;
+  box-shadow: none;
 }
 
-.burger-icon{
-  width: 18px;
-  height: 12px;
-  position: relative;
-}
 .burger-icon::before,
 .burger-icon::after,
 .burger-icon span{
-  content:"";
-  position:absolute;
-  left:0; right:0;
-  height:2px;
-  border-radius: 999px;
-  background: rgba(235,238,255,0.88);
-  transition: transform .22s ease, top .22s ease, opacity .22s ease;
+  background: var(--text-2);
 }
-.burger-icon::before{ top:0; }
-.burger-icon span{ top:5px; }
-.burger-icon::after{ top:10px; }
 
-/* overlay/drawer */
+/* Overlay / Drawer */
 .nav-overlay{
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.52);
-  backdrop-filter: blur(2px);
+  background: rgba(0,0,0,0.6);
   opacity: 0;
   pointer-events: none;
-  transition: opacity .22s ease;
+  transition: opacity 160ms ease;
   z-index: 60;
 }
+
 .nav-drawer{
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: min(360px, 92vw);
-  height: 100vh;
-  padding: 18px 18px 22px;
-  background: rgba(7,10,28,0.86);
-  border-left: 1px solid rgba(160,180,255,0.18);
-  box-shadow: -24px 0 80px rgba(0,0,0,0.75);
+  background: var(--bg);
+  border-left: 1px solid var(--line);
+  box-shadow: none;
   transform: translateX(102%);
-  transition: transform .26s ease;
+  transition: transform 200ms ease;
   z-index: 70;
-  overflow: auto;
-}
-.nav-drawer::before{
-  content:"";
-  position:absolute;
-  left:0; top:12%;
-  bottom:12%;
-  width:3px;
-  border-radius: 999px;
-  background: linear-gradient(
-    to bottom,
-    rgba(160,180,255,0.0),
-    rgba(160,180,255,0.65),
-    rgba(160,180,255,0.0)
-  );
-  filter: blur(.6px);
-  opacity: .9;
-}
-.nav-drawer h3{
-  margin: 6px 0 14px;
-  font-size: 0.95rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(235,238,255,0.90);
-  opacity: 0.95;
-}
-.drawer-nav{ display:grid; gap:10px; }
-.drawer-nav a{
-  display:block;
-  padding: 12px 14px;
-  border-radius: 14px;
-  text-decoration:none;
-  color: rgba(235,238,255,0.92);
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(160,180,255,0.14);
-  transition: background var(--t), border-color var(--t), transform var(--t);
-}
-.drawer-nav a:hover{
-  background: rgba(160,180,255,0.08);
-  border-color: rgba(160,180,255,0.28);
-  transform: translateY(-1px);
-}
-.drawer-bottom{
-  margin-top: 16px;
-  font-size: 0.86rem;
-  color: rgba(235,238,255,0.72);
-  line-height: 1.55;
-  opacity: 0.95;
 }
 
-/* open state */
-.nav-open .nav-overlay{ opacity:1; pointer-events:auto; }
+.nav-drawer::before{ display: none; } /* убираем LED-полоску */
+
+.drawer-nav a{
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--text-2);
+  border-radius: var(--radius);
+}
+
+.drawer-nav a:hover{
+  color: var(--text);
+  border-color: var(--line-2);
+  background: rgba(235, 238, 242, 0.03);
+}
+
+.drawer-bottom{
+  color: var(--text-3);
+}
+
+/* OPEN STATE */
+.nav-open .nav-overlay{ opacity: 1; pointer-events: auto; }
 .nav-open .nav-drawer{ transform: translateX(0); }
 
-/* бургер -> крест */
-.nav-open .burger-icon::before{ top:5px; transform: rotate(45deg); }
-.nav-open .burger-icon span{ opacity:0; }
-.nav-open .burger-icon::after{ top:5px; transform: rotate(-45deg); }
-
-/* =============== PWA INSTALL =============== */
+/* ---- PWA Install strip ---- */
 .install-wrap{
-  margin: 14px 0 18px;
-  display:flex;
-  align-items:center;
+  margin: 12px 0 var(--gap);
+  display: flex;
   gap: 12px;
+  align-items: center;
   flex-wrap: wrap;
 }
-.install-btn{
-  appearance:none;
-  border: 1px solid rgba(200,210,255,0.28);
-  background: rgba(8, 10, 30, 0.50);
-  color: rgba(245,245,255,0.96);
-  padding: 10px 16px;
-  border-radius: 999px;
-  font-weight: 700;
-  letter-spacing: 0.01em;
-  cursor: pointer;
-  box-shadow: var(--shadow-md);
-  transition: transform var(--t), box-shadow var(--t), border-color var(--t);
-}
-.install-btn:hover{
-  transform: translateY(-1px);
-  border-color: rgba(200,210,255,0.48);
-  box-shadow: var(--shadow-lg);
-}
+
 .install-hint{
-  margin:0;
-  color: rgba(215,220,255,0.82);
-  font-size: 0.95rem;
-  opacity: 0.95;
-}
-
-/* =============== SPACE LAYER (если используешь) =============== */
-.space-stage{
-  position: fixed;
-  inset: 0;
-  z-index: 1;              /* выше stars/nebula, но ниже контента */
-  pointer-events: none;
-  overflow: hidden;
-}
-.space-bg{
-  position: absolute;
-  inset: -2%;
-  background-size: cover;
-  background-position: center;
-  filter: saturate(1.05) contrast(1.05);
-  opacity: 0.92;
-  transform: scale(1.02);
-  transition: opacity 900ms ease;
-}
-@keyframes spaceBreath{
-  0%{ transform: scale(1.02); }
-  50%{ transform: scale(1.06); }
-  100%{ transform: scale(1.02); }
-}
-.space-bg.is-animating{ animation: spaceBreath 18s ease-in-out infinite; }
-
-.space-fragment{
-  position: absolute;
-  width: 110px;
-  height: auto;
-  opacity: 0.85;
-  filter: drop-shadow(0 0 10px rgba(170,130,255,0.25));
-  mix-blend-mode: screen;
-  transform: translate3d(0,0,0);
-}
-@keyframes drift1{
-  0%{ transform: translate(-10vw, 10vh) rotate(0deg); }
-  100%{ transform: translate(110vw, -15vh) rotate(220deg); }
-}
-@keyframes drift2{
-  0%{ transform: translate(110vw, 25vh) rotate(0deg); }
-  100%{ transform: translate(-20vw, 60vh) rotate(-260deg); }
-}
-@keyframes drift3{
-  0%{ transform: translate(30vw, 110vh) rotate(0deg); }
-  100%{ transform: translate(70vw, -30vh) rotate(180deg); }
-}
-
-/* чтобы контент/меню были сверху */
-.top-nav, .main-nav, .page, footer, .footer, .site-header{
-  position: relative;
-  z-index: 5;
-}
-
-/* =============== RESPONSIVE =============== */
-@media (max-width: 900px){
-  .page{
-    margin: 44px 14px 28px;
-    padding: 26px 20px 30px;
-  }
-  .home-page .page{ margin-top: 52px; }
-  .title{ font-size: 1.75rem; }
-  .main-nav{ gap: 8px 16px; }
-  .card-grid{ grid-template-columns: minmax(0,1fr); }
-  .contact-form{ grid-template-columns: 1fr; }
-}
-
-/* =============== UNIVERSAL SCROLL FIX =============== */
-html, body{
-  height: auto !important;
-  min-height: 100%;
-  overflow-y: auto !important;
-  overflow-x: hidden !important;
-  -webkit-overflow-scrolling: touch;
-  touch-action: pan-y;
-}
-#stars, canvas, .nebula{ pointer-events: none !important; }
-.page, .essay-page, .fade-in{
-  height: auto !important;
-  min-height: 0 !important;
-  overflow: visible !important;
-}
-/* ====== PREMIUM FORMAT: Архитектура системы ====== */
-.premium-card{
-  border-radius: 20px;
-  padding: 18px 18px 16px;
-  background:
-    radial-gradient(circle at 15% 10%, rgba(200,168,110,0.20), transparent 55%),
-    radial-gradient(circle at 85% 25%, rgba(120,160,255,0.14), transparent 60%),
-    rgba(7, 10, 22, 0.92);
-  border: 1px solid rgba(200,168,110,0.22);
-  box-shadow:
-    0 0 0 1px rgba(200,168,110,0.08),
-    0 18px 55px rgba(0,0,0,0.78),
-    0 0 90px rgba(200,168,110,0.16);
-}
-
-.premium-btn{
-  border-color: rgba(200,168,110,0.45);
-  color: rgba(255,232,190,0.98);
-  background: rgba(8,10,30,0.55);
-}
-
-.premium-btn:hover{
-  border-color: rgba(200,168,110,0.75);
-  box-shadow:
-    0 0 0 1px rgba(200,168,110,0.18),
-    0 18px 44px rgba(0,0,0,0.70),
-    0 0 22px rgba(200,168,110,0.22);
+  margin: 0;
+  color: var(--text-3);
+  font-size: 13px;
 }
