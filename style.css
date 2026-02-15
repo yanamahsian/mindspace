@@ -1,479 +1,329 @@
-/* ================================
-   AN.KI — ARCHITECTURAL SKIN v1
-   Graphite / Steel / Quiet Space
-   ================================ */
-
-/* ---- Reset / Base ---- */
-*,
-*::before,
-*::after { box-sizing: border-box; }
+/* ==========================
+   AN.KI — ARCHITECTURAL UI
+   Graphite / soft light / steel
+   ========================== */
 
 :root{
-  --bg: #0f1114;            /* глубокий графит */
-  --bg-2: #14171b;          /* чуть светлее для слоёв */
-  --line: rgba(210, 216, 224, 0.14);  /* холодная “сталь” */
-  --line-2: rgba(210, 216, 224, 0.22);
-  --text: rgba(235, 238, 242, 0.88);  /* мягкий светлый */
-  --text-2: rgba(235, 238, 242, 0.68);
-  --text-3: rgba(235, 238, 242, 0.52);
-  --accent: rgba(210, 216, 224, 0.9); /* стальной акцент */
-  --focus: rgba(210, 216, 224, 0.35);
-  --radius: 8px;            /* почти прямые углы */
-  --radius-2: 10px;
-  --gap: 28px;              /* воздух */
-  --gap-2: 40px;
+  --bg: #121416;          /* глубокий графит */
+  --bg-2: #171a1d;        /* чуть светлее для панелей */
+  --line: #2a2f35;        /* линии/границы */
+  --text: #e7e6e1;        /* мягкий светлый */
+  --muted: #b9b6ad;       /* приглушённый */
+  --steel: #9aa3ad;       /* холодный стальной акцент */
+  --steel-2:#7e8792;      /* для hover */
   --max: 980px;
-  --font: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
-          "Segoe UI", Roboto, Arial, sans-serif;
+  --pad: 48px;
+  --gap: 28px;
+  --r: 6px;               /* почти без скруглений */
 }
 
-html, body{
-  margin: 0;
-  padding: 0;
-  min-height: 100%;
-  font-family: var(--font);
-  color: var(--text);
+/* base */
+*{ box-sizing: border-box; }
+html,body{
+  margin:0; padding:0;
   background: var(--bg);
-  overflow-x: hidden;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
-/* Убираем “космос” глобально, без правок HTML */
-#stars, canvas#stars, .nebula{
-  display: none !important;
-  pointer-events: none !important;
-}
-
-/* ---- Typography ---- */
-.title{
-  margin: 0 0 10px;
-  font-size: 28px;
-  line-height: 1.2;
-  letter-spacing: 0.02em;
-  font-weight: 560;
   color: var(--text);
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-.subtitle{
-  margin: 0 0 var(--gap);
-  color: var(--text-2);
-  font-size: 14px;
-  line-height: 1.6;
-}
+/* убираем любые “слои” если остались в HTML */
+#stars, .nebula{ display:none !important; }
 
-/* Текст в блоках */
-p{
-  margin: 0 0 16px;
-  color: var(--text);
-  line-height: 1.8;
-  font-size: 15px;
-}
-p:last-child{ margin-bottom: 0; }
+a{ color: var(--text); }
+a:hover{ color: var(--steel); }
 
-strong{ color: var(--accent); font-weight: 650; }
-a{ color: var(--text); text-decoration: none; }
-a:hover{ color: var(--accent); }
-
-/* ---- Page wrapper ---- */
 .page{
   max-width: var(--max);
-  margin: 64px auto 56px;
-  padding: 44px 44px 52px;
-  background: transparent;      /* важное: никакой “карточки-сайта” */
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
+  margin: 72px auto 56px;
+  padding: var(--pad);
+  background: transparent;       /* ключ: воздух, без карточки вокруг всего */
 }
 
-/* На мобиле больше воздуха, меньше “плитки” */
-@media (max-width: 900px){
-  .page{
-    margin: 22px 14px 34px;
-    padding: 28px 18px 34px;
-  }
-  .title{ font-size: 24px; }
-}
-
-/* ---- Animations (тихо) ---- */
-.fade-in{
-  animation: fadeIn 240ms ease-out;
-}
-@keyframes fadeIn{
-  from{ opacity: 0; transform: translateY(6px); }
-  to  { opacity: 1; transform: translateY(0); }
-}
-
-/* ---- Header / Brand ---- */
-.anki-mark{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  margin: 0 0 var(--gap);
-  padding-bottom: 16px;
-  border-bottom: 1px solid var(--line);
-}
-
-.anki-mark img{
-  width: 54px;
-  height: auto;
-  opacity: 0.88;
-  filter: none; /* убираем “золото/свечения” */
-}
-
-.anki-mark span{
-  font-size: 12px;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: var(--text-3);
-}
-
-/* ---- Nav (если где-то есть top-nav/main-nav) ---- */
-.top-nav, .main-nav{
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px 18px;
-  margin: 0 0 var(--gap);
-  padding: 0 0 16px;
-  border-bottom: 1px solid var(--line);
-}
-
-.top-nav a, .main-nav a{
-  font-size: 13px;
-  color: var(--text-2);
-  padding: 6px 0;
-  border-bottom: 1px solid transparent;
-}
-
-.top-nav a:hover, .main-nav a:hover{
-  color: var(--text);
-  border-bottom-color: var(--line-2);
-}
-
-.top-nav a.active, .main-nav a.active{
-  color: var(--text);
-  border-bottom-color: var(--line-2);
-}
-
-/* ---- Panels / Cards (строгие) ---- */
-.panel-grid{
-  margin-top: var(--gap);
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 18px;
-}
-
-@media (min-width: 900px){
-  .panel-grid{
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 22px;
-  }
-}
-
-.panel{
-  background: transparent;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 22px 22px 20px;
-  box-shadow: none !important;
-  transition: border-color 160ms ease, transform 160ms ease;
-}
-
-.panel:hover{
-  border-color: var(--line-2);
-  transform: translateY(-1px);
-}
-
-.panel h2{
-  margin: 0 0 10px;
-  font-size: 15px;
+/* типографика */
+.title{
+  margin: 0 0 12px;
+  font-size: 34px;
+  font-weight: 650;
   letter-spacing: 0.02em;
-  font-weight: 620;
+}
+.subtitle{
+  margin: 0 0 28px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--muted);
+  max-width: 72ch;
+}
+
+.manifest{
+  margin-top: 10px;
+  display: grid;
+  gap: 12px;
+  max-width: 78ch;
+}
+.manifest p{
+  margin: 0;
+  line-height: 1.75;
+  font-size: 15px;
   color: var(--text);
 }
-
-.panel-sub{
-  margin: 0;
-  color: var(--text-2);
-  font-size: 13px;
-  line-height: 1.65;
+.manifest-line{
+  margin-top: 10px;
+  color: var(--muted);
+  font-style: normal;
+  letter-spacing: 0.02em;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
 }
 
-/* Если панель — ссылка целиком */
-.panel-link{
-  display: block;
-  color: inherit;
+/* строгие “карточки” */
+.card-grid{
+  margin-top: 34px;
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--gap);
 }
 
-/* ---- Buttons (сталь, без глянца) ---- */
-.panel-actions{
-  margin-top: 16px;
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.panel-btn,
-.whatsapp-btn,
-.telegram-btn,
-.email-btn,
-.back-link,
-.install-btn{
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-
-  padding: 10px 14px;
-  border-radius: var(--radius);
+.workbook-card,
+.art-card,
+.aroma-card,
+.essay-card,
+.contact-item,
+.essay-info,
+.essay-body,
+.essay-preview{
+  background: var(--bg-2);
   border: 1px solid var(--line);
-  background: transparent;
+  border-radius: var(--r);
+  padding: 22px 24px;
+  box-shadow: none;
+}
 
-  font-size: 13px;
+/* заголовки внутри блоков */
+.workbook-card h2,
+.art-card h2,
+.aroma-card h2,
+.essay-card-title,
+.contact-item h2{
+  margin: 0 0 10px;
+  font-size: 16px;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+}
+.workbook-card p,
+.art-card p,
+.aroma-card p,
+.contact-item p{
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+/* ссылки-элементы */
+.essay-link-title{
   color: var(--text);
   text-decoration: none;
-
-  transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
+  border-bottom: 1px solid var(--line);
+}
+.essay-link-title:hover{
+  color: var(--steel);
+  border-bottom-color: var(--steel);
 }
 
-.panel-btn:hover,
-.whatsapp-btn:hover,
-.telegram-btn:hover,
-.email-btn:hover,
-.back-link:hover,
-.install-btn:hover{
-  border-color: var(--line-2);
-  background: rgba(235, 238, 242, 0.03);
-  transform: translateY(-1px);
-}
-
-/* Убираем “зелёный” WhatsApp стиль — всё в одном языке */
-.whatsapp-btn{ background: transparent; }
-
-/* ---- Footer ---- */
+/* footer */
 .footer{
-  text-align: center;
-  margin: 22px 0 32px;
-  color: var(--text-3);
-  font-size: 12px;
-}
-
-/* ---- Essay layout (как “документ”, не блог) ---- */
-.essay-page{
   max-width: var(--max);
-  margin: 0 auto;
+  margin: 10px auto 40px;
+  padding: 0 var(--pad);
+  color: var(--muted);
+  font-size: 12.5px;
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
 }
 
-.essay-header{
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 18px 20px;
-  margin-bottom: var(--gap);
-  background: transparent;
-  box-shadow: none;
-}
+/* ==========================
+   HEADER + BURGER (минимальный)
+   ========================== */
 
-.essay-header-line{ display: none; } /* убираем декоративную “золотую линию” */
-
-.essay-main-title{
-  margin: 0 0 8px;
-  font-size: 18px;
-  letter-spacing: 0.06em;
-  font-weight: 650;
-  text-transform: uppercase;
-  color: var(--text);
-}
-
-.essay-subtitle{
-  margin: 0;
-  color: var(--text-2);
-  font-size: 13px;
-  line-height: 1.6;
-}
-
-.essay-body{
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 22px 22px 24px;
-  background: transparent;
-  backdrop-filter: none;
-  box-shadow: none;
-}
-
-.essay-body p{
-  color: var(--text);
-  font-size: 15px;
-  line-height: 1.9;
-  margin: 0 0 18px;
-}
-.essay-body p:last-child{ margin-bottom: 0; }
-
-/* ---- Essay list blocks ---- */
-.essay-info,
-.essay-card,
-.essay-preview{
-  background: transparent !important;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 22px 22px 20px;
-  box-shadow: none !important;
-  backdrop-filter: none !important;
-}
-
-.essay-card-title{
-  margin: 0 0 10px;
-  font-size: 15px;
-  font-weight: 640;
-  letter-spacing: 0.02em;
-  color: var(--text);
-}
-
-.essay-card-note,
-.preview-note{
-  margin: 0 0 14px;
-  color: var(--text-2);
-  font-size: 13px;
-  line-height: 1.7;
-}
-
-/* ---- Back button ---- */
-.back-btn-container{
-  text-align: center;
-  margin: 24px 0 44px;
-}
-
-.back-btn{
-  appearance: none;
-  border: 1px solid var(--line);
-  background: transparent;
-  color: var(--text);
-  padding: 10px 16px;
-  border-radius: var(--radius);
-  cursor: pointer;
-  font-size: 13px;
-  transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
-}
-
-.back-btn:hover{
-  border-color: var(--line-2);
-  background: rgba(235, 238, 242, 0.03);
-  transform: translateY(-1px);
-}
-
-/* ---- Burger nav (если используется) ---- */
 .site-header{
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(15, 17, 20, 0.92);
+  background: rgba(18,20,22,0.92);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--line);
-  padding: 12px 14px;
 }
-
 .header-inner{
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
-  display: flex;
-  align-items: center;
+  padding: 14px 18px;
+  display:flex;
+  align-items:center;
   justify-content: space-between;
-  gap: 14px;
+  gap: 12px;
 }
 
-.brand-mini img{ width: 28px; opacity: 0.85; filter: none; }
+/* логотип/бренд: тихо */
+.brand-mini{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+}
+.brand-mini img{
+  width: 28px;
+  height:auto;
+  opacity: 0.9;
+  filter:none;
+}
 .brand-mini span{
-  letter-spacing: 0.26em;
-  text-transform: uppercase;
   font-size: 12px;
-  color: var(--text-3);
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
 
+/* бургер: строгий квадрат */
 .burger-btn{
-  width: 42px;
-  height: 42px;
-  border-radius: var(--radius);
-  border: 1px solid var(--line);
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
   background: transparent;
-  box-shadow: none;
+  border: 1px solid var(--line);
+  cursor:pointer;
+  display:grid;
+  place-items:center;
+}
+.burger-btn:hover{
+  border-color: var(--steel);
 }
 
+.burger-icon{
+  width: 18px;
+  height: 12px;
+  position: relative;
+}
 .burger-icon::before,
 .burger-icon::after,
 .burger-icon span{
-  background: var(--text-2);
+  content:"";
+  position:absolute;
+  left:0; right:0;
+  height: 2px;
+  background: var(--text);
+  opacity: 0.9;
 }
+.burger-icon::before{ top:0; }
+.burger-icon span{ top:5px; }
+.burger-icon::after{ top:10px; }
 
-/* Overlay / Drawer */
+.nav-open .burger-icon::before{ top:5px; transform: rotate(45deg); }
+.nav-open .burger-icon span{ opacity:0; }
+.nav-open .burger-icon::after{ top:5px; transform: rotate(-45deg); }
+
+/* overlay */
 .nav-overlay{
-  background: rgba(0,0,0,0.6);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 160ms ease;
+  position: fixed;
+  inset:0;
+  background: rgba(0,0,0,0.55);
+  opacity:0;
+  pointer-events:none;
+  transition: opacity .2s ease;
   z-index: 60;
 }
 
+/* drawer */
 .nav-drawer{
+  position: fixed;
+  top:0; right:0;
+  width: min(360px, 92vw);
+  height: 100vh;
   background: var(--bg);
   border-left: 1px solid var(--line);
-  box-shadow: none;
   transform: translateX(102%);
-  transition: transform 200ms ease;
+  transition: transform .22s ease;
   z-index: 70;
+  padding: 18px;
+  overflow: auto;
+}
+.nav-drawer h3{
+  margin: 6px 0 14px;
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
 
-.nav-drawer::before{ display: none; } /* убираем LED-полоску */
-
+.drawer-nav{
+  display:grid;
+  gap: 10px;
+}
 .drawer-nav a{
+  display:block;
+  padding: 12px 12px;
+  border-radius: 6px;
   border: 1px solid var(--line);
-  background: transparent;
-  color: var(--text-2);
-  border-radius: var(--radius);
-}
-
-.drawer-nav a:hover{
+  text-decoration:none;
   color: var(--text);
-  border-color: var(--line-2);
-  background: rgba(235, 238, 242, 0.03);
+  background: transparent;
+}
+.drawer-nav a:hover{
+  border-color: var(--steel);
+  color: var(--steel);
+}
+.drawer-nav a.active{
+  border-color: var(--steel);
+  color: var(--steel);
 }
 
 .drawer-bottom{
-  color: var(--text-3);
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
 }
 
-/* OPEN STATE */
-.nav-open .nav-overlay{ opacity: 1; pointer-events: auto; }
+/* open state */
+.nav-open .nav-overlay{ opacity:1; pointer-events:auto; }
 .nav-open .nav-drawer{ transform: translateX(0); }
 
-/* ---- PWA Install strip ---- */
+/* ==========================
+   PWA install button (строгий)
+   ========================== */
 .install-wrap{
-  margin: 12px 0 var(--gap);
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  flex-wrap: wrap;
+  margin: 0 0 24px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
 }
-
+.install-btn{
+  appearance:none;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--text);
+  padding: 10px 14px;
+  border-radius: 6px;
+  cursor:pointer;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.install-btn:hover{
+  border-color: var(--steel);
+  color: var(--steel);
+}
 .install-hint{
-  margin: 0;
-  color: var(--text-3);
+  margin:0;
+  color: var(--muted);
   font-size: 13px;
 }
-/* ====== OPTION 1: NO PAGE FRAME (put at VERY END) ====== */
-.page{
-  border: none !important;
-  border-radius: 0 !important;
-  padding: 56px 44px 64px !important;
-  margin: 0 auto !important;
-  background: transparent !important;
-}
 
+/* responsive */
 @media (max-width: 900px){
-  .page{
-    padding: 32px 18px 46px !important;
-  }
-}
-
-/* чтобы контент не прилипал к бургер-хедеру */
-.site-header + .page{
-  margin-top: 0 !important;
+  .page{ padding: 28px 18px; margin-top: 52px; }
+  .title{ font-size: 28px; }
 }
