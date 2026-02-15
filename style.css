@@ -327,3 +327,13 @@ a:hover{ color: var(--steel); }
   .page{ padding: 28px 18px; margin-top: 52px; }
   .title{ font-size: 28px; }
 }
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+.anki-logo,
+.brand-mini img {
+  width: 34px;
+  height: auto;
+}
