@@ -16,28 +16,42 @@
 
 <body class="home-page">
 
-  <!-- BURGER HEADER -->
-  <header class="site-header">
-    <div class="header-inner">
+ <!-- BURGER HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand-mini" href="index.html">
+      <img src="anki-logo.png" alt="AN.KI">
+      <span>AN.KI</span>
+    </a>
 
-      <a class="brand-mini" href="index.html">
-        <img src="anki-logo.png" alt="AN.KI">
-        <span>AN.KI</span>
-      </a>
+    <button class="burger-btn"
+            type="button"
+            data-burger
+            aria-label="Меню"
+            aria-expanded="false">
+      <div class="burger-icon"><span></span></div>
+    </button>
+  </div>
+</header>
 
-      <button class="burger-btn" type="button"
-              data-burger
-              aria-label="Открыть меню"
-              aria-expanded="false">
-        <div class="burger-icon"><span></span></div>
-      </button>
+<div class="nav-overlay" data-nav-overlay></div>
 
-    </div>
-  </header>
+<aside class="nav-drawer" data-nav-drawer>
+  <h3>Навигация</h3>
 
-  <div class="nav-overlay" data-nav-overlay></div>
+  <nav class="drawer-nav">
+    <a href="index.html">Главная</a>
+    <a href="essays.html">Эссе</a>
+    <a href="personalcontact.html">Личный контакт</a>
+    <a href="contacts.html">Контакты</a>
+  </nav>
 
-  <aside class="nav-drawer" data-nav-drawer>
+  <div class="drawer-bottom">
+    Все права защищены.
+  </div>
+</aside>
+
+ 
     <h3>Навигация</h3>
 
     <header class="site-header">
