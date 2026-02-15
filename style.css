@@ -458,3 +458,22 @@ a:hover{ color: var(--accent); }
   color: var(--text-3);
   font-size: 13px;
 }
+/* ====== OPTION 1: NO PAGE FRAME (put at VERY END) ====== */
+.page{
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 56px 44px 64px !important;
+  margin: 0 auto !important;
+  background: transparent !important;
+}
+
+@media (max-width: 900px){
+  .page{
+    padding: 32px 18px 46px !important;
+  }
+}
+
+/* чтобы контент не прилипал к бургер-хедеру */
+.site-header + .page{
+  margin-top: 0 !important;
+}
