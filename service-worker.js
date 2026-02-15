@@ -14,8 +14,8 @@ const CORE_ASSETS = [
   "/script.js",
   "/anki-logo.png",
   "/manifest.webmanifest",
-  "/icons/icon-192.png",
-  "/icons/icon-512.png"
+  "/images/icon-192.png",
+  "/images/icon-512.png"
 ];
 
 // Установка: кешируем базу
