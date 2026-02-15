@@ -8,10 +8,11 @@
   <meta name="description"
         content="Пространство для тех, кому тесно в человеческой игре. Глубинные консультации, карты воплощения, алхимия сознания и тела." />
 
-  <link rel="stylesheet" href="style.css" />
-  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="manifest" href="/manifest.webmanifest" />
   <meta name="theme-color" content="#020616" />
-  <script src="script.js" defer></script>
+
+  <script src="/script.js" defer></script>
 </head>
 
 <body class="home-page">
@@ -19,8 +20,8 @@
   <!-- BURGER HEADER -->
   <header class="site-header">
     <div class="header-inner">
-      <a class="brand-mini" href="index.html">
-        <img src="images/anki-logo.png" alt="AN.KI">
+      <a class="brand-mini" href="/index.html">
+        <img src="/anki-logo.png" alt="AN.KI">
         <span>AN.KI</span>
       </a>
 
@@ -38,21 +39,24 @@
 
   <aside class="nav-drawer" data-nav-drawer>
     <h3>Навигация</h3>
+
     <nav class="drawer-nav">
-      <a href="index.html">Главная</a>
-      <a href="essays.html">Эссе</a>
-      <a href="personalcontact.html">Личный контакт</a>
-      <a href="contacts.html">Контакты</a>
+      <a href="/index.html">Главная</a>
+      <a href="/essays.html">Эссе</a>
+      <a href="/personalcontact.html">Личный контакт</a>
+      <a href="/contacts.html">Контакты</a>
     </nav>
 
-    <div class="drawer-bottom">Все права защищены.</div>
+    <div class="drawer-bottom">
+      Все права защищены.
+    </div>
   </aside>
 
   <!-- ФОН -->
   <canvas id="stars"></canvas>
   <div class="nebula"></div>
 
-  <main class="page fade-in">
+  <main class="page">
     <!-- Кнопка установки PWA -->
     <div class="install-wrap">
       <button id="installBtn" class="install-btn" type="button" style="display:none;">
@@ -88,5 +92,6 @@
   <footer class="footer">
     <p>© 2025 Mindspace. Для тех, кому тесно в человеческой игре.</p>
   </footer>
+
 </body>
 </html>
