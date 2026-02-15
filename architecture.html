@@ -3,10 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <title>Архитектура системы — AN.KI</title>
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+        content="Архитектура высшего уровня. Структурное вмешательство. AN.KI Mindspace." />
+
   <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <meta name="theme-color" content="#020616" />
+
   <script src="script.js" defer></script>
 </head>
+
+<body class="essay-page">
+
+<!-- HEADER -->
 <header class="site-header">
   <div class="header-inner">
     <a class="brand-mini" href="index.html">
@@ -14,83 +25,76 @@
       <span>AN.KI</span>
     </a>
 
-    <button class="burger-btn" data-burger aria-expanded="false" aria-label="Меню">
+    <button class="burger-btn"
+            type="button"
+            data-burger
+            aria-label="Меню"
+            aria-expanded="false">
       <div class="burger-icon"><span></span></div>
     </button>
   </div>
-  
 </header>
 
 <div class="nav-overlay" data-nav-overlay></div>
 
 <aside class="nav-drawer" data-nav-drawer>
   <h3>Навигация</h3>
+
   <nav class="drawer-nav">
     <a href="index.html">Главная</a>
     <a href="essays.html">Эссе</a>
     <a href="personalcontact.html">Личный контакт</a>
     <a href="contacts.html">Контакты</a>
   </nav>
+
   <div class="drawer-bottom">
     Все права защищены.
   </div>
 </aside>
 
-<body>
+<!-- ФОН -->
+<canvas id="stars"></canvas>
+<div class="nebula"></div>
 
-  <!-- Фон -->
-  <canvas id="stars"></canvas>
-  <div class="nebula"></div>
+<!-- КОНТЕНТ -->
+<div class="page fade-in">
 
-  <!-- Контент -->
-  <div class="page fade-in essay-page" style="max-width: 900px; margin: 40px auto 40px;">
+  <h1 class="title">Архитектура системы</h1>
+  <p class="subtitle">Архитектура высшего уровня</p>
 
-    <div class="anki-mark">
-      <img src="anki-logo.png" alt="AN.KI">
-      <span>AN.KI</span>
-    </div>
+  <div class="manifest">
+    <p>
+      Формат длительной системной работы.
+    </p>
 
-    <!-- Шапка как у эссе (золотая) -->
-    <div class="essay-header essay-header-gold">
-      <div class="essay-header-inner">
-        <div class="essay-header-line"></div>
-        <h1 class="essay-main-title">Архитектура системы</h1>
-        <p class="essay-subtitle">Архитектура высшего уровня</p>
-         <p class="sub">
-         Не консультация, а вмешательство в конструкцию.
-         Формат для тех, кто уже создал проект, бизнес или структуру - и чувствует, что система не выдерживает масштаб или работает ниже своего потенциала.
-         Работа глубинная, уровень - системный. Только для готовых к реальной реконструкции.
-      </p>
-      </div>
-    </div>
+    <p>
+      Для владельцев бизнеса, фондов, структур и проектов с оборотом.
+    </p>
 
-    <!-- Тело -->
-   /* ===== FIX: огромные картинки и логотип на страницах ===== */
-img { max-width: 100%; height: auto; display: block; }
+    <p>
+      Стратегический аудит. Перепрошивка архитектуры. Личные включения.
+      Корректировка модели.
+    </p>
 
-/* Если на странице есть большой логотип сверху — ограничим его */
-.hero-logo,
-.page-hero img,
-.anki-mark img,
-.logo-hero img,
-main img.logo,
-img[alt*="AN.KI"],
-img[alt*="ANKI"] {
-  width: min(360px, 70vw);
-  margin: 24px auto 18px;
-}
+    <p>
+      Это не консультация. Это структурное вмешательство.
+    </p>
 
-/* В “шапке” (brand-mini) логотип должен быть маленьким */
-.brand-mini img {
-  width: 28px !important;
-  height: auto !important;
-  margin: 0 !important;
-}
-
-/* Контент не должен прилипать к низу после огромной картинки */
-.page { padding-top: 28px; }
-
+    <p class="manifest-line">
+      от 40 000 €
+    </p>
   </div>
+
+  <div class="panel-actions">
+    <a href="contacts.html" class="panel-btn">Запросить</a>
+    <a href="personalcontact.html" class="panel-btn">Назад</a>
+  </div>
+
+</div>
+
+<footer class="footer">
+  <p>© 2025 Mindspace. Архитектура высшего уровня.</p>
+</footer>
 
 </body>
 </html>
