@@ -1,165 +1,125 @@
-<!DOCTYPE html>
+<!-- personalcontact.html -->
+<!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Личный контакт — AN.KI</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="design.css">
+  <meta name="description" content="Форматы личного контакта AN.KI. Без терапии, сопровождения и обещаний." />
 
-  <link rel="stylesheet" href="style.css" />
-  <script src="script.js" defer></script>
+  <!-- СТИЛИ: один порядок, без дублей -->
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="/design.css" />
 
-  <!-- Кнопка "Забронировать" (чтобы работало сразу, даже если в style.css нет класса) -->
-  <style>
-    .book-btn {
-      display: inline-block;
-      margin-top: 14px;
-      padding: 12px 18px;
-      border-radius: 12px;
-      text-decoration: none;
-      color: #fff;
-      border: 1px solid rgba(200, 200, 255, 0.22);
-      background: rgba(18, 18, 28, 0.55);
-      box-shadow: 0 0 20px rgba(130, 100, 255, 0.22);
-      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
-    }
-    .book-btn:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 0 28px rgba(160, 120, 255, 0.33);
-      border-color: rgba(220, 220, 255, 0.32);
-    }
-    .price {
-      margin-top: 10px;
-      color: #e4e4ff;
-      opacity: 0.95;
-      font-weight: 600;
-    }
-  </style>
-  <style>
-  /* Только для personalcontact.html */
-  body { background:#07070a !important; }
-  #stars, .nebula { display:none !important; }
+  <!-- PWA -->
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta name="theme-color" content="#020616" />
 
-  .page{
-    background: transparent !important;
-    box-shadow: none !important;
-    border: none !important;
-    padding: 56px 24px !important;
-    max-width: 980px !important;
-  }
-
-  .title{ font-size: 2.4rem !important; margin-bottom: 10px; }
-  .subtitle{ opacity: .85; }
-
-  .panel-grid{
-    display: grid !important;
-    grid-template-columns: 1fr !important; /* одна колонка = солидно */
-    gap: 14px !important;
-    margin-top: 26px !important;
-  }
-
-  .panel{
-    background: rgba(255,255,255,0.04) !important;
-    border: 1px solid rgba(255,255,255,0.10) !important;
-    border-radius: 18px !important;
-    padding: 18px 18px !important;
-    box-shadow: none !important;
-    overflow: visible !important;   /* ключ: не режем текст */
-    height: auto !important;        /* ключ: не фиксируем высоту */
-  }
-
-  .panel h2{ margin: 0 0 6px 0 !important; font-size: 1.25rem !important; }
-  .panel-sub, .panel-note{ margin: 8px 0 0 0 !important; opacity: .82; line-height: 1.55; }
-
-  .price{ margin-top: 12px !important; font-weight: 700 !important; opacity: .95; }
-
-  .book-btn{
-    display:inline-block;
-    margin-top: 12px;
-    padding: 10px 14px;
-    border-radius: 12px;
-    text-decoration: none;
-    color: #fff;
-    border: 1px solid rgba(255,255,255,0.18);
-    background: rgba(255,255,255,0.06);
-    transition: transform .15s ease, border-color .15s ease, background .15s ease;
-  }
-  .book-btn:hover{
-    transform: translateY(-1px);
-    border-color: rgba(255,255,255,0.28);
-    background: rgba(255,255,255,0.09);
-  }
-
-  /* Аккуратный “скрытый текст”, если захочешь оставить описание */
-  details{
-    margin-top: 10px;
-    opacity: .9;
-  }
-  summary{
-    cursor: pointer;
-    list-style: none;
-    opacity: .75;
-  }
-  summary::-webkit-details-marker{ display:none; }
-</style>
+  <!-- JS -->
+  <script src="/script.js" defer></script>
 </head>
 
-<body>
+<body class="personalcontact-page">
 
-  <!-- Контейнер -->
-  <div class="page fade-in" style="max-width: 1100px; margin: 40px auto; padding: 40px;">
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand-mini" href="/index.html" aria-label="AN.KI — Главная">
+        <img src="/anki-logo.png" alt="AN.KI" />
+        <span>AN.KI</span>
+      </a>
 
-    <div class="anki-mark">
-      <img src="anki-logo.png" alt="AN.KI">
-      <span>AN.KI</span>
+      <button class="burger-btn"
+              type="button"
+              data-burger
+              aria-label="Меню"
+              aria-expanded="false">
+        <span class="burger-icon"><span></span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="nav-overlay" data-nav-overlay></div>
+
+  <aside class="nav-drawer" data-nav-drawer aria-label="Навигация сайта">
+    <h3>Навигация</h3>
+
+    <nav class="drawer-nav">
+      <a href="/index.html">Главная</a>
+      <a href="/anki.html">Об учении</a>
+      <a href="/mypath.html">Мой путь</a>
+      <a href="/personalcontact.html">Личный контакт</a>
+      <a href="/workbooks.html">Воркбуки</a>
+      <a href="/art.html">Арт</a>
+      <a href="/aroma.html">Ароматы</a>
+      <a href="/essays.html">Эссе</a>
+      <a href="/artifacts.html">Артефакты AN.KI</a>
+      <a href="/contacts.html">Контакты</a>
+    </nav>
+
+    <div class="drawer-bottom">
+      Все права защищены.
+    </div>
+  </aside>
+
+  <!-- ФОН (если ты отключишь его в CSS — ничего не сломается) -->
+  <canvas id="stars" aria-hidden="true"></canvas>
+  <div class="nebula" aria-hidden="true"></div>
+
+  <!-- CONTENT -->
+  <main class="page" role="main">
+    <h1 class="title">Личный контакт</h1>
+    <p class="subtitle">Здесь нет терапии, сопровождения и обещаний. Есть форматы контакта.</p>
+
+    <div class="manifest" style="margin-top: 10px;">
+      <p>Выбирайте не “под задачу”, а по уровню правды, к которому вы готовы.</p>
     </div>
 
-    <h1 class="title">Личный контакт</h1>
+    <!-- GRID -->
+    <section class="panel-grid" aria-label="Форматы контакта" style="margin-top: 22px;">
 
-    <p class="subtitle" style="margin-bottom: 18px;">
-      Здесь нет терапии, сопровождения и обещаний. Есть форматы контакта.
-    </p>
+      <article class="panel">
+        <h2>Точка истины</h2>
+        <div class="price">3 000 €</div>
+        <div class="panel-actions">
+          <a class="panel-btn" href="/truth.html">Забронировать</a>
+        </div>
+      </article>
 
-    <p style="color:#c7c7dd; margin-bottom: 26px; opacity:0.9;">
-      Выбирайте не “под задачу”, а по уровню правды, к которому вы готовы.
-    </p>
+      <article class="panel">
+        <h2>Структурное зрение</h2>
+        <div class="price">9 000 €</div>
+        <div class="panel-actions">
+          <a class="panel-btn" href="/structure.html">Забронировать</a>
+        </div>
+      </article>
 
-    <!-- Панели -->
-    <div class="panel-grid">
-<div class="panel">
-  <h2>Точка истины</h2>
-  <div class="price">3 000 €</div>
-  <a class="btn" href="truth.html">Забронировать</a>
-</div>
+      <article class="panel">
+        <h2>Тихий контакт</h2>
+        <div class="price">16 000 €</div>
+        <div class="panel-actions">
+          <a class="panel-btn" href="/silent.html">Забронировать</a>
+        </div>
+      </article>
 
-<div class="panel">
-  <h2>Структурное зрение</h2>
-  <div class="price">9 000 €</div>
- <a class="btn" href="structure.html">Забронировать</a>
-</div>
+      <article class="panel">
+        <h2>Архитектура системы</h2>
+        <div class="price">от 40 000 €</div>
+        <div class="panel-actions">
+          <!-- Запросить -> контакты (WhatsApp/Telegram) -->
+          <a class="panel-btn" href="/contacts.html">Запросить</a>
+        </div>
+      </article>
 
-<div class="panel">
-  <h2>Тихий контакт</h2>
-  <div class="price">16 000 €</div>
-<a class="btn" href="silent.html">Забронировать</a>
-</div>
+    </section>
 
-<!-- ====== ARCHITECTURE OF SYSTEM (premium) ====== -->
-<div class="card premium-card">
-  <h2 class="h2">Архитектура системы</h2>
-  <div class="price">от 40 000 €</div>
-  <a class="btn" href="architecture.html">Запросить</a>
-</div>
-
-    <a href="index.html" class="back-link" style="display:inline-block; margin-top: 30px;">
-      ← На главную
-    </a>
-
-  </div>
+    <div class="back-btn-container">
+      <a class="back-btn" href="/index.html">← На главную</a>
+    </div>
+  </main>
 
   <footer class="footer">
-    <p>© 2025 Mindspace. Для тех, кому тесно в человеческой игре.</p>
+    <p>© 2025 AN.KI by Yana Makhzian</p>
   </footer>
 
 </body>
