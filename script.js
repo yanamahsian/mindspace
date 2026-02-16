@@ -1,173 +1,142 @@
-/* script.js — AN.KI (архитектурный режим)
-   - бургер меню
-   - меню заполняется автоматически на всех страницах
-   - PWA install button + SW register
-*/
+/* script.js — AN.KI unified nav + stable PWA update */
 
 (() => {
-  // ===== 1) ЕДИНЫЙ СПИСОК МЕНЮ (правится только тут) =====
+  // 1) ЕДИНСТВЕННОЕ МЕНЮ ДЛЯ ВСЕХ СТРАНИЦ (правда одна)
+  // Если какого-то пункта НЕ должно быть — просто удали строку отсюда.
   const NAV_ITEMS = [
-    { href: "/index.html", label: "Главная" },
-    { href: "/anki.html", label: "Об учении" },
-    { href: "/mypath.html", label: "Мой путь" },
-    { href: "/consulting.html", label: "Консультации" },
-    { href: "/personalcontact.html", label: "Личный контакт" },
-    { href: "/workbooks.html", label: "Воркбуки" },
-    { href: "/art.html", label: "Арт" },
-    { href: "/aroma.html", label: "Ароматы" },
-    { href: "/essays.html", label: "Эссе" },
-    { href: "/artifacts.html", label: "Артефакты AN.KI" },
-    { href: "/contacts.html", label: "Контакты" }
+    { href: "index.html",          label: "Главная" },
+    { href: "anki.html",           label: "Об учении" },
+    { href: "mypath.html",         label: "Мой путь" },
+    { href: "workbooks.html",      label: "Воркбуки" },
+    { href: "art.html",            label: "Арт" },
+    { href: "aroma.html",          label: "Ароматы" },
+    { href: "essays.html",         label: "Эссе" },
+    { href: "artifacts.html",      label: "Артефакты AN.KI" },
+    { href: "personalcontact.html",label: "Личный контакт" },
+    { href: "contacts.html",       label: "Контакты" }
   ];
 
+  const $ = (sel) => document.querySelector(sel);
+  const $$ = (sel) => Array.from(document.querySelectorAll(sel));
+
   function normalizePath(p) {
-    // / -> /index.html
-    if (p === "/") return "/index.html";
-    return p;
+    const clean = (p || "").split("?")[0].split("#")[0];
+    return clean.endsWith("/") ? (clean + "index.html") : clean;
   }
 
-  function fillNavigationEverywhere() {
-    const navs = document.querySelectorAll(".drawer-nav");
-    if (!navs.length) return;
+  function currentFile() {
+    const p = normalizePath(location.pathname);
+    const file = p.substring(p.lastIndexOf("/") + 1) || "index.html";
+    return file;
+  }
 
-    const current = normalizePath(location.pathname);
-
-    navs.forEach((nav) => {
-      nav.innerHTML = ""; // СНОСИМ то, что было (в т.ч. “урезанное”)
-      NAV_ITEMS.forEach((item) => {
-        const a = document.createElement("a");
-        a.href = item.href;
-        a.textContent = item.label;
-
-        if (normalizePath(item.href) === current) a.classList.add("active");
-
-        // чтобы после клика меню не оставалось открытым
-        a.addEventListener("click", () => {
-          document.body.classList.remove("nav-open");
-          const btn = document.querySelector("[data-burger]");
-          if (btn) btn.setAttribute("aria-expanded", "false");
-        });
-
-        nav.appendChild(a);
-      });
+  // Пересобираем меню на странице(ах), если есть контейнер
+  function buildDrawerNav() {
+    const active = currentFile();
+    $$(".drawer-nav").forEach((nav) => {
+      nav.innerHTML = NAV_ITEMS.map((it) => {
+        const isActive = it.href === active;
+        return `<a href="${it.href}" ${isActive ? 'aria-current="page"' : ""}>${it.label}</a>`;
+      }).join("");
     });
   }
 
-  // ===== 2) BURGER =====
+  // 2) БУРГЕР: одна логика, без сюрпризов
   function initBurger() {
-    const body = document.body;
     const btn = document.querySelector("[data-burger]");
     const overlay = document.querySelector("[data-nav-overlay]");
     const drawer = document.querySelector("[data-nav-drawer]");
     if (!btn || !overlay || !drawer) return;
 
-    const open = () => {
-      body.classList.add("nav-open");
+    function open() {
+      document.documentElement.classList.add("nav-open");
       btn.setAttribute("aria-expanded", "true");
-    };
-
-    const close = () => {
-      body.classList.remove("nav-open");
+    }
+    function close() {
+      document.documentElement.classList.remove("nav-open");
       btn.setAttribute("aria-expanded", "false");
-    };
+    }
+    function toggle() {
+      document.documentElement.classList.contains("nav-open") ? close() : open();
+    }
 
-    btn.addEventListener("click", () => {
-      body.classList.contains("nav-open") ? close() : open();
-    });
+    btn.addEventListener("click", toggle);
     overlay.addEventListener("click", close);
 
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") close();
     });
-  }
 
-  // ===== 3) PWA: Service Worker =====
-  function initServiceWorker() {
-    if (!("serviceWorker" in navigator)) return;
-
-    window.addEventListener("load", async () => {
-      try {
-        const reg = await navigator.serviceWorker.register("/service-worker.js", { scope: "/" });
-
-        // если есть ожидающий SW — активируем
-        if (reg.waiting) reg.waiting.postMessage({ type: "SKIP_WAITING" });
-
-        // когда новый SW установлен — перезагрузим один раз, чтобы подтянуть новый CSS
-        reg.addEventListener("updatefound", () => {
-          const sw = reg.installing;
-          if (!sw) return;
-          sw.addEventListener("statechange", () => {
-            if (sw.state === "activated") {
-              // мягко: только если страница была под старым SW
-              if (navigator.serviceWorker.controller) location.reload();
-            }
-          });
-        });
-      } catch (err) {
-        // молча: чтобы не ломать сайт
-        console.warn("SW register failed:", err);
-      }
+    // Закрыть меню при клике на пункт
+    drawer.addEventListener("click", (e) => {
+      const a = e.target.closest("a");
+      if (a) close();
     });
   }
 
-  // ===== 4) PWA: Install button =====
-  let deferredPrompt = null;
+  // 3) PWA install UI (если элементы есть)
+  function initInstallUI() {
+    const installBtn = document.getElementById("installBtn");
+    const installHint = document.getElementById("installHint");
+    if (!installBtn) return;
 
-  function isIOS() {
-    return /iphone|ipad|ipod/i.test(navigator.userAgent);
-  }
-  function isStandalone() {
-    return window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone === true;
-  }
-
-  function initInstallButton() {
-    const btn = document.getElementById("installBtn");
-    const hint = document.getElementById("installHint");
-    if (!btn) return;
-
-    const hide = () => {
-      btn.style.display = "none";
-      if (hint) hint.style.display = "none";
-    };
-
-    if (isStandalone()) return hide();
+    let deferredPrompt = null;
 
     window.addEventListener("beforeinstallprompt", (e) => {
       e.preventDefault();
       deferredPrompt = e;
-      btn.style.display = "inline-flex";
-      if (hint) hint.style.display = "none";
+      installBtn.style.display = "inline-block";
+      if (installHint) {
+        installHint.style.display = "block";
+        installHint.textContent = "Можно установить как приложение.";
+      }
     });
 
-    btn.addEventListener("click", async () => {
-      if (isIOS()) {
-        if (!hint) return;
-        hint.style.display = "block";
-        hint.textContent = "iPhone/iPad: Поделиться → «На экран Домой»";
-        return;
-      }
+    installBtn.addEventListener("click", async () => {
       if (!deferredPrompt) return;
       deferredPrompt.prompt();
       await deferredPrompt.userChoice;
       deferredPrompt = null;
-      hide();
+      installBtn.style.display = "none";
+      if (installHint) installHint.style.display = "none";
     });
   }
 
-  // ===== 5) ОТКЛЮЧАЕМ “КОСМОС” если он мешает архитектуре =====
-  function killCosmosIfExists() {
-    const canvas = document.getElementById("stars");
-    if (canvas) canvas.style.display = "none";
-    const nebula = document.querySelector(".nebula");
-    if (nebula) nebula.style.display = "none";
+  // 4) Service Worker: регистрируем с версией (чтобы обновлялся, а не залипал)
+  async function initSW() {
+    if (!("serviceWorker" in navigator)) return;
+
+    // меняй строку, когда хочешь принудительно обновить SW
+    const SW_VERSION = "2026-02-16-1";
+
+    try {
+      const reg = await navigator.serviceWorker.register(`/service-worker.js?v=${SW_VERSION}`, {
+        scope: "/"
+      });
+
+      // если новый SW установился — просим его активироваться
+      if (reg.waiting) {
+        reg.waiting.postMessage({ type: "SKIP_WAITING" });
+      }
+
+      // если SW обновится — перезагрузим страницу один раз
+      let refreshing = false;
+      navigator.serviceWorker.addEventListener("controllerchange", () => {
+        if (refreshing) return;
+        refreshing = true;
+        location.reload();
+      });
+    } catch (err) {
+      // не ломаем сайт, если SW не встал
+      console.warn("SW register failed:", err);
+    }
   }
 
-  // ===== INIT =====
+  // старт
   document.addEventListener("DOMContentLoaded", () => {
-    fillNavigationEverywhere();
+    buildDrawerNav();
     initBurger();
-    initInstallButton();
-    initServiceWorker();
-    killCosmosIfExists();
+    initInstallUI();
+    initSW();
   });
 })();
