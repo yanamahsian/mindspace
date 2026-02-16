@@ -1,303 +1,166 @@
-/* =========================
-   AN.KI — DESIGN (minimal)
-   3 цвета: background / text / accent
-   ========================= */
+/* design.css — AN.KI / Architectural skin (3 цвета, воздух, без декора) */
 
 :root{
-  --bg: #121416;        /* глубокий графит */
-  --text: #E6E7EA;      /* мягкий светлый */
-  --accent: #8D949C;    /* холодный стальной */
+  --bg: #0b0c0e;         /* глубокий графит */
+  --text: #d7d9dd;       /* мягкий светлый (не белый) */
+  --steel: #7f858d;      /* холодный стальной акцент */
 }
 
 html, body{
-  margin: 0;
-  padding: 0;
-  background: var(--bg);
-  color: var(--text);
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-  letter-spacing: 0.01em;
+  background: var(--bg) !important;
+  color: var(--text) !important;
 }
 
-/* Убираем декоративные слои, если они есть */
-#stars, .nebula, canvas#stars{
+/* Убираем “космос” без удаления кода */
+#stars, .nebula, .space-stage, .space-bg{
   display: none !important;
 }
 
-/* База ссылок */
-a{
-  color: var(--text);
-  text-decoration: none;
-}
-a:hover{
-  text-decoration: underline;
-  text-decoration-color: var(--accent);
-}
-
-/* Контейнер страницы — воздух и строгая конструкция */
-.page,
-.essay-page{
+/* Общая геометрия: много воздуха, строгий контейнер */
+.page, .essay-page{
   max-width: 980px;
-  margin: 72px auto 96px;
-  padding: 0 28px;
+  margin: 72px auto 80px;
+  padding: 48px 56px;
   background: transparent !important;
   border-radius: 0 !important;
   box-shadow: none !important;
+  border: 1px solid rgba(127,133,141,0.22);
 }
 
-/* Заголовки */
-.title,
-h1{
+/* Типографика */
+.title{
+  font-size: 44px;
+  line-height: 1.06;
+  letter-spacing: -0.02em;
   margin: 0 0 14px;
-  font-size: clamp(28px, 4vw, 44px);
   font-weight: 650;
-  line-height: 1.05;
-  letter-spacing: 0.02em;
 }
-
 .subtitle{
-  margin: 0 0 36px;
-  color: var(--accent);
-  font-size: 14px;
+  color: rgba(215,217,221,0.72);
+  font-size: 15px;
   line-height: 1.6;
-  max-width: 70ch;
+  margin: 0 0 28px;
 }
 
-/* Текстовые блоки */
-.manifest,
-.essay-body,
-.contact-item,
-.payment-page p{
-  color: var(--text);
-  line-height: 1.75;
+.manifest, .essay-body, .contact-item p, .payment-page p{
+  color: rgba(215,217,221,0.86);
+  line-height: 1.85;
   font-size: 15px;
 }
 
-.manifest p{
-  margin: 0 0 12px;
-  max-width: 78ch;
-}
-
-/* Линии/разделители — только акцент */
-hr,
-.divider{
-  border: 0;
-  border-top: 1px solid rgba(141,148,156,0.35);
-  margin: 36px 0;
-}
-
-/* Карточки — строгие, почти без скруглений */
-.card-grid,
-.panel-grid{
-  margin-top: 38px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 22px;
-}
-
-.workbook-card,
-.art-card,
-.aroma-card,
-.essay-card,
-.panel{
-  background: transparent !important;
-  border: 1px solid rgba(141,148,156,0.35);
-  border-radius: 4px !important;     /* почти без скругления */
-  box-shadow: none !important;
-  padding: 22px 22px 20px;
-}
-
-/* Внутри карточек */
-.workbook-card h2,
-.art-card h2,
-.aroma-card h2,
-.essay-card-title,
-.panel h2,
-.panel h3{
-  margin: 0 0 10px;
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--text);
-}
-
-.workbook-card p,
-.art-card p,
-.aroma-card p,
-.essay-card-note,
-.panel p{
-  margin: 0 0 8px;
-  color: var(--accent);
-  font-size: 14px;
-  line-height: 1.65;
-}
-
-/* Кнопки — строгие */
-.panel-actions,
-.btn-row{
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-top: 18px;
-}
-
-.panel-btn,
-.back-btn,
-.install-btn,
-.whatsapp-btn,
-.telegram-btn,
-.essay-card-link,
-button{
-  border-radius: 4px !important;
-  border: 1px solid rgba(141,148,156,0.45) !important;
-  background: transparent !important;
-  color: var(--text) !important;
-  padding: 10px 14px !important;
-  font-size: 14px !important;
-  font-weight: 550;
-  letter-spacing: 0.02em;
-  box-shadow: none !important;
-  transition: none !important;
-}
-
-.panel-btn:hover,
-.back-btn:hover,
-.install-btn:hover,
-.whatsapp-btn:hover,
-.telegram-btn:hover,
-.essay-card-link:hover,
-button:hover{
-  border-color: rgba(141,148,156,0.8) !important;
-  text-decoration: none;
-}
-
-/* Убираем любые “свечения” и эффектные ховеры */
+/* Убираем анимации/свечения */
 *{
   text-shadow: none !important;
+  filter: none !important;
 }
-.workbook-card:hover,
-.art-card:hover,
-.aroma-card:hover,
-.panel:hover{
-  transform: none !important;
+.fade-in{ animation: none !important; }
+
+/* Карточки: строгие, почти без скруглений, без теней */
+.card-grid{
+  gap: 22px;
+}
+.workbook-card, .art-card, .aroma-card, .essay-card, .panel{
+  background: rgba(255,255,255,0.02) !important;
+  border: 1px solid rgba(127,133,141,0.22) !important;
+  border-radius: 6px !important;
+  box-shadow: none !important;
 }
 
-/* Изображения — чтобы не раздувались */
+/* Заголовки внутри карточек */
+.workbook-card h2, .art-card h2, .aroma-card h2, .essay-card-title{
+  font-size: 16px;
+  margin: 0 0 10px;
+  font-weight: 600;
+}
+.workbook-card p, .art-card p, .aroma-card p, .essay-card-note{
+  color: rgba(215,217,221,0.72);
+  font-size: 14px;
+}
+
+/* Ссылки — сталь, без “гламура” */
+a{
+  color: rgba(215,217,221,0.92);
+  text-decoration: none;
+}
+a:hover{
+  color: var(--text);
+}
+.main-nav a::after{ display:none !important; }
+
+/* Кнопки — строгие */
+.back-btn, .panel-btn, .whatsapp-btn, .telegram-btn, .install-btn, button{
+  border-radius: 6px !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  border: 1px solid rgba(127,133,141,0.35) !important;
+  color: rgba(215,217,221,0.92) !important;
+}
+.back-btn:hover, .panel-btn:hover, .install-btn:hover, button:hover{
+  background: rgba(255,255,255,0.03) !important;
+  border-color: rgba(127,133,141,0.60) !important;
+}
+
+/* Ограничитель для любых картинок, чтобы не было “огромной иконки на весь экран” */
 img{
-  max-width: 100%;
-  height: auto;
+  max-width: 100% !important;
+  height: auto !important;
+}
+.page img{
+  display: block;
 }
 
-/* ========== Минимальный бургер/хедер ========== */
+/* Хедер + бургер — минимально, без боковых “эффектов” */
 .site-header{
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
   z-index: 50;
-  background: var(--bg);
-  border-bottom: 1px solid rgba(141,148,156,0.25);
   padding: 14px 18px;
+  background: rgba(11,12,14,0.92) !important;
+  border-bottom: 1px solid rgba(127,133,141,0.22) !important;
   backdrop-filter: none !important;
 }
-
-.header-inner{
-  max-width: 980px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 14px;
-}
-
-.brand-mini{
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  color: var(--text);
+.brand-mini span{
+  color: rgba(215,217,221,0.88) !important;
+  letter-spacing: 0.28em;
+  font-size: 12px;
 }
 .brand-mini img{
   width: 22px !important;
-  height: auto;
-  filter: none !important;
+  height: auto !important;
   opacity: 0.9;
 }
-.brand-mini span{
-  color: var(--text);
-  letter-spacing: 0.28em;
-  font-size: 12px;
-  text-transform: uppercase;
-}
 
-/* Кнопка бургер */
-.burger-btn{
-  width: 44px;
-  height: 44px;
-  border-radius: 4px !important;
-  border: 1px solid rgba(141,148,156,0.35);
-  background: transparent;
-  display: grid;
-  place-items: center;
-}
-.burger-icon{
-  width: 18px;
-  height: 12px;
-  position: relative;
-}
-.burger-icon::before,
-.burger-icon::after,
-.burger-icon span{
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: var(--text);
-  opacity: 0.9;
-}
-.burger-icon::before{ top: 0; }
-.burger-icon span{ top: 5px; }
-.burger-icon::after{ top: 10px; }
-
+/* Дровер — строгий */
 .nav-overlay{
-  background: rgba(0,0,0,0.55) !important;
-  backdrop-filter: none !important;
+  background: rgba(0,0,0,0.62) !important;
 }
-
 .nav-drawer{
-  background: var(--bg) !important;
-  border-left: 1px solid rgba(141,148,156,0.35) !important;
+  background: #0b0c0e !important;
+  border-left: 1px solid rgba(127,133,141,0.22) !important;
   box-shadow: none !important;
 }
-
-.nav-drawer h3{
-  color: var(--accent) !important;
-  letter-spacing: 0.22em;
-  font-size: 12px;
-  text-transform: uppercase;
-}
-
+.nav-drawer::before{ display:none !important; }
 .drawer-nav a{
+  border-radius: 6px !important;
   background: transparent !important;
-  border: 1px solid rgba(141,148,156,0.25) !important;
-  border-radius: 4px !important;
-  color: var(--text) !important;
+  border: 1px solid rgba(127,133,141,0.22) !important;
 }
 .drawer-nav a:hover{
-  border-color: rgba(141,148,156,0.7) !important;
+  background: rgba(255,255,255,0.03) !important;
+  border-color: rgba(127,133,141,0.55) !important;
 }
 
-/* Футер */
 .footer{
-  max-width: 980px;
-  margin: 60px auto 40px;
-  padding: 0 28px;
-  color: var(--accent);
-  font-size: 12px;
-  text-align: left;
+  color: rgba(215,217,221,0.55) !important;
+  margin: 24px 0 40px;
 }
 
 /* Адаптив */
-@media (max-width: 720px){
-  .page, .essay-page{ padding: 0 18px; }
-  .card-grid, .panel-grid{ grid-template-columns: 1fr; }
-  .subtitle{ margin-bottom: 26px; }
+@media (max-width: 900px){
+  .page, .essay-page{
+    margin: 56px 14px 70px;
+    padding: 28px 18px;
+    border-radius: 6px !important;
+  }
+  .title{ font-size: 34px; }
 }
