@@ -1,69 +1,108 @@
-<!DOCTYPE html>
+<!-- structure.html -->
+<!doctype html>
 <html lang="ru">
 <head>
-  <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="design.css">
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
   <title>Структурное зрение — AN.KI</title>
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    body{ background:#07070a !important; }
-    #stars,.nebula,.top-nav{ display:none !important; }
-    .page{ background:transparent !important; box-shadow:none !important; border:none !important; max-width:980px !important; padding:56px 24px !important; }
-    .card{ background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.10); border-radius: 18px; padding: 22px; }
-    .h1{ font-size:2.2rem; margin:0 0 8px 0; }
-    .sub{ opacity:.82; margin:0 0 16px 0; line-height:1.55; }
-    .price{ font-weight:700; margin: 14px 0 18px 0; }
-    .btn{ display:inline-block; padding:12px 16px; border-radius:12px; text-decoration:none; color:#fff; border:1px solid rgba(255,255,255,0.18); background: rgba(255,255,255,0.06); transition: transform .15s ease, background .15s ease, border-color .15s ease; }
-    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,0.09); border-color: rgba(255,255,255,0.28); }
-    .back{ display:inline-block; margin-bottom:14px; opacity:.75; text-decoration:none; color:#fff; }
-    .back:hover{ opacity:1; }
-  </style>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+        content="Структурное зрение — контакт для работы с системами. AN.KI." />
+
+  <!-- СТИЛИ -->
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="/design.css" />
+
+  <!-- PWA -->
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta name="theme-color" content="#020616" />
+
+  <!-- JS -->
+  <script src="/script.js" defer></script>
 </head>
-<body>
+
+<body class="structure-page">
+
+  <!-- HEADER -->
   <header class="site-header">
-  <div class="header-inner">
-    <a class="brand-mini" href="index.html">
-      <img src="anki-logo.png" alt="AN.KI">
-      <span>AN.KI</span>
-    </a>
+    <div class="header-inner">
+      <a class="brand-mini" href="/index.html" aria-label="AN.KI — Главная">
+        <img src="/anki-logo.png" alt="AN.KI" />
+        <span>AN.KI</span>
+      </a>
 
-    <button class="burger-btn" data-burger aria-expanded="false" aria-label="Меню">
-      <div class="burger-icon"><span></span></div>
-    </button>
-  </div>
-</header>
+      <button class="burger-btn"
+              type="button"
+              data-burger
+              aria-label="Меню"
+              aria-expanded="false">
+        <span class="burger-icon"><span></span></span>
+      </button>
+    </div>
+  </header>
 
-<div class="nav-overlay" data-nav-overlay></div>
+  <div class="nav-overlay" data-nav-overlay></div>
 
-<aside class="nav-drawer" data-nav-drawer>
-  <h3>Навигация</h3>
-  <nav class="drawer-nav">
-    <a href="index.html">Главная</a>
-    <a href="essays.html">Эссе</a>
-    <a href="personalcontact.html">Личный контакт</a>
-    <a href="contacts.html">Контакты</a>
-  </nav>
-  <div class="drawer-bottom">
-    Все права защищены.
-  </div>
-</aside>
-  <div class="page fade-in">
-    <a class="back" href="personalcontact.html">← Назад</a>
+  <aside class="nav-drawer" data-nav-drawer aria-label="Навигация сайта">
+    <h3>Навигация</h3>
 
-    <div class="card">
-      <h1 class="h1">Структурное зрение</h1>
-      <p class="sub">
-        Контакт для людей, управляющих системами: бизнес, проекты, власть, структуры.
-        Не стратегия действий и не оптимизация. Это указание на то место, где система лжёт сама себе и теряет устойчивость.
+    <nav class="drawer-nav">
+      <a href="/index.html">Главная</a>
+      <a href="/anki.html">Об учении</a>
+      <a href="/mypath.html">Мой путь</a>
+      <a href="/personalcontact.html">Личный контакт</a>
+      <a href="/workbooks.html">Воркбуки</a>
+      <a href="/art.html">Арт</a>
+      <a href="/aroma.html">Ароматы</a>
+      <a href="/essays.html">Эссе</a>
+      <a href="/artifacts.html">Артефакты AN.KI</a>
+      <a href="/contacts.html">Контакты</a>
+    </nav>
+
+    <div class="drawer-bottom">
+      Все права защищены.
+    </div>
+  </aside>
+
+  <!-- ФОН -->
+  <canvas id="stars" aria-hidden="true"></canvas>
+  <div class="nebula" aria-hidden="true"></div>
+
+  <!-- CONTENT -->
+  <main class="page fade-in">
+
+    <p style="margin:0 0 18px;">
+      <a href="/personalcontact.html" style="text-decoration:none; opacity:.75; color:inherit;">← Назад</a>
+    </p>
+
+    <h1 class="title">Структурное зрение</h1>
+    <p class="subtitle">
+      Контакт для людей, управляющих системами
+    </p>
+
+    <div class="manifest">
+      <p>
+        Для работы с системами: бизнес, проекты, власть, структуры.
       </p>
 
-      <div class="price">Цена: 9 000 €</div>
+      <p>
+        Не стратегия действий и не оптимизация.
+        Это указание на то место, где система лжёт сама себе и теряет устойчивость.
+      </p>
 
-      <!-- ВСТАВЬ СЮДА ССЫЛКУ НА ОПЛАТУ -->
-      <a class="btn" href="https://revolut.me/oceanosugar" target="_blank" rel="noopener">Забронировать</a>
+      <p class="manifest-line">9 000 €</p>
     </div>
-  </div>
+
+    <div class="panel-actions">
+      <a class="panel-btn" href="https://revolut.me/oceanosugar" target="_blank" rel="noopener">Забронировать</a>
+      <a class="panel-btn" href="/personalcontact.html">Назад</a>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <p>© 2025 AN.KI by Yana Makhzian</p>
+  </footer>
+
 </body>
 </html>
