@@ -169,3 +169,7 @@ img{
   }
   .title{ font-size: 34px; }
 }
+.back-row { margin: 0 0 18px; }
+.back-link { text-decoration: none; opacity: .75; color: inherit; }
+.back-link:hover { opacity: 1; }
+}
