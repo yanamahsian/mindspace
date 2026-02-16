@@ -1,9 +1,9 @@
 /* design.css — AN.KI / Architectural skin (3 цвета, воздух, без декора) */
 
 :root{
-  --bg: #0b0c0e;         /* глубокий графит */
-  --text: #d7d9dd;       /* мягкий светлый (не белый) */
-  --steel: #7f858d;      /* холодный стальной акцент */
+  --bg: #121417;         /* графит (видимый, не “чёрный экран”) */
+  --text: #d7d9dd;       /* мягкий светлый */
+  --steel: #8a9098;      /* холодный стальной акцент */
 }
 
 html, body{
@@ -19,12 +19,14 @@ html, body{
 /* Общая геометрия: много воздуха, строгий контейнер */
 .page, .essay-page{
   max-width: 980px;
-  margin: 72px auto 80px;
-  padding: 48px 56px;
-  background: transparent !important;
-  border-radius: 0 !important;
+  margin: 84px auto 96px;
+  padding: 56px 64px;
+
+  /* главное: не “чёрный лист”, а графитовая плита */
+  background: rgba(255,255,255,0.02) !important;
+  border: 1px solid rgba(138,144,152,0.28);
+  border-radius: 8px !important;
   box-shadow: none !important;
-  border: 1px solid rgba(127,133,141,0.22);
 }
 
 /* Типографика */
@@ -43,6 +45,9 @@ html, body{
 }
 
 .manifest, .essay-body, .contact-item p, .payment-page p{
+  .manifest p{
+  margin: 0 0 16px;
+}
   color: rgba(215,217,221,0.86);
   line-height: 1.85;
   font-size: 15px;
