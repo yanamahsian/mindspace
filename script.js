@@ -1,67 +1,86 @@
-/* script.js — AN.KI unified nav + stable PWA update */
-
+/* script.js — AN.KI "железобетон": unified nav + stable PWA update */
 (() => {
-  // 1) ЕДИНСТВЕННОЕ МЕНЮ ДЛЯ ВСЕХ СТРАНИЦ (правда одна)
-  // Если какого-то пункта НЕ должно быть — просто удали строку отсюда.
+  // Защита от двойной загрузки скрипта
+  if (window.__ANKI_SCRIPT_INIT__) return;
+  window.__ANKI_SCRIPT_INIT__ = true;
+
+  // === 1) ЕДИНСТВЕННОЕ МЕНЮ ДЛЯ ВСЕХ СТРАНИЦ ===
+  // ВАЖНО: href тут абсолютные (с /), чтобы не ломалось на любых URL.
   const NAV_ITEMS = [
-    { href: "index.html",          label: "Главная" },
-    { href: "anki.html",           label: "Об учении" },
-    { href: "mypath.html",         label: "Мой путь" },
-    { href: "workbooks.html",      label: "Воркбуки" },
-    { href: "art.html",            label: "Арт" },
-    { href: "aroma.html",          label: "Ароматы" },
-    { href: "essays.html",         label: "Эссе" },
-    { href: "artifacts.html",      label: "Артефакты AN.KI" },
-    { href: "personalcontact.html",label: "Личный контакт" },
-    { href: "contacts.html",       label: "Контакты" }
+    { href: "/index.html",           label: "Главная" },
+    { href: "/anki.html",            label: "Об учении" },
+    { href: "/mypath.html",          label: "Мой путь" },
+    { href: "/workbooks.html",       label: "Воркбуки" },
+    { href: "/art.html",             label: "Арт" },
+    { href: "/aroma.html",           label: "Ароматы" },
+    { href: "/essays.html",          label: "Эссе" },
+    { href: "/artifacts.html",       label: "Артефакты AN.KI" },
+    { href: "/personalcontact.html", label: "Личный контакт" },
+    { href: "/contacts.html",        label: "Контакты" }
   ];
 
-  const $ = (sel) => document.querySelector(sel);
-  const $$ = (sel) => Array.from(document.querySelectorAll(sel));
+  const $  = (sel, root = document) => root.querySelector(sel);
+  const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 
-  function normalizePath(p) {
-    const clean = (p || "").split("?")[0].split("#")[0];
-    return clean.endsWith("/") ? (clean + "index.html") : clean;
+  function normalizePathname(pathname) {
+    // / -> /index.html
+    if (!pathname || pathname === "/") return "/index.html";
+    // убираем хвостовой /
+    if (pathname.endsWith("/")) return pathname + "index.html";
+    return pathname;
   }
 
-  function currentFile() {
-    const p = normalizePath(location.pathname);
-    const file = p.substring(p.lastIndexOf("/") + 1) || "index.html";
-    return file;
+  function currentPath() {
+    return normalizePathname(window.location.pathname);
   }
 
-  // Пересобираем меню на странице(ах), если есть контейнер
   function buildDrawerNav() {
-    const active = currentFile();
-    $$(".drawer-nav").forEach((nav) => {
-      nav.innerHTML = NAV_ITEMS.map((it) => {
-        const isActive = it.href === active;
-        return `<a href="${it.href}" ${isActive ? 'aria-current="page"' : ""}>${it.label}</a>`;
-      }).join("");
+    const activePath = currentPath();
+
+    // На некоторых страницах у тебя может быть 2+ ".drawer-nav" из-за кривой верстки.
+    // Мы перезаполняем ВСЕ найденные, чтобы всё было едино.
+    const navBlocks = $$(".drawer-nav");
+    if (!navBlocks.length) return;
+
+    const html = NAV_ITEMS.map((it) => {
+      const isActive = it.href === activePath;
+      return `<a href="${it.href}" ${isActive ? 'aria-current="page"' : ""}>${it.label}</a>`;
+    }).join("");
+
+    navBlocks.forEach((nav) => {
+      nav.innerHTML = html;
     });
   }
 
-  // 2) БУРГЕР: одна логика, без сюрпризов
+  // === 2) БУРГЕР: ОДНА ЛОГИКА, БЕЗ СЮРПРИЗОВ ===
   function initBurger() {
-    const btn = document.querySelector("[data-burger]");
-    const overlay = document.querySelector("[data-nav-overlay]");
-    const drawer = document.querySelector("[data-nav-drawer]");
+    // Берём первый корректный набор. Если на странице дубль — остальные игнорируем.
+    const btn = $("[data-burger]");
+    const overlay = $("[data-nav-overlay]");
+    const drawer = $("[data-nav-drawer]");
+
     if (!btn || !overlay || !drawer) return;
 
+    const root = document.documentElement;
+
     function open() {
-      document.documentElement.classList.add("nav-open");
+      root.classList.add("nav-open");
       btn.setAttribute("aria-expanded", "true");
     }
+
     function close() {
-      document.documentElement.classList.remove("nav-open");
+      root.classList.remove("nav-open");
       btn.setAttribute("aria-expanded", "false");
     }
+
     function toggle() {
-      document.documentElement.classList.contains("nav-open") ? close() : open();
+      root.classList.contains("nav-open") ? close() : open();
     }
 
-    btn.addEventListener("click", toggle);
-    overlay.addEventListener("click", close);
+    // На всякий случай: если уже были слушатели (из-за дублированного script.js),
+    // наш гард в начале это предотвращает.
+    btn.addEventListener("click", toggle, { passive: true });
+    overlay.addEventListener("click", close, { passive: true });
 
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") close();
@@ -74,7 +93,7 @@
     });
   }
 
-  // 3) PWA install UI (если элементы есть)
+  // === 3) PWA Install UI (если элементы есть) ===
   function initInstallUI() {
     const installBtn = document.getElementById("installBtn");
     const installHint = document.getElementById("installHint");
@@ -85,6 +104,7 @@
     window.addEventListener("beforeinstallprompt", (e) => {
       e.preventDefault();
       deferredPrompt = e;
+
       installBtn.style.display = "inline-block";
       if (installHint) {
         installHint.style.display = "block";
@@ -95,44 +115,54 @@
     installBtn.addEventListener("click", async () => {
       if (!deferredPrompt) return;
       deferredPrompt.prompt();
-      await deferredPrompt.userChoice;
+      await deferredPrompt.userChoice.catch(() => null);
       deferredPrompt = null;
+
       installBtn.style.display = "none";
       if (installHint) installHint.style.display = "none";
     });
   }
 
-  // 4) Service Worker: регистрируем с версией (чтобы обновлялся, а не залипал)
+  // === 4) Service Worker: чтобы НЕ залипал и обновлялся ===
   async function initSW() {
     if (!("serviceWorker" in navigator)) return;
 
-    // меняй строку, когда хочешь принудительно обновить SW
-    const SW_VERSION = "2026-02-16-1";
+    // Меняй эту строку при каждом апдейте, когда хочешь "встряхнуть" кеш.
+    const SW_VERSION = "2026-02-16-2";
 
     try {
-      const reg = await navigator.serviceWorker.register(`/service-worker.js?v=${SW_VERSION}`, {
-        scope: "/"
-      });
+      const reg = await navigator.serviceWorker.register(`/service-worker.js?v=${SW_VERSION}`, { scope: "/" });
 
-      // если новый SW установился — просим его активироваться
+      // Если новый SW уже ждёт — активируем
       if (reg.waiting) {
         reg.waiting.postMessage({ type: "SKIP_WAITING" });
       }
 
-      // если SW обновится — перезагрузим страницу один раз
+      // Если пришёл новый SW — тоже активируем
+      reg.addEventListener("updatefound", () => {
+        const sw = reg.installing;
+        if (!sw) return;
+
+        sw.addEventListener("statechange", () => {
+          if (sw.state === "installed" && navigator.serviceWorker.controller) {
+            sw.postMessage({ type: "SKIP_WAITING" });
+          }
+        });
+      });
+
+      // Перезагрузка один раз после смены контроллера
       let refreshing = false;
       navigator.serviceWorker.addEventListener("controllerchange", () => {
         if (refreshing) return;
         refreshing = true;
-        location.reload();
+        window.location.reload();
       });
     } catch (err) {
-      // не ломаем сайт, если SW не встал
       console.warn("SW register failed:", err);
     }
   }
 
-  // старт
+  // Старт
   document.addEventListener("DOMContentLoaded", () => {
     buildDrawerNav();
     initBurger();
