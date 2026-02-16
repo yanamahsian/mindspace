@@ -1,102 +1,106 @@
-<!DOCTYPE html>
+<!-- architecture.html -->
+<!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <title>Архитектура системы — AN.KI</title>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description"
         content="Архитектура высшего уровня. Структурное вмешательство. AN.KI Mindspace." />
 
-  <link rel="stylesheet" href="style.css" />
-  <link rel="manifest" href="manifest.webmanifest" />
-  <meta name="theme-color" content="#020616" />
-  <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="design.css">
+  <!-- СТИЛИ (без дублей) -->
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="/design.css" />
 
-  <script src="script.js" defer></script>
+  <!-- PWA -->
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta name="theme-color" content="#020616" />
+
+  <!-- JS -->
+  <script src="/script.js" defer></script>
 </head>
 
-<body class="essay-page">
+<body class="architecture-page">
 
-<!-- HEADER -->
-<header class="site-header">
-  <div class="header-inner">
-    <a class="brand-mini" href="index.html">
-      <img src="anki-logo.png" alt="AN.KI">
-      <span>AN.KI</span>
-    </a>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand-mini" href="/index.html" aria-label="AN.KI — Главная">
+        <img src="/anki-logo.png" alt="AN.KI" />
+        <span>AN.KI</span>
+      </a>
 
-    <button class="burger-btn"
-            type="button"
-            data-burger
-            aria-label="Меню"
-            aria-expanded="false">
-      <div class="burger-icon"><span></span></div>
-    </button>
-  </div>
-</header>
+      <button class="burger-btn"
+              type="button"
+              data-burger
+              aria-label="Меню"
+              aria-expanded="false">
+        <span class="burger-icon"><span></span></span>
+      </button>
+    </div>
+  </header>
 
-<div class="nav-overlay" data-nav-overlay></div>
+  <div class="nav-overlay" data-nav-overlay></div>
 
-<aside class="nav-drawer" data-nav-drawer>
-  <h3>Навигация</h3>
+  <aside class="nav-drawer" data-nav-drawer aria-label="Навигация сайта">
+    <h3>Навигация</h3>
 
-  <nav class="drawer-nav">
-    <a href="index.html">Главная</a>
-    <a href="essays.html">Эссе</a>
-    <a href="personalcontact.html">Личный контакт</a>
-    <a href="contacts.html">Контакты</a>
-  </nav>
+    <nav class="drawer-nav">
+      <a href="/index.html">Главная</a>
+      <a href="/anki.html">Об учении</a>
+      <a href="/mypath.html">Мой путь</a>
+      <a href="/personalcontact.html">Личный контакт</a>
+      <a href="/workbooks.html">Воркбуки</a>
+      <a href="/art.html">Арт</a>
+      <a href="/aroma.html">Ароматы</a>
+      <a href="/essays.html">Эссе</a>
+      <a href="/artifacts.html">Артефакты AN.KI</a>
+      <a href="/contacts.html">Контакты</a>
+    </nav>
 
-  <div class="drawer-bottom">
-    Все права защищены.
-  </div>
-</aside>
+    <div class="drawer-bottom">
+      Все права защищены.
+    </div>
+  </aside>
 
-<!-- ФОН -->
-<canvas id="stars"></canvas>
-<div class="nebula"></div>
+  <!-- ФОН -->
+  <canvas id="stars" aria-hidden="true"></canvas>
+  <div class="nebula" aria-hidden="true"></div>
 
-<!-- КОНТЕНТ -->
-<div class="page fade-in">
+  <!-- CONTENT -->
+  <main class="page fade-in">
 
-  <h1 class="title">Архитектура системы</h1>
-  <p class="subtitle">Архитектура высшего уровня</p>
+    <h1 class="title">Архитектура системы</h1>
+    <p class="subtitle">Архитектура высшего уровня</p>
 
-  <div class="manifest">
-    <p>
-      Формат длительной системной работы.
-    </p>
+    <div class="manifest">
 
-    <p>
-      Для владельцев бизнеса, фондов, структур и проектов с оборотом.
-    </p>
+      <p>Формат длительной системной работы.</p>
 
-    <p>
-      Стратегический аудит. Перепрошивка архитектуры. Личные включения.
-      Корректировка модели.
-    </p>
+      <p>Для владельцев бизнеса, фондов, структур и проектов с оборотом.</p>
 
-    <p>
-      Это не консультация. Это структурное вмешательство.
-    </p>
+      <p>
+        Стратегический аудит. Перепрошивка архитектуры.
+        Личные включения. Корректировка модели.
+      </p>
 
-    <p class="manifest-line">
-      от 40 000 €
-    </p>
-  </div>
+      <p>Это не консультация. Это структурное вмешательство.</p>
 
-  <div class="panel-actions">
-    <a href="contacts.html" class="panel-btn">Запросить</a>
-    <a href="personalcontact.html" class="panel-btn">Назад</a>
-  </div>
+      <p class="manifest-line">от 40 000 €</p>
 
-</div>
+    </div>
 
-<footer class="footer">
-  <p>© 2025 Mindspace. Архитектура высшего уровня.</p>
-</footer>
+    <div class="panel-actions">
+      <a href="/contacts.html" class="panel-btn">Запросить</a>
+      <a href="/personalcontact.html" class="panel-btn">Назад</a>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <p>© 2025 AN.KI by Yana Makhzian</p>
+  </footer>
 
 </body>
 </html>
