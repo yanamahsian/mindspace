@@ -1,3 +1,4 @@
+<!-- contacts.html -->
 <!doctype html>
 <html lang="ru">
 <head>
@@ -6,18 +7,25 @@
   <title>Контакты — AN.KI</title>
   <meta name="description" content="Контакты AN.KI: WhatsApp и Telegram." />
 
-  <link rel="stylesheet" href="style.css" />
-  <link rel="manifest" href="manifest.webmanifest" />
-  <meta name="theme-color" content="#0b0c0e" />
-  <script src="script.js" defer></script>
+  <!-- ЕДИНЫЙ ПОРЯДОК СТИЛЕЙ -->
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="/design.css" />
+
+  <!-- PWA -->
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta name="theme-color" content="#020616" />
+
+  <!-- JS -->
+  <script src="/script.js" defer></script>
 </head>
 
-<body>
-  <!-- BURGER HEADER -->
+<body class="contacts-page">
+
+  <!-- HEADER (всегда один) -->
   <header class="site-header">
     <div class="header-inner">
-      <a class="brand-mini" href="index.html">
-        <img src="anki-logo.png" alt="AN.KI" />
+      <a class="brand-mini" href="/index.html" aria-label="AN.KI — Главная">
+        <img src="/anki-logo.png" alt="AN.KI" />
         <span>AN.KI</span>
       </a>
 
@@ -26,42 +34,68 @@
               data-burger
               aria-label="Меню"
               aria-expanded="false">
-        <div class="burger-icon"><span></span></div>
+        <span class="burger-icon"><span></span></span>
       </button>
     </div>
   </header>
 
+  <!-- NAV OVERLAY + DRAWER (всегда один) -->
   <div class="nav-overlay" data-nav-overlay></div>
 
-  <aside class="nav-drawer" data-nav-drawer>
+  <aside class="nav-drawer" data-nav-drawer aria-label="Навигация сайта">
     <h3>Навигация</h3>
-    <nav class="drawer-nav"></nav>
-    <div class="drawer-bottom">Все права защищены.</div>
+
+    <nav class="drawer-nav">
+      <a href="/index.html">Главная</a>
+      <a href="/anki.html">Об учении</a>
+      <a href="/mypath.html">Мой путь</a>
+      <a href="/personalcontact.html">Личный контакт</a>
+      <a href="/workbooks.html">Воркбуки</a>
+      <a href="/art.html">Арт</a>
+      <a href="/aroma.html">Ароматы</a>
+      <a href="/essays.html">Эссе</a>
+      <a href="/artifacts.html">Артефакты AN.KI</a>
+      <a href="/contacts.html">Контакты</a>
+    </nav>
+
+    <div class="drawer-bottom">
+      Все права защищены.
+    </div>
   </aside>
 
-  <main class="page">
+  <!-- ФОН (если отключишь в CSS — ничего не сломается) -->
+  <canvas id="stars" aria-hidden="true"></canvas>
+  <div class="nebula" aria-hidden="true"></div>
+
+  <!-- CONTENT -->
+  <main class="page" role="main">
     <h1 class="title">Контакты</h1>
     <p class="subtitle">Связь через мессенджеры.</p>
 
-    <section class="contact-block">
+    <section class="contact-block" aria-label="Контакты">
       <div class="contact-item">
         <h2>WhatsApp</h2>
         <p>Напиши в WhatsApp.</p>
-        <!-- Вставь свой номер в международном формате без пробелов, например: 491234567890 -->
-        <a class="whatsapp-btn" href="https://wa.me/49015161016316" target="_blank" rel="noopener">Открыть WhatsApp</a>
+        <a class="whatsapp-btn"
+           href="https://wa.me/4915161016316"
+           target="_blank"
+           rel="noopener">Открыть WhatsApp</a>
       </div>
 
       <div class="contact-item">
         <h2>Telegram</h2>
         <p>Напиши в Telegram.</p>
-        <!-- Вставь свой username без @ -->
-        <a class="telegram-btn" href="https://t.me/Makhzian" target="_blank" rel="noopener">Открыть Telegram</a>
+        <a class="telegram-btn"
+           href="https://t.me/Makhzian"
+           target="_blank"
+           rel="noopener">Открыть Telegram</a>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <p>© 2025 AN.KI</p>
+    <p>© 2025 AN.KI by Yana Makhzian</p>
   </footer>
+
 </body>
 </html>
