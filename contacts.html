@@ -1,126 +1,67 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8" />
-    <title>Контакты — Mindspace</title>
-    <link rel="stylesheet" href="style.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="manifest" href="manifest.webmanifest" />
-    <meta name="theme-color" content="#020616" />
-    <script src="script.js" defer></script>
-    <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="design.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Контакты — AN.KI</title>
+  <meta name="description" content="Контакты AN.KI: WhatsApp и Telegram." />
 
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <meta name="theme-color" content="#0b0c0e" />
+  <script src="script.js" defer></script>
 </head>
 
 <body>
-
-<!-- BURGER HEADER -->
-<header class="site-header">
-  <div class="header-inner">
-
-    <a class="brand-mini" href="index.html">
-      <img src="anki-logo.png" alt="AN.KI">
-      <span>AN.KI</span>
-    </a>
-
-    <button class="burger-btn" type="button"
-            data-burger
-            aria-label="Открыть меню"
-            aria-expanded="false">
-      <div class="burger-icon"><span></span></div>
-    </button>
-
-  </div>
-</header>
-
-<div class="nav-overlay" data-nav-overlay></div>
-
-<aside class="nav-drawer" data-nav-drawer>
-  <h3>Навигация</h3>
-
- <header class="site-header">
-  <div class="header-inner">
-    <a class="brand-mini" href="index.html">
-      <img src="anki-logo.png" alt="AN.KI">
-      <span>AN.KI</span>
-    </a>
-
-    <button class="burger-btn" data-burger aria-expanded="false" aria-label="Меню">
-      <div class="burger-icon"><span></span></div>
-    </button>
-  </div>
-</header>
-
-<div class="nav-overlay" data-nav-overlay></div>
-
-<aside class="nav-drawer" data-nav-drawer>
-  <h3>Навигация</h3>
-  <nav class="drawer-nav">
-    <a href="index.html">Главная</a>
-    <a href="essays.html">Эссе</a>
-    <a href="personalcontact.html">Личный контакт</a>
-    <a href="contacts.html">Контакты</a>
-  </nav>
-  <div class="drawer-bottom">
-    Все права защищены.
-  </div>
-</aside>
-
-<!-- Фон -->
-<canvas id="stars"></canvas>
-<div class="nebula"></div>
-
-<!-- Контейнер -->
-<div class="page fade-in" style="max-width: 700px; margin: 40px auto; padding: 40px;">
-
-    <div class="anki-mark">
-        <img src="anki-logo.png" alt="AN.KI">
+  <!-- BURGER HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand-mini" href="index.html">
+        <img src="anki-logo.png" alt="AN.KI" />
         <span>AN.KI</span>
-    </div>
+      </a>
 
+      <button class="burger-btn"
+              type="button"
+              data-burger
+              aria-label="Меню"
+              aria-expanded="false">
+        <div class="burger-icon"><span></span></div>
+      </button>
+    </div>
+  </header>
+
+  <div class="nav-overlay" data-nav-overlay></div>
+
+  <aside class="nav-drawer" data-nav-drawer>
+    <h3>Навигация</h3>
+    <nav class="drawer-nav"></nav>
+    <div class="drawer-bottom">Все права защищены.</div>
+  </aside>
+
+  <main class="page">
     <h1 class="title">Контакты</h1>
+    <p class="subtitle">Связь через мессенджеры.</p>
 
-    <p class="subtitle" style="margin-bottom: 30px;">
-        Это пространство для тех, кто чувствует резонанс и хочет выйти на связь.
-    </p>
+    <section class="contact-block">
+      <div class="contact-item">
+        <h2>WhatsApp</h2>
+        <p>Напиши в WhatsApp.</p>
+        <!-- Вставь свой номер в международном формате без пробелов, например: 491234567890 -->
+        <a class="whatsapp-btn" href="https://wa.me/49015161016316" target="_blank" rel="noopener">Открыть WhatsApp</a>
+      </div>
 
-    <!-- LED-ПАНЕЛИ -->
-    <div class="panel-grid">
+      <div class="contact-item">
+        <h2>Telegram</h2>
+        <p>Напиши в Telegram.</p>
+        <!-- Вставь свой username без @ -->
+        <a class="telegram-btn" href="https://t.me/Makhzian" target="_blank" rel="noopener">Открыть Telegram</a>
+      </div>
+    </section>
+  </main>
 
-        <!-- WhatsApp -->
-        <div class="panel">
-            <h2>WhatsApp</h2>
-            <p class="panel-sub" style="margin-bottom: 12px;">
-                Вы можете написать мне напрямую — я отвечаю лично.
-            </p>
-            <a class="whatsapp-btn"
-               href="https://wa.me/49015161016316"
-               target="_blank">Открыть WhatsApp</a>
-        </div>
-
-        <!-- Email -->
-       <div class="panel">
-    <h2>Telegram</h2>
-    <p class="panel-sub" style="margin-bottom: 12px;">
-        И здесь тоже лично.
-    </p>
-
-    <a class="telegram-btn"
-       href="https://t.me/Makhzian"
-       target="_blank">
-       Открыть Telegram
-    </a>
-</div>
-
-
-    </div>
-
-    <div style="margin-top: 40px;">
-        <a href="index.html" class="back-link">← Назад</a>
-    </div>
-
-</div>
-
+  <footer class="footer">
+    <p>© 2025 AN.KI</p>
+  </footer>
 </body>
 </html>
