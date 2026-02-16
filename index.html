@@ -2,26 +2,30 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <title>Порог сознания — Mindspace</title>
+  <title>Порог сознания — AN.KI</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
-        content="Пространство для тех, кому тесно в человеческой игре. Глубинные консультации, карты воплощения, алхимия сознания и тела." />
+        content="Пространство для тех, кому тесно в человеческой игре. Ясность, структура, воплощение." />
 
+  <!-- ЕДИНЫЙ ПОРЯДОК: сначала базовая типографика/сетка, потом дизайн -->
   <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="/design.css" />
+
+  <!-- PWA -->
   <link rel="manifest" href="/manifest.webmanifest" />
   <meta name="theme-color" content="#020616" />
+
+  <!-- JS -->
   <script src="/script.js" defer></script>
-  <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="design.css">
 </head>
 
 <body class="home-page">
 
-  <!-- BURGER HEADER -->
+  <!-- HEADER (всегда один) -->
   <header class="site-header">
     <div class="header-inner">
-      <a class="brand-mini" href="/index.html">
+      <a class="brand-mini" href="/index.html" aria-label="AN.KI — Главная">
         <img src="/anki-logo.png" alt="AN.KI">
         <span>AN.KI</span>
       </a>
@@ -31,20 +35,27 @@
               data-burger
               aria-label="Меню"
               aria-expanded="false">
-        <div class="burger-icon"><span></span></div>
+        <span class="burger-icon"><span></span></span>
       </button>
     </div>
   </header>
 
+  <!-- NAV OVERLAY + DRAWER (всегда один) -->
   <div class="nav-overlay" data-nav-overlay></div>
 
-  <aside class="nav-drawer" data-nav-drawer>
+  <aside class="nav-drawer" data-nav-drawer aria-label="Навигация сайта">
     <h3>Навигация</h3>
 
     <nav class="drawer-nav">
       <a href="/index.html">Главная</a>
-      <a href="/essays.html">Эссе</a>
+      <a href="/anki.html">Об учении</a>
+      <a href="/mypath.html">Мой путь</a>
       <a href="/personalcontact.html">Личный контакт</a>
+      <a href="/workbooks.html">Воркбуки</a>
+      <a href="/art.html">Арт</a>
+      <a href="/aroma.html">Ароматы</a>
+      <a href="/essays.html">Эссе</a>
+      <a href="/artifacts.html">Артефакты AN.KI</a>
       <a href="/contacts.html">Контакты</a>
     </nav>
 
@@ -53,16 +64,15 @@
     </div>
   </aside>
 
-  <!-- ФОН -->
-  <canvas id="stars"></canvas>
-  <div class="nebula"></div>
+  <!-- ФОН (если отключишь в CSS — ничего не сломается) -->
+  <canvas id="stars" aria-hidden="true"></canvas>
+  <div class="nebula" aria-hidden="true"></div>
 
-  <main class="page">
-    <!-- Кнопка установки PWA -->
+  <!-- CONTENT -->
+  <main class="page" role="main">
+    <!-- PWA install (показывается только когда доступно) -->
     <div class="install-wrap">
-      <button id="installBtn" class="install-btn" type="button" style="display:none;">
-        Установить
-      </button>
+      <button id="installBtn" class="install-btn" type="button" style="display:none;">Установить</button>
       <p id="installHint" class="install-hint" style="display:none;"></p>
     </div>
 
@@ -71,7 +81,7 @@
       Здесь — вход. Здесь — место, где твой внутренний мир обретает форму.
     </p>
 
-    <div class="manifest">
+    <section class="manifest" aria-label="Манифест">
       <p>Пространство для тех, кто не совпадает с этим миром и уверен, что оказался не там.</p>
       <p>Для тех, кто видит суть и людей, которым неинтересно ничего за пределами их быта.</p>
       <p>Для тех, кто почти нащупал ключ к своей жизни, но не понимает, как его повернуть.</p>
@@ -84,14 +94,12 @@
       <p>Это пространство не обещает исцеления, спасения или выхода из мира. Здесь нет универсального пути и нет готовых ответов. AN.KI — это не учение для всех и не система, к которой нужно принадлежать.</p>
       <p>Это место для тех, кто уже вышел из необходимости верить и ищет ясность, а не утешение.</p>
 
-      <p class="manifest-line">
-        Здесь — грань, за которой начинается бесконечность свободного бытия.
-      </p>
-    </div>
+      <p class="manifest-line">Здесь — грань, за которой начинается бесконечность свободного бытия.</p>
+    </section>
   </main>
 
   <footer class="footer">
-    <p>© 2025 Mindspace. Для тех, кому тесно в человеческой игре.</p>
+    <p>© 2025 AN.KI by Yana Makhzian</p>
   </footer>
 
 </body>
