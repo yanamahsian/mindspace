@@ -1,5 +1,4 @@
 /* design.css — AN.KI / Architectural skin (3 цвета, воздух, без декора) */
-
 :root{
   --bg: #121417;         /* графит (видимый, не “чёрный экран”) */
   --text: #d7d9dd;       /* мягкий светлый */
@@ -403,4 +402,92 @@ body{
   padding: 16px 18px;
   color: var(--muted2);
   border-top: 1px solid rgba(95,102,112,.22);
+}
+/* ================================
+   PERSONAL CONTACT — premium layout
+   paste at end of design.css
+================================ */
+
+/* 1) Чуть больше воздуха на странице */
+.personalcontact-page .page{
+  max-width: 980px;
+  padding-top: 72px;
+}
+
+/* 2) Подзаголовок — ровнее, спокойнее */
+.personalcontact-page .subtitle{
+  max-width: 72ch;
+  margin-bottom: 14px;
+}
+
+/* 3) Убираем “лишнюю коробку” вокруг одной строки (если manifest есть) */
+.personalcontact-page .manifest{
+  margin-top: 8px !important;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+/* 4) Сетка карточек: одна колонка, строгий ритм */
+.personalcontact-page .panel-grid{
+  grid-template-columns: 1fr;
+  gap: 22px;
+  margin-top: 26px !important;
+}
+
+/* 5) Карточка: дороже, чище, без декоративности */
+.personalcontact-page .panel{
+  border-radius: 12px;
+  padding: 20px 20px 18px;
+}
+
+/* 6) Заголовок карточки: меньше “крика”, больше статуса */
+.personalcontact-page .panel h2{
+  font-size: 22px;
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+}
+
+/* 7) Цена: визуально “дорогая”, не как простой текст */
+.personalcontact-page .price{
+  font-size: 15px;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  margin: 0 0 14px;
+  opacity: .78;
+}
+
+/* 8) Кнопка внутри карточки: ровная ширина, аккуратный вес */
+.personalcontact-page .panel-actions{
+  margin-top: 0;
+}
+
+.personalcontact-page .panel-btn{
+  min-width: 210px;
+  justify-content: center;
+}
+
+/* 9) Нижняя кнопка “на главную” — сделать такой же, как остальные */
+.back-btn-container{
+  margin-top: 22px;
+}
+
+.back-btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  min-height: 38px;
+  border-radius: 8px;
+  border: 1px solid rgba(95,102,112,.85);
+  background: transparent;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 14px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.back-btn:hover{
+  background: rgba(95,102,112,.22);
 }
