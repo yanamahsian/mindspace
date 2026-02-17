@@ -173,3 +173,234 @@ img{
 .back-link { text-decoration: none; opacity: .75; color: inherit; }
 .back-link:hover { opacity: 1; }
 }
+/* ============================
+   AN.KI — UI (3 colors, minimal)
+   Paste at END of design.css
+   Colors:
+   - BG:   #15171b (graphite)
+   - TEXT: #e7e9ee (soft white)
+   - LINE: #5f6670 (steel)
+============================ */
+
+/* 0) Variables (3 colors only) */
+:root{
+  --bg:   #15171b;
+  --text: #e7e9ee;
+  --line: #5f6670;
+
+  --muted: rgba(231,233,238,.72);
+  --muted2: rgba(231,233,238,.55);
+
+  --max: 980px;
+  --pad: 28px;
+}
+
+/* 1) Base */
+html, body{
+  background: var(--bg);
+  color: var(--text);
+}
+
+body{
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  line-height: 1.55;
+  letter-spacing: .2px;
+}
+
+/* 2) Keep cosmic background calm (optional) */
+#stars, .nebula{
+  opacity: .45;
+}
+
+/* 3) Page container */
+.page{
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 64px var(--pad) 56px;
+}
+
+/* 4) Brand mini in header — compact and stable */
+.site-header{
+  background: transparent;
+  border-bottom: 1px solid rgba(95,102,112,.25);
+}
+
+.header-inner{
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 14px var(--pad);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.brand-mini{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  text-decoration:none;
+  color: var(--text);
+  opacity: .92;
+}
+
+.brand-mini img{
+  width: 22px;
+  height: auto;
+  display:block;
+}
+
+.brand-mini span{
+  font-size: 13px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+}
+
+/* 5) Titles */
+.title{
+  font-size: clamp(30px, 4vw, 44px);
+  line-height: 1.1;
+  margin: 0 0 10px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.subtitle{
+  margin: 0 0 26px;
+  color: var(--muted);
+  max-width: 70ch;
+}
+
+/* 6) Text blocks */
+.manifest p{
+  margin: 0 0 14px;
+  color: rgba(231,233,238,.82);
+}
+
+.manifest-line{
+  margin-top: 18px !important;
+  padding-top: 16px;
+  border-top: 1px solid rgba(95,102,112,.35);
+  color: rgba(231,233,238,.9);
+}
+
+/* 7) Cards / Panels — the core look */
+.panel-grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  margin-top: 22px;
+}
+
+.panel, .card{
+  border: 1px solid rgba(95,102,112,.55);
+  border-radius: 10px;        /* строгая геометрия */
+  padding: 18px 18px 16px;
+  background: transparent;    /* без декоративности */
+}
+
+.panel h2, .card h2{
+  margin: 0 0 6px;
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.panel .price, .card .price{
+  margin: 6px 0 12px;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+/* 8) Buttons — no browser default, no gradients */
+.btn, .panel-btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px 16px;
+  min-height: 38px;
+
+  border-radius: 8px;
+  border: 1px solid rgba(95,102,112,.85);
+  background: transparent;
+
+  color: var(--text);
+  text-decoration: none;
+  font-size: 14px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+
+  cursor: pointer;
+  user-select: none;
+}
+
+.btn:hover, .panel-btn:hover{
+  background: rgba(95,102,112,.22);
+}
+
+.btn:active, .panel-btn:active{
+  transform: translateY(1px);
+}
+
+/* 9) Button rows */
+.panel-actions{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+/* 10) Footer */
+.footer{
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 18px var(--pad) 30px;
+  color: var(--muted2);
+  border-top: 1px solid rgba(95,102,112,.25);
+  background: transparent;
+}
+
+/* 11) Burger drawer (kept strict) */
+.nav-overlay{
+  background: rgba(0,0,0,.55);
+}
+
+.nav-drawer{
+  background: var(--bg);
+  border-left: 1px solid rgba(95,102,112,.35);
+}
+
+.nav-drawer h3{
+  margin: 18px 18px 12px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.drawer-nav a{
+  display:block;
+  padding: 12px 18px;
+  border-top: 1px solid rgba(95,102,112,.22);
+  color: var(--text);
+  text-decoration:none;
+  opacity: .9;
+}
+
+.drawer-nav a:hover{
+  background: rgba(95,102,112,.18);
+  opacity: 1;
+}
+
+.drawer-nav a[aria-current="page"]{
+  opacity: 1;
+  background: rgba(95,102,112,.26);
+}
+
+.drawer-bottom{
+  padding: 16px 18px;
+  color: var(--muted2);
+  border-top: 1px solid rgba(95,102,112,.22);
+}
