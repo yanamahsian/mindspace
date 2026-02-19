@@ -523,3 +523,75 @@ body{
     0 0 0 1px rgba(212,175,55,0.2),
     0 0 8px rgba(212,175,55,0.16);
 }
+/* ===== Field Support page: burgundy + gold (ONLY this page) ===== */
+
+body.field-support-page {
+  /* фон сайта остаётся твоим, просто чуть глубже */
+  --fs-text: rgba(245, 238, 226, 0.92);
+  --fs-muted: rgba(245, 238, 226, 0.72);
+
+  --fs-burgundy: #3b0b16;        /* тёмный бордо */
+  --fs-burgundy-2: #2a0710;      /* ещё глубже */
+  --fs-gold: rgba(201, 165, 92, 0.78);
+  --fs-gold-soft: rgba(201, 165, 92, 0.35);
+}
+
+body.field-support-page .page {
+  color: var(--fs-text);
+}
+
+/* тонкие золотистые разделители */
+body.field-support-page hr,
+body.field-support-page .divider,
+body.field-support-page .manifest-line {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--fs-gold-soft),
+    transparent
+  );
+  opacity: 0.9;
+}
+
+/* если у тебя “Уровни:” и кнопки в одной строке */
+body.field-support-page .levels,
+body.field-support-page .panel-actions,
+body.field-support-page .donation-levels {
+  gap: 12px;
+}
+
+/* БОРДОВЫЕ КНОПКИ-СУММЫ */
+body.field-support-page a.panel-btn,
+body.field-support-page button.panel-btn,
+body.field-support-page a.amount-btn,
+body.field-support-page button.amount-btn {
+  background: var(--fs-burgundy);
+  color: var(--fs-text);
+  border: 1px solid var(--fs-gold);
+  border-radius: 12px;
+
+  /* “золотая подсветка” рамкой, без тени */
+  box-shadow: inset 0 0 0 1px rgba(201,165,92,0.22);
+  text-decoration: none;
+
+  /* убрать анимации полностью */
+  transition: none !important;
+}
+
+/* Никаких hover-анимаций: только чуть ярче рамка */
+body.field-support-page a.panel-btn:hover,
+body.field-support-page button.panel-btn:hover,
+body.field-support-page a.amount-btn:hover,
+body.field-support-page button.amount-btn:hover {
+  background: var(--fs-burgundy-2);
+  border-color: rgba(201,165,92,0.95);
+  box-shadow: inset 0 0 0 1px rgba(201,165,92,0.35);
+}
+
+/* текстовые блоки: больше воздуха и читаемости */
+body.field-support-page .manifest p,
+body.field-support-page .page p {
+  color: var(--fs-muted);
+}
