@@ -9,18 +9,24 @@
 (() => {
   // === 0) ЕДИНОЕ МЕНЮ (правда одна) ===
   // Меняешь пункты ТОЛЬКО здесь.
-  const NAV_ITEMS = [
-    { href: "/index.html",           label: "Главная" },
-    { href: "/anki.html",            label: "Об учении" },
-    { href: "/mypath.html",          label: "Мой путь" },
-    { href: "/workbooks.html",       label: "Воркбуки" },
-    { href: "/art.html",             label: "Арт" },
-    { href: "/aroma.html",           label: "Ароматы" },
-    { href: "/essays.html",          label: "Эссе" },
-    { href: "/artifacts.html",       label: "Артефакты AN.KI" },
-    { href: "/personalcontact.html", label: "Личный контакт" },
-    { href: "/contacts.html",        label: "Контакты" }
-  ];
+ const NAV_ITEMS = [
+  { href: "index.html",           label: "Главная" },
+  { href: "anki.html",            label: "Об учении" },
+  { href: "mypath.html",          label: "Мой путь" },
+
+  { href: "personalcontact.html", label: "Личный контакт" },
+  { href: "architecture-systems.html", label: "Архитектура систем" },
+  { href: "field-support.html",   label: "Поддержка поля" },
+
+  { href: "workbooks.html",       label: "Воркбуки" },
+  { href: "art.html",             label: "Арт" },
+  { href: "aroma.html",           label: "Ароматы" },
+  { href: "essays.html",          label: "Эссе" },
+  { href: "artifacts.html",       label: "Артефакты AN.KI" },
+
+  { href: "contacts.html",        label: "Контакты" }
+];
+
 
   const SW_VERSION = "2026-02-17-1"; // меняй только если хочешь форс-апдейт SW
 
