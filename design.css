@@ -491,3 +491,35 @@ body{
 .back-btn:hover{
   background: rgba(95,102,112,.22);
 }
+/* ===== PREMIUM WINE BUTTON ===== */
+
+.wine-btn {
+  background: #3b0f19;                 /* глубокий бордовый */
+  color: #f5eee8;                      /* мягкий светлый */
+  border: 1px solid rgba(212,175,55,0.55); /* золотая рамка */
+  
+  box-shadow:
+    0 0 0 1px rgba(212,175,55,0.25),   /* тонкий внешний контур */
+    0 0 12px rgba(212,175,55,0.18);    /* мягкая золотая подсветка */
+
+  letter-spacing: 0.04em;
+  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* hover — чуть живее, но сдержанно */
+.wine-btn:hover {
+  background: #4a1622;
+  border-color: rgba(212,175,55,0.75);
+
+  box-shadow:
+    0 0 0 1px rgba(212,175,55,0.35),
+    0 0 16px rgba(212,175,55,0.28);
+}
+
+/* active (нажатие) */
+.wine-btn:active {
+  transform: translateY(1px);
+  box-shadow:
+    0 0 0 1px rgba(212,175,55,0.2),
+    0 0 8px rgba(212,175,55,0.16);
+}
